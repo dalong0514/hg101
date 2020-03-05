@@ -1,0 +1,38 @@
+<view class='page' style="min-height:{{screenHeight}}px;background:rgba(248, 248, 248, 1)">
+  <view class="page__hd">
+    <view class='tab'>
+      <view bindtap='switchTab' class='tab-item' data-index="{{index}}" wx:for="{{labels}}">
+        <text class="tab-text {{currentTab == index ? 'active': ''}}">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='case-bg-red'>
+    <scroll-view wx:for="{{cases}}" wx:for-item="case" class="{{currentTab == index ? '': 'hidden' }}">
+      <swiper previous-margin='50px' next-margin='50px' bindchange="swiperChange" style='height:{{swiperH}};display:absolute;' autoplay='true'>
+        <block wx:for='{{case.banner}}' wx:key=''>
+          <swiper-item style="width:80%" class="swiper-item {{nowIdx==index?'item-active':'item-inactive'}}" data-idx="{{item.id}}" bindtap="viewProductDetail">
+            <image class='le-img {{nowIdx==index?"le-active":""}}' bindload='getHeight' src='{{item.cover_image}}'></image>
+            <text class='le-tag {{nowIdx!=index?"le-inactive-tag":""}}' style='display:absolute;margin-top:{{swiperT}}'>{{item.label[item.label_id]}}</text>
+            <text class='le-title {{nowIdx!=index?"le-inactive":""}}'>{{item.name}}</text>
+            <text class='le-desc {{nowIdx!=index?"le-inactive":""}}'>{{item.describe}}</text>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class='card-list'>
+        <view class='card' wx:for="{{case.list}}" wx:for-index="idx">
+          <image src="{{item.cover_image}}" style='width:100%;height:124px;' data-idx="{{item.id}}" bindtap="viewProductDetail"/>
+          <view class='product-title' data-idx="{{item.id}}" bindtap="viewProductDetail">{{item.name}}</view>
+          <view class='product-item'>
+            <view class='product-desc'>{{item.describe}}</view>
+            <view class='product-thumb' data-id="{{item.id}}" data-idx="{{idx}}" bindtap="doLike" data-tid="{{index}}">
+              <image wx:if="{{item.is_like == 1}}" src='/images/case/thumb-press.svg' style='width:20px;height:20px;' />
+              <image wx:else src='/images/case/thumb-normal.svg' style='width:20px;height:20px;' />
+              <text style="{{item.is_like == 1 ? 'color:#ff3935': ''}}">({{item.like_count}})</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+</view>

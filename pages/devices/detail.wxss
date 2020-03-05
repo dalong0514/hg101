@@ -1,0 +1,42 @@
+/* pages/devices/detail.wxss */
+@import "../../components/wxParse/wxParse.wxss";
+.product-header {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+.tab-text {
+  color: rgb(255, 68, 67) 100%;
+  font-size: 16px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+.tab-item .active {
+  border-bottom: 1px solid rgba(255, 68, 67, 1);
+  color: rgba(255, 68, 67, 1);
+}
+.tab-item {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+}
+.product-content {
+  margin: 20px;
+}
+.title {
+  color: rgba(136, 128, 128, 1);
+  font-size: 14px;
+  padding-left: 10px;
+  border-left: 1.5px solid rgba(255, 68, 67, 1);
+}
+.text-label {
+  font-size: 14px;
+  color: rgba(136, 128, 128, 1);
+  padding: 10px;
+  line-height: 1.8;
+  text-indent: 50rpx;
+}
+.hidden {
+  display: none;
+}

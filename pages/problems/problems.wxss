@@ -1,0 +1,45 @@
+/* pages/problems/problems.wxss */
+
+.problem-input {
+  border-radius: 3px;
+  height: 110px;
+  background-color: rgb(245, 245, 245);
+}
+.problem-textarea {
+  font-size: 14px;
+  padding-left: 5px;
+  padding-top: 10px;
+  width: 100%;
+  color: #888080 100%;
+}
+.problem-divide{
+  height: 10px;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 1);
+}
+.input-phone {
+  background-color: rgba(255, 255, 255, 1);
+}
+.weui-input-phone {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 8px;
+  font-size: 14px;
+}
+.submit-problem {
+  padding-top: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.problem-bottom {
+  background-color: rgba(248, 248, 248, 1);
+}
+.weui-footer__text {
+  color: rgba(136, 128, 128, 1);
+  padding-bottom: 5px;
+  font-size: 13px;
+}
+.problem-input-wrapper {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1);
+}
