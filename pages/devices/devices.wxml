@@ -21,63 +21,29 @@
     </view>
   </view>
   <!-- banner 设置 -->
-  <view class="device-swiper" style="margin-top:55px">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{true}}" class='device-swiper__container'>
-      <view wx:for="{{banner}}" wx:key="unique">
-        <swiper-item bindtap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
-          <image src='{{item.image}}' style='height:100%;width:100%;border-radius:6px' />
+  <view class="container" >
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="5000"  circular="{{true}}">
+      <view wx:for="{{totalData.banner}}" wx:for-item="item" wx:key="unique">
+        <swiper-item catch:tap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
+          <image src="{{item.image}}" mode="aspectFill"/>
         </swiper-item>
       </view>
     </swiper>
-  </view>
-  <!-- 设备分类栏 -->
-  <view class='static-display-product'>
-    <view class='weui-flex' wx:for="{{type}}" wx:for-index="idx">
-      <view class='weui-flex__item' bindtap="productList" data-label="{{cell.id}}" wx:for="{{type[idx]}}" wx:for-item="cell">
-        <view>
-          <image class="img-device-display" src='{{cell.logo}}' />
-        </view>
-        <view class='device-label'>{{cell.name}}</view>
-      </view>
-    </view>
-  </view>
-  <!-- 推荐产品 -->
-  <view class='device-list'>
-    <view class='device-list-header'>
-      <view class='weui-flex'>
-        <view class='weui-flex__item device-list-label'>
-          <text>推荐产品</text>
-        </view>
-        <view class='weui-flex__item device-list-more'>
-          <text class="device-list-more-label" bindtap='more'>更多产品</text>
-        </view>
-        <view class='device-list-more-icon'>
-          <image src='/images/device/more.png' class="more" />
-        </view>
-      </view>
-      <view class='device-list-content'></view>
+  
+    <view class="recommendlist">
+      <text class="device-recommend">推荐产品</text>
+      <text class="device-list-more-label" bindtap='more'>更多产品</text>
+      <image src='/images/device/more.png' class="more" />
     </view>
 
-    <view class='device-list-content'>
-      <block wx:for="{{product}}" wx:key="unique" wx:for-index="idx">
-        <view class='item'>
-          <image bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" src='{{item.cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
-          <view class='meta'>
-            <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='title'>{{item.name}}</view>
-            <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='content'>{{item.describe}}</view>
-            <view class='tag-fav'>
-              <view class='view-tag'>
-                <text class="text-tag" wx:for="{{item.label}}" wx:key="idx">{{item}}</text>
-              </view>
-              <view class='view-fav'>
-                <text class='text-fav' data-id="{{item.id}}" data-idx="{{idx}}" bindtap="cancelCollect" wx:if="{{item.is_collect == 1}}">- 取消收藏({{item.collect_count}})</text>
-                <text class='text-fav' data-id="{{item.id}}" data-idx="{{idx}}" bindtap="doCollect" wx:else>+ 收藏({{item.collect_count}})</text>
-              </view>
-            </view>
-          </view>
-        </view>
-      </block>
-    </view>
+
   </view>
+
+  <!-- 产品展示 -->
+  <block wx:for="{{totalData.product}}" wx:for-item="item" wx:for-index="idx">
+    <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
+      <template is="deviceTpl" data="{{...item}}"/>
+    </view>
+  </block>
 
 </view>
