@@ -1,49 +1,8 @@
 <!--pages/devices/devices.wxml-->
-<i-toast id="toast" />
-<import src="device-tpl/device-tpl.wxml"></import>
+<view class="" wx:for="{{typeData}}" wx:for-item="item">
+  <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> {{item.name}} </button>
+</view>
 
-<view class='page'>
-  <loading hidden="{{!loading}}">加载中...</loading>
-  <view class="page__hd weui-flex tz-device-header" style="width:100%;position:fixed;top:0;z-index:100">
-    <view class="device-category">
-      <image bindtap="doSearch" class="img-category" src='/images/device/category.png' />
-    </view>
-    <view class='weui-flex__item tz-search'>
-      <view class="weui-search-bar__form" bindtap='doSearch'>
-        <view class="weui-search-bar__box">
-          <view class='weui-search-bar__input'></view>
-        </view>
-        <label class="weui-search-bar__label">
-          <icon class="weui-icon-search" type="search" size="14"></icon>
-          <view class="weui-search-bar__text">{{search_txt}}</view>
-        </label>
-      </view>
-    </view>
-  </view>
-  <!-- banner 设置 -->
-  <view class="container" >
-    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="5000"  circular="{{true}}">
-      <view wx:for="{{totalData.banner}}" wx:for-item="item" wx:key="unique">
-        <swiper-item catch:tap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
-          <image src="{{item.image}}" mode="aspectFill"/>
-        </swiper-item>
-      </view>
-    </swiper>
-  
-    <view class="recommendlist">
-      <text class="device-recommend">推荐产品</text>
-      <text class="device-list-more-label" bindtap='more'>更多产品</text>
-      <image src='/images/device/more.png' class="more" />
-    </view>
-
-
-  </view>
-
-  <!-- 产品展示 -->
-  <block wx:for="{{totalData.product}}" wx:for-item="item" wx:for-index="idx">
-    <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
-      <template is="deviceTpl" data="{{...item}}"/>
-    </view>
-  </block>
-
+<view class="" wx:for="{{typeData1}}" wx:for-item="item">
+  <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> {{item.name}} </button>
 </view>

@@ -50,6 +50,7 @@ DBdevice.prototype = {
         }),
       })
     }
+    res = wx.getStorageSync(this.storageKeyName);
     return res;
   },
 
