@@ -1,5 +1,7 @@
 <!--pages/devices/devices.wxml-->
 <i-toast id="toast" />
+<import src="device-tpl/device-tpl.wxml"></import>
+
 <view class='page'>
   <loading hidden="{{!loading}}">加载中...</loading>
   <view class="page__hd weui-flex tz-device-header" style="width:100%;position:fixed;top:0;z-index:100">
@@ -28,6 +30,7 @@
       </view>
     </swiper>
   </view>
+  <!-- 设备分类栏 -->
   <view class='static-display-product'>
     <view class='weui-flex' wx:for="{{type}}" wx:for-index="idx">
       <view class='weui-flex__item' bindtap="productList" data-label="{{cell.id}}" wx:for="{{type[idx]}}" wx:for-item="cell">
@@ -38,6 +41,7 @@
       </view>
     </view>
   </view>
+  <!-- 推荐产品 -->
   <view class='device-list'>
     <view class='device-list-header'>
       <view class='weui-flex'>
@@ -51,10 +55,9 @@
           <image src='/images/device/more.png' class="more" />
         </view>
       </view>
-      <view class='device-list-content'>
-
-      </view>
+      <view class='device-list-content'></view>
     </view>
+
     <view class='device-list-content'>
       <block wx:for="{{product}}" wx:key="unique" wx:for-index="idx">
         <view class='item'>
@@ -73,8 +76,8 @@
             </view>
           </view>
         </view>
-
       </block>
     </view>
   </view>
+
 </view>

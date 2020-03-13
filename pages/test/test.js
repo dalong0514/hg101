@@ -1,78 +1,52 @@
 // pages/devices/devices.js
+// var util = require('../../utils/util.js')
 const { $Toast } = require('../../lib/iview/base/index');
+var DBdevice = require('../../db/DBdata.js').DBdevice;
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    search_txt: '',
-    loading: true,
-    banner: [],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 800,
-    product: [],
-    type: [],
+
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getData();
+    // 读取缓存中的数据，这里前面一定要加 this，否者其他函数不能调用该数据
+    this.deviceData = new DBdevice();
+    this.setData({
+      totalData: this.deviceData.getDeviceData(),
+      post: this.deviceData.getItemById().data
+    });
+    console.log(this.deviceData.getDeviceData());
+    console.log(this.deviceData.getItemById().data);
   },
 
-  getData: function() {
-    var _that = this;
-    wx.request({
-      url: 'https://www.hg101.vip/api/home',
-      header: {
-        "openid": wx.getStorageSync('open_id'),
-      },
-      success: (res => {
-        _that.setData({
-          loading: false,
-        });
-        if(res.data.code == 0) {
-          _that.setData({
-            banner: res.data.data.banner,
-            product: res.data.data.product,
-            type: res.data.data.type,
-          })
-        }
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
-    wx.request({
-      url: 'https://www.hg101.vip/api/problem_txt',
-      header: {
-        "openid": wx.getStorageSync('open_id')
-      },
-      success: (res => {
-        _that.setData({
-          loading:false,
-        });
-        if(res.data.code == 0) {
-          _that.setData({
-            search_txt: res.data.data.search_txt
-          })
-        }
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
-  },
+    // 收藏功能
+    onCollectionTap: function (event) {
+      var id = event.currentTarget.dataset.id;
+      var newData = this.deviceData.collect(id);
+      // 重新绑定数据。注意，不要将整个newData全部作为setData的参数，
+      // 应当有选择的更新部分数据
+      this.setData({
+        'post.is_collect': newData.is_collect,
+        'post.collect_count': newData.collect_count
+      });
+  
+      // 交互反馈
+      wx.showToast({
+        title: newData.is_collect ? "收藏成功" : "取消成功",
+        duration: 1000,
+        icon: "success",
+        mask: true
+      });
+    },
+    
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */
@@ -184,14 +158,11 @@ Page({
     })
   }),
 
-  productList: (e => {
-    var type = e.currentTarget.dataset.label;
-    console.log(e.currentTarget.dataset.label);
-    //*
+  productList: (event => {
+    var type = event.currentTarget.dataset.label;
     wx.navigateTo({
       url: `/pages/product/product?type=${type}`,
     })
-    //*/
   }),
 
 })

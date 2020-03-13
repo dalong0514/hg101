@@ -1,4 +1,5 @@
 //app.js
+var DBdevice = require('./db/DBdata.js').DBdevice;
 App({
   onLaunch: function() {
     // 登录
@@ -39,6 +40,11 @@ App({
         }
       }
     })
+
+    // 缓存初始化数据库，放这里很多时候还没来得及登录，数据读不出来。此问题待解决
+    // var deviceData = new DBdevice()
+    // deviceData.getDeviceData()
+    
   },
   globalData: {
     userInfo: null

@@ -1,0 +1,23 @@
+<template name="deviceTpl">
+  <view class="device-container">
+    <text class="device-title">{{name}}</text>
+    <image class="device-image" src="{{cover_image}}" mode="aspectFill"/>
+    <text class="device-content">{{describe}}</text>
+
+    <view class="device-like">
+      <view catchtap="onCollectionTap" data-id="{{id}}" >
+        <image wx:if="{{is_collect}}" src="/images/tab/wx_app_collected.png"/>
+        <image wx:else src="/images/tab/wx_app_collect.png"/>
+        <text>{{collect_count}}</text>
+      </view>
+      <image src="/images/tab/wx_app_view.png"/>
+      <text>10</text>
+      <image src="/images/tab/wx_app_message.png"/>
+      <text>10</text>
+      <view catch:tap="productList" data-label="{{type_id}}">
+        <image src="/images/tab/wx_app_list.png"/>
+        <text>{{type}}</text>
+      </view>
+    </view>
+  </view>
+</template>

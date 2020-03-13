@@ -18,6 +18,7 @@
       </view>
     </view>
   </view>
+  
   <scroll-view class="{{currentTab == 0 ? '': 'hidden'}}" scroll-y="true" style='margin-top:380rpx'>
     <block wx:for="{{collect}}" wx:key="unique">
       <slide-delete pid="{{item.id}}" bindaction="handleCollectSlideDelete" >
@@ -33,6 +34,7 @@
         </view>
       </slide-delete>
     </block>
+    
   </scroll-view>
   <scroll-view class="{{currentTab == 1 ? '': 'hidden'}}" scroll-y="true" style='margin-top: 380rpx'>
     <block wx:for="{{like}}" wx:key="unique">
@@ -50,4 +52,5 @@
       </slide-delete>
     </block>
   </scroll-view>
+  
 </view>

@@ -9,7 +9,8 @@
     "pages/account/account",
     "pages/index/index",
     "pages/product/product",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,8 +30,8 @@
         "selectedIconPath": "images/tab/device_selected.png"
       },
       {
-        "text": "案例",
-        "pagePath": "pages/case/case",
+        "text": "测试",
+        "pagePath": "pages/test/test",
         "iconPath": "images/tab/case_normal.png",
         "selectedIconPath": "images/tab/case_selected.png"
       },
