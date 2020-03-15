@@ -2,15 +2,14 @@
 const { $Toast } = require('../lib/iview/base/index');
 
 var DBdevice = function() {
-  // 本地缓存存储键值，相当于构造函数
+  // 构造函数
   // 把设备的 id 传进来
   // this.id = id;
   this.storageKeyName = "homeData";
 }
 
-// 操作本地数据缓存的 API
+// 对象的原型链
 DBdevice.prototype = {
-  // 得到全部文章信息
   data: {
     search_txt: '',
     loading: true,
@@ -27,7 +26,8 @@ DBdevice.prototype = {
     var res = wx.getStorageSync(this.storageKeyName);
     if(!res){
       wx.request({
-        url: 'https://www.hg101.vip/api/home',
+        url: 'http://127.0.0.1:8000/api/home',
+        // url: 'https://www.hg101.vip/api/home',
         header: {
           "openid": wx.getStorageSync('open_id'),
         },

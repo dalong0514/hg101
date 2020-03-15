@@ -65,7 +65,8 @@ class BaseController extends Controller
             'status' => 'success',
             'data' => $data
         ];
-        return $this->response->array($data)->send();
+        return $data;
+        // return $this->response->array($data)->send();
     }
 
     /**

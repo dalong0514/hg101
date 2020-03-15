@@ -15,7 +15,7 @@ class UserController extends BaseController
 
     public function openid() {
         $code = $this->request->get('code') ?? $this->request->post('code') ?? $_SERVER['HTTP_CODE'] ?? '';
-
+        
         $openid = TzUserModel::getOPenId($code);
 
         if(!$openid) return $this->error(301, '获取微信数据失败');
