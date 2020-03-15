@@ -1,0 +1,187 @@
+﻿body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea { margin: 0; padding: 0; }
+html { word-wrap: break-word; min-height: 100%; -webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%; font-size: 13.333333vw}
+body { min-height: 100%; position: relative;background: #f6f7fb;}
+ol, ul { list-style: none outside none; }
+table { border-collapse: collapse; border-spacing: 0; empty-cells: show; font-size: inherit; }
+fieldset, img { border: 0 none; }
+cite, em, s, i, b { font-style: normal; }
+input, button, textarea, select { font-size: 100%; background-color: transparent; }
+body, input, button, textarea, select, option { border:none; outline: none}
+a, input, textarea { outline: 0 none; text-decoration:none;}
+li, img, label, input { vertical-align: middle; }
+h1, h2, h3, h4, h5, h6, img, p, dl, dd, ol, ul, th, td, form, em, i, div, a, b, li, label,small{
+  -webkit-touch-callout:none;
+  // -webkit-user-select:none;
+  // -khtml-user-select:none;
+  // -moz-user-select:none;
+  // -ms-user-select:none;
+  // user-select:none;
+  // -o-user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -moz-tap-highlight-color:rgba(0,0,0,0); 
+}
+
+
+html,body,#root{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: 'PingFangSC-Regular';
+    //font-size: 0.24rem;
+}
+
+a{-webkit-tap-highlight-color: transparent;}
+
+.clear:after{content: ""; display: block; clear: both;}
+.fl{ float: left;}
+.fr{ float: right;}
+
+input[type="text"],input[type="password"],input[type="number"],input[type="button"],input[type="tel"],input[type="date"],select,textarea{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none; 
+    outline:none; 
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -moz-tap-highlight-color:rgba(0,0,0,0); 
+    border-radius:0;
+  }
+
+.red{ color: #ff5865;}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number]::-moz-inner-spin-button,
+input[type=number]::-moz-outer-spin-button {
+    -moz-appearance: none;
+    margin: 0;
+}
+
+input::-webkit-input-placeholder{
+    font-weight: 100;
+    color: #BACCE3;
+}
+[v-cloak]{
+	display: none;
+}
+
+/*图片淡入*/
+.img_fallIn{
+    -webkit-animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  0%    {opacity: 0}
+  100%  {opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+  0%    {opacity: 0}
+  100%  {opacity: 1}
+}
+@-webkit-keyframes fadeOut {
+  0%    {opacity: 1}
+  100%  {opacity: 0}
+}
+
+.toastMask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  //background: rgba(0,0,0,0.5);
+}
+
+#toast{
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 0.28rem;
+  line-height: 1;
+  padding:0.2rem 0.5rem;
+  border-radius: 0.06rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  z-index: 9999;
+  white-space: nowrap;
+}
+.hide{
+  display: none;
+}
+.fadeOut{
+  animation: fadeOut .5s;
+}
+.fadeIn{
+  animation:fadeIn .5s;
+}  
+
+/*loading加载*/
+.loadingBg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.5);
+}
+// .loading{
+//   width: 1.0rem;
+//   height: 1.0rem;
+//   background:url(../images/load.gif) rgba(0,0,0,0.6) center center no-repeat;
+//   background-size: 0.4rem;
+//   position: relative;
+//   left: 50%;
+//   top: 50%;
+//   -webkit-transform:translate(-50%,-50%);
+//   border-radius: 0.15rem;
+//   color: #fff;
+//   font-size: 0.26rem;
+//   text-align: center;
+// }
+
+.loading{
+  width: 3.2rem;
+  padding: 0.52rem 0 0.54rem;
+  //padding-top: 0.52rem;
+  background: rgba(255,255,255,0.9);
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform:translate(-50%,-50%);
+  border-radius: 0.15rem;
+  text-align: center;
+}
+
+.loading img{
+  width: 1.0rem;
+  height: 1.0rem;
+  display: block;
+  margin: 0 auto;
+  -webkit-animation: loading 0.8s linear infinite;
+  animation: loading 0.8s linear infinite;
+}
+
+.loading p{
+  color: #3D4A5B;
+  opacity: 0.9;
+  font-size: 0.28rem;
+  margin-top: 0.34rem;
+}
+
+@keyframes loading
+  {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
+/*loading加载*/
+

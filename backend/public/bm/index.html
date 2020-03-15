@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>测试报名页</title>
+    <meta charset="utf-8">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/weUI.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/polyfill.min.js" async=""></script>
+    <script src="js/swiper.min.js"></script>
+    <style>    [v-cloak] {
+        display: none;
+    }</style>
+    <style type="text/css">/*loading����*/
+    .loadPage[data-v-00aaa3fa] {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 99999;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .loadPage .loading[data-v-00aaa3fa] {
+        width: 3.2rem;
+        padding: 0.52rem 0 0.54rem;
+        background: rgba(255, 255, 255, 0.9);
+        position: relative;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        border-radius: 0.15rem;
+        text-align: center;
+    }
+
+    .loadPage .loading img[data-v-00aaa3fa] {
+        width: 1.0rem;
+        height: 1.0rem;
+        display: block;
+        margin: 0 auto;
+        -webkit-animation: loading 0.8s linear infinite;
+        animation: loading 0.8s linear infinite;
+    }
+
+    .loadPage .loading p[data-v-00aaa3fa] {
+        color: #3D4A5B;
+        opacity: 0.9;
+        font-size: 0.28rem;
+        margin-top: 0.34rem;
+    }
+
+    @-webkit-keyframes loading {
+        from {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes loading {
+        from {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    /*loading����*/
+    </style>
+    <script type="text/javascript" charset="utf-8" async="" src="./js/chunks/0-86787aa5.js"></script>
+    <style type="text/css">
+        .wrap[data-v-40bfd1dd] {
+            margin: .48rem .32rem;
+        }
+
+        .wrap h5[data-v-40bfd1dd] {
+            font-size: .48rem;
+            color: #1581FF;
+            text-align: center;
+        }
+
+        .wrap .hellow[data-v-40bfd1dd] {
+            display: inline-block;
+            padding: .46rem 0 .63rem;
+            font-size: .28rem;
+            color: #2C2628;
+            border-bottom: 0.02rem dashed rgba(44, 38, 40, 0.4);
+        }
+
+        .wrap ul li[data-v-40bfd1dd] {
+            margin-top: .84rem;
+        }
+
+        .wrap ul li p[data-v-40bfd1dd] {
+            font-size: .32rem;
+            color: #FF0000;
+        }
+
+        .wrap ul li p i[data-v-40bfd1dd] {
+            padding-left: .1rem;
+            color: #2C2628;
+            font-weight: bold;
+        }
+
+        .wrap ul li .input-box[data-v-40bfd1dd] {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -moz-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border: .02rem solid #D3D1D2;
+            border-radius: .08rem;
+            margin: .38rem .24rem 0;
+            height: .72rem;
+            width: 6.38rem;
+        }
+
+        .wrap ul li .input-box input[data-v-40bfd1dd] {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-left: .24rem;
+            height: .72rem;
+            width: 100%;
+            font-size: .32rem;
+        }
+
+        .wrap ul li .input-box img[data-v-40bfd1dd] {
+            margin-left: .24rem;
+            width: .304rem;
+            height: .33rem;
+        }
+
+        .wrap ul li .input-box .tel-img[data-v-40bfd1dd] {
+            width: .33rem;
+            height: .43rem;
+        }
+
+        .wrap ul li .textarea-box[data-v-40bfd1dd] {
+            margin: .38rem .24rem 0;
+            width: 6.38rem;
+            height: 1.8rem;
+            border: .02rem solid #D3D1D2;
+            font-size: .32rem;
+        }
+
+        .wrap ul li .textarea-box textarea[data-v-40bfd1dd] {
+            resize: none;
+            outline: none;
+            width: 95%;
+            height: 1.5rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin: .2rem;
+        }
+
+        .wrap .btn[data-v-40bfd1dd] {
+            margin-top: .56rem;
+            width: 100%;
+            height: .94rem;
+            background: #1581FF;
+            border-radius: .08rem;
+            font-size: .36rem;
+            color: #FFFFFF;
+            line-height: .94rem;
+            text-align: center;
+        }
+    </style>
+    <style type="text/css">
+        .alertBox[data-v-5ef11881] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+        }
+
+        .alertBox .content[data-v-5ef11881] {
+            width: 5.1rem;
+            overflow: hidden;
+            background: #fff;
+            position: absolute;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            padding: 0.6rem;
+            border-radius: 0.06rem;
+        }
+
+        .alertBox .content .title[data-v-5ef11881] {
+            font-size: 0.36rem;
+            color: #3D4A5B;
+            text-align: center;
+            font-family: "PingFangSC-Semibold";
+        }
+
+        .alertBox .content .body[data-v-5ef11881] {
+            font-size: 0.32rem;
+            color: #3D4A5B;
+            margin-top: 0.4rem;
+            text-align: center;
+        }
+
+        .alertBox .content .footer[data-v-5ef11881] {
+            width: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            margin-top: 0.6rem;
+        }
+
+        .alertBox .content .footer a[data-v-5ef11881] {
+            display: block;
+            width: 2.24rem;
+            height: 0.8rem;
+            color: #3F83FF;
+            font-size: 0.32rem;
+            position: relative;
+            text-align: center;
+            line-height: 0.8rem;
+        }
+
+        .alertBox .content .footer a[data-v-5ef11881]:first-child:after {
+            content: " ";
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            border: 1px solid #3F83FF;
+            -webkit-transform: scale(0.5, 0.5);
+            -ms-transform: scale(0.5, 0.5);
+            transform: scale(0.5, 0.5);
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: 0.06rem;
+        }
+
+        .alertBox .content .footer a[data-v-5ef11881]:last-child {
+            background-image: -webkit-linear-gradient(146deg, #9373FF 0%, #3F83FF 60%);
+            background-image: linear-gradient(-56deg, #9373FF 0%, #3F83FF 60%);
+            color: #fff;
+            border-radius: 0.06rem;
+        }
+    </style>
+</head>
+<body style="background:#fff">
+<div id="page">
+    <div data-v-00aaa3fa="" class="loadPage" style="display: none;">
+        <div data-v-00aaa3fa="" class="loading"><img data-v-00aaa3fa="" src="image/icon_loading.png">
+            <p data-v-00aaa3fa="">���ݼ�����测试报名页</p></div>
+    </div>
+    <div data-v-40bfd1dd="" class="wrap"><h5 data-v-40bfd1dd="">测试测试</h5>
+        <p data-v-40bfd1dd="" class="hellow">
+            测试测试测试测试测试测试测试</p>
+        <ul data-v-40bfd1dd="">
+            <li data-v-40bfd1dd=""><p data-v-40bfd1dd="">*<i data-v-40bfd1dd="">1. 姓名：</i></p>
+                <div data-v-40bfd1dd="" class="input-box"><img data-v-40bfd1dd=""
+                                                               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAuCAYAAABTTPsKAAAAAXNSR0IArs4c6QAAA4pJREFUWAntWEtoE0EYzjsgsZQEMUKj4gMFqeLJg9JLsUgRzUGCoCgkbROPClH0UHsRRKE3pSGvYyAgKJGKRQlYe9GbohAQJOmhijSmIpa8/UYaCNv9M7OTpF52YZmd//ntN/88dg0G/dIZ0BnQGejEgLGTUosuFosdr9VqV41G41ij0RhCW282mwW0L6xWazIQCOS0xKNsuwacTqcdq6urjwHsMgBS8eoA8MjlcoV9Pl+FAiMipxKI+BrAqhOsvgHQIyIOeKklp9N5GqDXRezVbExqQhEZY7NarT4RBctiwvZksViMi8SnbMyUgid3u92XYHODZ6eiH/Z6vYuZTOario4rkmYYw3uLG50wqNfrYULFFUvVcCKR8JTL5QI3OmGAl63iHgwGg38IE1IsxTAYOkhGFFCglq0mk2mPgOkmEynAWGcHNkXSKMDqsl2jyz9zKcBg55tMsnYfbCbf2/uiz1KAwfAHJCiLJlGx+4Gdr6Ai54qkALPJgkmT4UanDVLwb9JqWiMFeCPcXZQG23K1Xuvwu6/VqWUvDTgUCn3GbL/ZCiTagtkARmhF1F5pJw2YBQLoWbA1LTi8bDTgEkopQWjpS20cygRzc3OjYHsW8qNKHevjhZbwYtenpqbeq+m1yHoCuJUQwI/heRQAh7CSNACyYLFYXvbqLNzK09MW52PpA5UIkK4ZZmdibNUXQOgYErKS2AeGWRmsoUx+oi2gfYd20ePxvBofH+9m/TZIA47H44ewvd4DmPO4LULsGI2/YZdCmTyYmJj4IuKjtNEMOBKJbAPAhwgURCs1/GCbndZuYxLOotW0gWgCjOE/AFafAqjQJ5GSHWUfYBfMZvOVyclJ4XOFMGAwO4w6fYukXZ/U2oED9IrNZjvh9/uX2+XUs9DGAbD7EeA17p6CZaAwWrsqlcpCMpkcZH3exQU8Pz9vR9DnYHcHL5isHvEP4wvmWTab5U5eLuB8Pj/DAsqCEfVDjpFcLneNZ9+xhjeWrk9gV2o14CVX6lHPJdx7cThaU+pa/Y4M479DeKvAMkBgmdXxnRY4tZZkOBqN7sQOtowgVjXHPsp+4ZeWE3+HVM/aJMMAe/Y/gGU8DJRKpVMUISRgnLTOUE79lqMMz1E5SMBwGqGctkA+SuUgAaMc8pRTv+XITf5LJhdqu91+EYv5DEpjd78BKuJ/dDgc0wqZ3tUZ0BnQGRBk4C9o+j/Vj/DcjAAAAABJRU5ErkJggg=="
+                                                               alt="" class="name-img"> <input data-v-40bfd1dd=""
+                                                                                               type="text"
+                                                                                               maxlength="10"></div>
+            </li>
+            <li data-v-40bfd1dd=""><p data-v-40bfd1dd="">*<i data-v-40bfd1dd="">2. 电话：</i></p>
+                <div data-v-40bfd1dd="" class="input-box"><img data-v-40bfd1dd=""
+                                                               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAuCAYAAABTTPsKAAAAAXNSR0IArs4c6QAAAnlJREFUWAntWTtLY0EYzVtjYRG0sNhORbRQC0ErFfwLplsXEkISLHcVewsfCHbmUaSW4G9QsdpCC1lXREvRRknAQiGYxPOFDNxMrvNNdMRmLlzme57v3JN7U8x4PPb6WgW8uvC5XK6nVquter3eefSM4w7r9r5T94L4eb1eP/L5fNvJZPL5nbqWsBbhbDY7DuADdA62dBtyIMINoBZTqdQ5B8kSLhaL4VKpREoMAewB4JtYT6EKKfThC79WGFhTwF3D3Qf7OhKJTESjUSVugJsIsitEFoCPwWBwIh6P33M9HeRPMpnMPupJkOFyufwH9rqq36dKUg5As82aLcNkG7DpdPoOxjY5UH2OVtXFEkYzfWAeKHymAvpMLhAInDb7G7NUWCxhEO0mgM++syoS1Wq18d6KWapalrCq+TtylvBXq24VtgpLCthXQhLEuGsVNi6pBGgVlgQx7lqFjUsqAVqFJUGMu1Zh45JKgFZhSRDjrlXYuKQSoFVYEsS4axU2LqkEaBWWBDHusvvDYiK2Qifz+XyX8E2uwB7TxeuE8J4OKHYgsaVcv6Ja2COw2V1+HVxRo/MOv4pibgXBZ7/fv4BN6lG6yaYY1+fIs7NYwlDovwNQaYLcbiKROBRFZFNM+BrrJVfDEsbAvxyIyOPh/glbrOi/EDa36sxiCYdCITo1euCGNfMzch0+qGk55uaDLB36bLjlnDGWcCwWo6OuJTQ9ORvdbCi8jH+Sn/Sh0Y3zvSWKudVKMcL+RbOkeJur/QUXCoUflUplBwTmgdLfhtQaEA/X2xpu80iMY/yKv0H2ti3rEtAm7OzFMe4A/B5nrFMbJ0cvHzlGewMHdrPc4V/lbQAAAABJRU5ErkJggg=="
+                                                               alt="" class="tel-img"> <input data-v-40bfd1dd=""
+                                                                                              type="tel" maxlength="13">
+                </div>
+            </li>
+            <li data-v-40bfd1dd=""><p data-v-40bfd1dd="">*<i data-v-40bfd1dd="">3. 备注：</i></p>
+                <div data-v-40bfd1dd="" class="textarea-box"><textarea data-v-40bfd1dd=""></textarea></div>
+            </li>
+        </ul>
+        <div data-v-40bfd1dd="" class="btn">
+            提交
+        </div>
+    </div> <!----></div>
+<!--<script type="text/javascript" src="./js/manifest.ce90001d.js"></script>-->
+<!--<script type="text/javascript" src="./js/vendor.4483af67.js"></script>-->
+<!--<script type="text/javascript" src="./js/index.522bdd34.js"></script>-->
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+</body>
+</html>
