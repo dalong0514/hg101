@@ -22,8 +22,8 @@ Page({
       totalData: this.deviceData.getDeviceData(),
       post: this.deviceData.getItemById().data
     });
-    console.log(this.deviceData.getDeviceData());
-    console.log(this.deviceData.getItemById().data);
+    console.log(this.deviceData.getDeviceData().banner);
+    // console.log(this.deviceData.getItemById().data);
   },
 
     // 收藏功能
