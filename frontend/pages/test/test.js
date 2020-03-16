@@ -9,6 +9,7 @@ Page({
    * Page initial data
    */
   data: {
+    types: ["分类1", "分类2", "分类3", "分类4", "分类5", "分类6", "分类7", "分类8", "分类9", "分类10", "分类11"],
 
   },
 
@@ -17,12 +18,14 @@ Page({
    */
   onLoad: function (options) {
     // 读取缓存中的数据，这里前面一定要加 this，否者其他函数不能调用该数据
+    /*
     this.deviceData = new DBdevice();
     this.setData({
       typeData: this.deviceData.getDeviceData().type[0],
       typeData1: this.deviceData.getDeviceData().type[1],
     });
     console.log(this.deviceData.getDeviceData().type[0]);
+    */
   },
 
 
