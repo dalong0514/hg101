@@ -78,9 +78,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "案例",
-					"pathName": "pages/case/case",
+					"id": 3,
+					"name": "设置",
+					"pathName": "pages/setting/setting",
 					"query": "",
 					"scene": null
 				},
@@ -109,6 +109,13 @@
 					"id": 7,
 					"name": "汇总",
 					"pathName": "pages/product/product",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/type/type",
+					"pathName": "pages/type/type",
 					"query": "",
 					"scene": null
 				}

@@ -39,16 +39,16 @@ swiper image{
 
 
 .device-category {
-  background-color: #dc3c38;
+  background-color: #f2f4f6;
   padding-top: 10px;
   padding-left: 20px;
 }
 .img-category {
-  width: 31px;
-  height: 31px;
+  width: 20px;
+  height: 20px;
 }
 .tz-search {
-  background-color: #dc3c38;
+  background-color: #f2f4f6;
   padding-top: 10px;
   padding-right: 25px;
   padding-left: 10px;
@@ -63,6 +63,10 @@ swiper image{
 .weui-search-bar__form {
   border-radius: 100px;
 }
+
+
+
+
 
 .device-swiper {
   margin: 10px;
@@ -177,15 +181,4 @@ swiper image{
   margin-top: 6px;
   padding-left: 3px;
   padding-right: 3px;
-}
-.view-fav {
-  border-radius: 8px;
-  text-align: center;
-  height: 20px;
-  font-size: 12px;
-  background: rgb(228, 70, 59) 100%;
-  margin-top: 3px;
-  padding-top: 1.5px;
-  padding-left: 5px;
-  padding-right: 5px;
 }

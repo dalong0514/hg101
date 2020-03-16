@@ -3,16 +3,6 @@
 <view class='page'>
   <loading hidden="{{!loading}}">加载中...</loading>
   <view class='fix-top' style='width:100%'>
-    <view class='slider'>
-      <swiper indicator-dots="true" autoplay="true" interval="4000" duration="500" class='' style='height:186px;width:100%'>
-        <view wx:for="{{sliders}}" wx:key="unique">
-          <swiper-item>
-            <image src='{{item}}' style='height:186px;width:100%;' />
-          </swiper-item>
-        </view>
-      </swiper>
-    </view>
-
     <view class='product-header'>
       <view data-index="0" class="tab-item" bindtap='switchTab'>
         <text class="tab-text {{currentTab == 0 ? 'active': ''}}">产品介绍</text>
