@@ -32,7 +32,6 @@
   </view>
 
   <view class="recommendlist">
-    <text class="device-recommend">推荐产品</text>
     <view >
       <text class="device-list-more-label" bindtap='more'>更多产品</text>
       <image src='/images/device/more.png' class="more" />

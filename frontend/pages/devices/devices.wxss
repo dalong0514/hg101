@@ -28,9 +28,8 @@ swiper image{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 15rpx;
-  /* background-color: lightgray; */
 }
 
 .device-recommend{
@@ -61,6 +60,7 @@ swiper image{
 .weui-search-bar__label{
   border-radius: 100px;
 }
+
 .weui-search-bar__form {
   border-radius: 100px;
 }

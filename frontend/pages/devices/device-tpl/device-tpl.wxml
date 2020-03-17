@@ -1,7 +1,7 @@
 <template name="deviceTpl">
   <view class="device-container">
-    <image class="device-image" src="{{cover_image}}" mode="aspectFill"/>
     <text class="device-title">{{name}}</text>
+    <image class="device-image" src="{{cover_image}}" mode="aspectFill"/>
     <text class="device-content">{{describe}}</text>
 
     <view class="device-like">
