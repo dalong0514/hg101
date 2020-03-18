@@ -9,10 +9,20 @@
   align-content: flex-start;
 }
 
-.child {
+.typebox {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  height: 246rpx;
+  width: 246rpx;
+  background-color: gray;
+  border: 1px solid red;
+}
+.typecontent {
   box-sizing: border-box;
   background-color: white;
-  flex: 0 0 25%;
   height: 50px;
+  width: 100px;
   border: 1px solid red;
 }

@@ -113,8 +113,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/type/type",
+					"id": 8,
+					"name": "型号",
 					"pathName": "pages/type/type",
 					"query": "",
 					"scene": null

@@ -1,7 +1,7 @@
 <!--pages/devices/devices.wxml-->
 <view class="test">
-  <view class="typestyle" wx:for="{{types}}" wx:for-item="item">
-    <button class="child" style="width:250rpx;height:250rpx" type="default" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> {{item}} </button>
+  <view class="typebox" wx:for="{{types}}" wx:for-item="item">
+    <text class="typecontent">{{item}}</text>
   </view>
 </view>
 

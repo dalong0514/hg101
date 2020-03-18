@@ -1,2 +1,6 @@
 <!--pages/type/type.wxml-->
-<text>pages/type/type.wxml</text>
+<view class="test">
+  <view class="typebox" wx:for="{{types}}" wx:for-item="item">
+    <text class="typecontent">{{item}}</text>
+  </view>
+</view>
