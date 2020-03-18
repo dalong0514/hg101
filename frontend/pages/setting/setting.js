@@ -12,7 +12,7 @@ Page({
     settings: [
       { iconurl: '/images/tab/device_normal.png', title: '我的收藏', tap: 'showSystemInfo' },
       { iconurl: '/images/tab/device_normal.png', title: '问题采集', tap: 'showNetWork' },
-      { iconurl: '/images/tab/device_normal.png', title: '联系我们', tap: 'showNetWork' }
+      { iconurl: '/images/tab/device_normal.png', title: '关于我们', tap: 'showNetWork' }
     ],
   },
 
