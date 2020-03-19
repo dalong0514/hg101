@@ -1,7 +1,4 @@
 <!--pages/devices/devices.wxml-->
-<view class="test">
-  <view class="typebox" wx:for="{{types}}" wx:for-item="item">
-    <text class="typecontent">{{item}}</text>
-  </view>
+<view style="width:500rpx;height:30px;background-color:{{colorValue}};">
+  Hello World
 </view>
-

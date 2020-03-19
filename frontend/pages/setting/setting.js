@@ -1,4 +1,5 @@
 // pages/setting/setting.js
+var DBdevice = require('../../db/DBdata.js').DBdevice;
 
 Page({
 
@@ -10,9 +11,9 @@ Page({
       { iconurl: '/images/tab/device_normal.png', title: '清理缓存', tap: 'clearCache' }
     ],
     settings: [
-      { iconurl: '/images/tab/device_normal.png', title: '我的收藏', tap: 'showSystemInfo' },
-      { iconurl: '/images/tab/device_normal.png', title: '问题采集', tap: 'showNetWork' },
-      { iconurl: '/images/tab/device_normal.png', title: '关于我们', tap: 'showNetWork' }
+      { iconurl: '/images/tab/device_normal.png', title: '我的收藏', tap: 'showCollection' },
+      { iconurl: '/images/tab/device_normal.png', title: '问题采集', tap: 'showProblem' },
+      { iconurl: '/images/tab/device_normal.png', title: '关于我们', tap: 'showIntroduction' }
     ],
   },
 
@@ -20,7 +21,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.deviceData = new DBdevice();
+    // this.deviceData.getAllDevice();
+    this.deviceData.getItemByCollect();
+    // console.log(this.deviceData.getItemByCollect());
 
+  },
+
+  //显示模态窗口
+  showModal: function (title, content, callback) {
+    wx.showModal({
+      title: title,
+      content: content,
+      confirmColor: '#1F4BA5',
+      cancelColor: '#7F8389',
+      success: function (res) {
+        if (res.confirm) {
+          callback && callback();
+        }
+      }
+    })
+  },
+
+  // 缓存清理
+  clearCache: function () {
+    this.showModal('缓存清理', '确定要清除本地缓存吗？', function () {
+      wx.clearStorage({
+        success: function (msg) {
+          wx.showToast({
+            title: "缓存清理成功",
+            duration: 1000,
+            mask: true,
+            icon: "success"
+          })
+        },
+        fail: function (e) {
+          console.log(e)
+        }
+      })
+    });
+  },
+
+  // 跳转到收藏页
+  showCollection: function(e) {
+    // let id = e.currentTarget.dataset.idx;
+    // let entry = e.currentTarget.dataset.entry;
+    //console.log(entry)
+    // let id = 6;
+    // let entry = 1;
+    wx.navigateTo({
+      url: `/pages/devices/detail?id=${id}&type=${entry}`,
+    })
   },
 
   /**
