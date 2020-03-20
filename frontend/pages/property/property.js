@@ -1,4 +1,6 @@
 // pages/property/property.js
+var DBdevice = require('../../db/DBdata.js').DBdevice;
+
 Page({
 
   /**
@@ -12,7 +14,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let deviceData = new DBdevice();
+    let res = wx.getStorageSync("PropertyData")
+    if(!res){
+      //
+      res = deviceData.getPropertyData();
+    }
+    this.setData({
+      product: res,
+    });
   },
 
   /**

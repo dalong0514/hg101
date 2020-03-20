@@ -5,4 +5,15 @@
   <loading hidden="{{!loading}}">加载中...</loading>
   <template is="searchbar" />
 
+  <view class='device-list-content'>
+    <block wx:for="{{product}}" wx:key="unique" wx:for-index="idx">
+      <view class='item'>
+        <image bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" src='{{item.cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
+        <view class='meta'>
+          <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='title'>{{item.name}}</view>
+          <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='content'>{{item.describe}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
 </view>

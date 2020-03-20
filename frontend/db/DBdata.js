@@ -97,12 +97,6 @@ DBdevice.prototype = {
     })
   },
 
-  // 本地缓存，保存/更新
-  execSetStorageSync: function(data) {
-    // 书里是 get 更改为 set，但发现 get 也能存入数据，疑问
-    wx.setStorageSync(this.storageKeyName, data);
-  },
-
   // 获取全部设备信息
   getAllDevice: function(options){
     var res = wx.getStorageSync("AllData")
@@ -146,6 +140,23 @@ DBdevice.prototype = {
         collectlist.push(item.id);
       } 
     }
+  },
+
+  //获取物性数据
+  getPropertyData: function() {
+    let propertyData = [];
+    let itemData = wx.getStorageSync("AllData");
+    if(!itemData){
+      this.getAllDevice();
+    }
+    let len = itemData.length;
+    for(let item of itemData){
+      if (item.describe === "物性数据"){
+        propertyData.push(item);
+      } 
+    }
+    // console.log(propertyData.reverse());
+    wx.setStorageSync("PropertyData", propertyData.reverse());
   },
 
   //获取指定 id 号的设备数据

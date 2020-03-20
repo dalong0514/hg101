@@ -9,8 +9,8 @@ App({
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
           wx.setStorageSync('code', res.code); 
           wx.request({
-            url: 'http://127.0.0.1:8000/api/openid?code=' + res.code,
-            // url: 'https://www.hg101.vip/api/openid?code=' + res.code,
+            // url: 'http://127.0.0.1:8000/api/openid?code=' + res.code,
+            url: 'https://www.hg101.vip/api/openid?code=' + res.code,
             success: function(data) {
               wx.setStorageSync('open_id', data.data.data);
             },
