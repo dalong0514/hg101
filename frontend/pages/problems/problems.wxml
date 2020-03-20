@@ -19,8 +19,8 @@
   </form>
   <view class="problem-fotter">
     <view class="weui-footer weui-footer_fixed-bottom">
-      <view class="weui-footer__text">浙江省天正设计工程有限公司</view>
-      <view class="weui-footer__text">工作时间：9:00 - 18:00</view>
+      <view class="weui-footer__text"> 化工 101</view>
+      <view class="weui-footer__text">工作时间：9:00 - 17:30</view>
     </view>
   </view>
 </view>

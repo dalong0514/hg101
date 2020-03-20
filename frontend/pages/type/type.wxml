@@ -1,5 +1,8 @@
 <!--pages/type/type.wxml-->
-<view class="test">
+<import src="/components/searchbar/searchbar.wxml"></import>
+
+<template is="searchbar" />
+<view class="typedevice-box">
   <view class="typebox" wx:for="{{types}}" wx:for-item="item">
     <text class="typecontent">{{item}}</text>
   </view>

@@ -1,0 +1,36 @@
+.device-category {
+  background-color: #f2f4f6;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20rpx
+}
+.img-category {
+  width: 20px;
+  height: 20px;
+}
+.tz-search {
+  background-color: #f2f4f6;
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 10px;
+}
+.weui-search-bar__label {
+  text-align: left;
+  left: 10px;
+}
+.weui-search-bar__label{
+  border-radius: 100px;
+}
+
+.weui-search-bar__form {
+  border-radius: 100px;
+}
+
+.device-list-more-label {
+  font-size: 14px;
+  
+}
+.device-list-more-label {
+  color: rgb(104, 104, 104);
+  text-align: right;
+}

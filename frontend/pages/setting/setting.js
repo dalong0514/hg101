@@ -74,6 +74,13 @@ Page({
     })
   },
 
+  //跳转到问题采集页
+  showProblem: function(){
+    wx.navigateTo({
+      url: '/pages/problems/problems',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

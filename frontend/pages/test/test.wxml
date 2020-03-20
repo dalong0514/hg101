@@ -1,4 +1,9 @@
 <!--pages/devices/devices.wxml-->
-<view style="width:500rpx;height:30px;background-color:{{colorValue}};">
-  Hello World
+<i-toast id="toast" />
+<import src="/components/searchbar/searchbar.wxml"></import>
+
+<view class='page'>
+  <loading hidden="{{!loading}}">加载中...</loading>
+  <template is="searchbar" />
+
 </view>

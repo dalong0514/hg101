@@ -1,11 +1,14 @@
 /* pages/type/type.wxss */
-.test {
+@import "/components/searchbar/searchbar.wxss";
+
+.typedevice-box {
   width: 100%;
   height: 100%;
   background-color: black;
   display: flex;
   flex-flow: wrap;
   align-content: flex-start;
+  padding-top: 45px;
 }
 
 .typebox {

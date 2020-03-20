@@ -29,8 +29,8 @@ DBdevice.prototype = {
     var res = wx.getStorageSync(this.storageKeyName);
     if(!res){
       wx.request({
-        url: 'http://127.0.0.1:8000/api/home',
-        // url: 'https://www.hg101.vip/api/home',
+        // url: 'http://127.0.0.1:8000/api/home',
+        url: 'https://www.hg101.vip/api/home',
         header: {
           "openid": wx.getStorageSync('open_id'),
         },
@@ -84,8 +84,8 @@ DBdevice.prototype = {
     var res = wx.getStorageSync("AllData")
     if(!res){
       wx.request({
-        // url: 'https://www.hg101.vip/api/screen',
-        url: 'http://127.0.0.1:8000/api/screen',
+        url: 'https://www.hg101.vip/api/screen',
+        // url: 'http://127.0.0.1:8000/api/screen',
         header: {
           "openid": wx.getStorageSync('open_id'),
         },

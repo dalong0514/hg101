@@ -118,6 +118,12 @@
 					"pathName": "pages/type/type",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/test/test",
+					"pathName": "components/wxSearch/wxSearch",
+					"scene": null
 				}
 			]
 		}
