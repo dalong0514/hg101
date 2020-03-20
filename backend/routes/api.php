@@ -62,4 +62,7 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
 
     // 上传图片
     $api->post('upload','UploadController@uploadImage');
+
+    // 定型设备 api
+    $api->get('typedevices','TypeDevicesController@typedevices');
 });

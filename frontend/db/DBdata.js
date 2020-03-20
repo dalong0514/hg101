@@ -31,7 +31,7 @@ DBdevice.prototype = {
     // let testdata = this.testdata;
     // let testdata;
     wx.request({
-      url: 'http://127.0.0.1:8000/api/tasks',
+      url: 'http://127.0.0.1:8000/api/typedevices',
       success: (res => {
         // console.log(res.data);
         this.testdata = res.data;
@@ -48,10 +48,31 @@ DBdevice.prototype = {
     return wx.getStorageSync("testData");
   },
 
+  // 获取试验 api 数据
+  getTypeDevicesData: function(){
+    let typedevicesdata;
+    wx.request({
+      url: 'http://127.0.0.1:8000/api/typedevices',
+      success: (res => {
+        // console.log(res.data);
+        typedevicesdata = res.data;
+        // 必须通过存入缓存，数据才能从这个函数出去
+        wx.setStorageSync("TypeDevicesData", typedevicesdata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+    return wx.getStorageSync("TypeDevicesData");
+  },
+
   // 获取首页信息
   getDeviceData: function() {
-    var res = wx.getStorageSync(this.storageKeyName);
-    if(!res){
+    let homedata = wx.getStorageSync("homeData");
+    if(!homedata){
       wx.request({
         // url: 'http://127.0.0.1:8000/api/home',
         url: 'https://www.hg101.vip/api/home',
@@ -64,9 +85,7 @@ DBdevice.prototype = {
             this.data.banner = res.data.data.banner;
             this.data.product = res.data.data.product;
             this.data.type = res.data.data.type;
-            // 本地缓存，保存/更新
-            // wx.clearStorageSync();
-            wx.setStorageSync(this.storageKeyName, this.data);
+            wx.setStorageSync("homeData", this.data);
           }
         }),
         fail: (res => {
@@ -77,8 +96,8 @@ DBdevice.prototype = {
         }),
       })
     }
-    res = wx.getStorageSync(this.storageKeyName);
-    return res;
+    homedata = wx.getStorageSync("homeData");
+    return homedata;
   },
 
   // 获取指定的设备详细页面
@@ -99,8 +118,8 @@ DBdevice.prototype = {
 
   // 获取全部设备信息
   getAllDevice: function(options){
-    var res = wx.getStorageSync("AllData")
-    if(!res){
+    let alldata = wx.getStorageSync("AllData")
+    if(!alldata){
       wx.request({
         url: 'https://www.hg101.vip/api/screen',
         // url: 'http://127.0.0.1:8000/api/screen',
@@ -121,7 +140,6 @@ DBdevice.prototype = {
         }),
       })
     }
-    // return res;
   },
 
   //获取收藏的设备数据 id 号
@@ -131,6 +149,7 @@ DBdevice.prototype = {
     if(!itemData){
       this.getAllDevice();
     }
+    itemData = wx.getStorageSync("AllData");
     console.log(itemData);
     let len = itemData.length;
     console.log(len);
@@ -145,11 +164,8 @@ DBdevice.prototype = {
   //获取物性数据
   getPropertyData: function() {
     let propertyData = [];
+    this.getAllDevice();
     let itemData = wx.getStorageSync("AllData");
-    if(!itemData){
-      this.getAllDevice();
-    }
-    let len = itemData.length;
     for(let item of itemData){
       if (item.describe === "物性数据"){
         propertyData.push(item);

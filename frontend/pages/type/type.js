@@ -1,4 +1,6 @@
 // pages/type/type.js
+var DBdevice = require('../../db/DBdata.js').DBdevice;
+
 Page({
 
   /**
@@ -13,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let DBdata = new DBdevice();
+    let TypeDevicesData = DBdata.getTypeDevicesData();
+    console.log(TypeDevicesData);
 
   },
 

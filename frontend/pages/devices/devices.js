@@ -17,12 +17,13 @@ Page({
    */
   onLoad: function (options) {
     // 读取缓存中的数据，这里前面一定要加 this，否者其他函数不能调用该数据
-    this.deviceData = new DBdevice();
+    let deviceData = new DBdevice();
+    let homedata = deviceData.getDeviceData()
     this.setData({
-      totalData: this.deviceData.getDeviceData(),
-      post: this.deviceData.getItemById().data
+      totalData: homedata,
+      // post: deviceData.getItemById().data
     });
-    console.log(this.deviceData.getDeviceData().banner);
+    // console.log(deviceData.getDeviceData().banner);
     // console.log(this.deviceData.getItemById().data);
   },
 

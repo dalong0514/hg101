@@ -15,11 +15,8 @@ Page({
    */
   onLoad: function (options) {
     let deviceData = new DBdevice();
-    let res = wx.getStorageSync("PropertyData")
-    if(!res){
-      //
-      res = deviceData.getPropertyData();
-    }
+    deviceData.getPropertyData();
+    let res = wx.getStorageSync("PropertyData");
     this.setData({
       product: res,
     });
