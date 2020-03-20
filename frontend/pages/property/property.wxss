@@ -1,1 +1,2 @@
 /* pages/property/property.wxss */
+@import "/components/searchbar/searchbar.wxss";

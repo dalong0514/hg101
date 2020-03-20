@@ -18,14 +18,14 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // 读取缓存中的数据，这里前面一定要加 this，否者其他函数不能调用该数据
+    let DBdata = new DBdevice();
+    let TestData = DBdata.getTestData();
+    console.log(TestData);
+
     /*
-    this.deviceData = new DBdevice();
     this.setData({
       typeData: this.deviceData.getDeviceData().type[0],
-      typeData1: this.deviceData.getDeviceData().type[1],
     });
-    console.log(this.deviceData.getDeviceData().type[0]);
     */
   },
 

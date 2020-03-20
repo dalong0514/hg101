@@ -36,6 +36,12 @@
         "selectedIconPath": "images/tab/problem_selected.png"
       },
       {
+        "text": "物性",
+        "pagePath": "pages/property/property",
+        "iconPath": "images/tab/case_normal.png",
+        "selectedIconPath": "images/tab/case_selected.png"
+      },
+      {
         "text": "测试",
         "pagePath": "pages/test/test",
         "iconPath": "images/tab/case_normal.png",

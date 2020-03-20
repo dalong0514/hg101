@@ -1,2 +1,8 @@
 <!--pages/property/property.wxml-->
-<text>pages/property/property.wxml</text>
+<import src="/components/searchbar/searchbar.wxml"></import>
+
+<view class='page'>
+  <loading hidden="{{!loading}}">加载中...</loading>
+  <template is="searchbar" />
+
+</view>

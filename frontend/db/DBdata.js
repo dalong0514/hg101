@@ -24,8 +24,32 @@ DBdevice.prototype = {
     alldata: [],
   },
 
+  testdata: [],
+
+  // 获取试验 api 数据
+  getTestData: function(){
+    // let testdata = this.testdata;
+    // let testdata;
+    wx.request({
+      url: 'http://127.0.0.1:8000/api/tasks',
+      success: (res => {
+        // console.log(res.data);
+        this.testdata = res.data;
+        // 必须通过存入缓存，数据才能从这个函数出去
+        wx.setStorageSync("testData", this.testdata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+    return wx.getStorageSync("testData");
+  },
+
   // 获取首页信息
-  getDeviceData:function() {
+  getDeviceData: function() {
     var res = wx.getStorageSync(this.storageKeyName);
     if(!res){
       wx.request({
