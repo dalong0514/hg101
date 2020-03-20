@@ -9,7 +9,7 @@
   <!-- banner 设置 -->
   <view class="container" >
     <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="5000"  circular="{{true}}">
-      <view wx:for="{{totalData.banner}}" wx:for-item="item" wx:key="unique">
+      <view wx:for="{{homeData.banner}}" wx:for-item="item" wx:key="unique">
         <swiper-item catch:tap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
           <image src="{{item.image}}" mode="aspectFill"/>
         </swiper-item>
@@ -18,7 +18,7 @@
   </view>
 
   <!-- 产品展示 -->
-  <block wx:for="{{totalData.product}}" wx:for-item="item" wx:for-index="idx">
+  <block wx:for="{{homeData.product}}" wx:for-item="item" wx:for-index="idx">
     <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
       <template is="deviceTpl" data="{{...item}}"/>
     </view>

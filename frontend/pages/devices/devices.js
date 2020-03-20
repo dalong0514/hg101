@@ -20,7 +20,7 @@ Page({
     let deviceData = new DBdevice();
     let homedata = deviceData.getDeviceData()
     this.setData({
-      totalData: homedata,
+      homeData: homedata,
       // post: deviceData.getItemById().data
     });
     // console.log(deviceData.getDeviceData().banner);
