@@ -25,6 +25,15 @@ Page({
     });
   },
 
+  // 跳转到详细页面
+  viewProductDetail: function (e) {
+    var id = e.currentTarget.dataset.idx;
+    var type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: `/pages/devices/detail?id=${id}&type=${type}`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -72,5 +81,13 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 跳转到搜索栏
+  doSearch: function() {
+    wx.navigateTo({
+      url: '/pages/devices/search',
+    })
+  },
+
 })
