@@ -1,8 +1,5 @@
-<!--pages/devices/devices.wxml-->
-
+<!--pages/setting/collect/collect.wxml-->
 <view class='page'>
-  <loading hidden="{{!loading}}">加载中...</loading>
-
   <view class='device-list-content'>
     <block wx:for="{{collect}}" wx:key="unique">
       <slide-delete pid="{{item.id}}" bindaction="handleCollectSlideDelete" >
@@ -11,9 +8,6 @@
           <view class='meta'>
             <view class='title'>{{item.entry.name}}</view>
             <view class='content'>{{item.entry.describe}}</view>
-            <view class='tag'>
-              <span wx:for="{{item.entry.label}}" class="tag-span">{{item}}</span>
-            </view>
           </view>
         </view>
       </slide-delete>

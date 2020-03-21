@@ -1,9 +1,8 @@
-@import "/components/searchbar/searchbar.wxss";
-
+/* pages/setting/collect/collect.wxss */
 .device-list-content {
   height: 100%;
   background: rgba(248, 248, 248, 1);
-  padding-top: 45px;
+  padding-top: 5px;
 }
 
 .item {

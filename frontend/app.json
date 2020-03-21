@@ -10,7 +10,8 @@
     "pages/logs/logs",
     "pages/property/property",
     "pages/test/test",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/setting/collect/collect"
   ],
   "window": {
     "backgroundTextStyle": "light",

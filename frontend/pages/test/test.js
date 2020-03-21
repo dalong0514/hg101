@@ -18,15 +18,15 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // let DBdata = new DBdevice();
+    let DBdata = new DBdevice();
     // let TestData = DBdata.getTestData();
     // console.log(TestData);
+    let CollectData = DBdata.getCollectData();
+    console.log(CollectData);
 
-    /*
     this.setData({
-      typeData: this.deviceData.getDeviceData().type[0],
+      collect: CollectData,
     });
-    */
   },
 
 

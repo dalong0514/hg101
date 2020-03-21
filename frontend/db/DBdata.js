@@ -28,15 +28,18 @@ DBdevice.prototype = {
 
   // 获取试验 api 数据
   getTestData: function(){
-    // let testdata = this.testdata;
-    // let testdata;
+    let testdata;
     wx.request({
-      url: 'http://127.0.0.1:8000/api/typedevices',
+      // url: 'http://127.0.0.1:8000/api/likeList',
+      url: 'https://www.hg101.vip/api/likeList',
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
       success: (res => {
         // console.log(res.data);
-        this.testdata = res.data;
+        testdata = res.data;
         // 必须通过存入缓存，数据才能从这个函数出去
-        wx.setStorageSync("testData", this.testdata);
+        wx.setStorageSync("testData", testdata);
       }),
       fail: (res => {
         $Toast({
@@ -190,6 +193,30 @@ DBdevice.prototype = {
         }
       }
     }
+  },
+
+  // 获取收藏的数据
+  getCollectData: function(){
+    let collectdata;
+    wx.request({
+      url: 'https://www.hg101.vip/api/likeList',
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
+      success: (res => {
+        // console.log(res.data);
+        collectdata = res.data.data.collect;
+        // 必须通过存入缓存，数据才能从这个函数出去
+        wx.setStorageSync("CollectData", collectdata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+    return wx.getStorageSync("CollectData");
   },
 
   //更新本地的评论信息、收藏、阅读量

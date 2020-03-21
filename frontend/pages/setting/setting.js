@@ -23,7 +23,7 @@ Page({
   onLoad: function (options) {
     this.deviceData = new DBdevice();
     // this.deviceData.getAllDevice();
-    this.deviceData.getItemByCollect();
+    // this.deviceData.getItemByCollect();
     // console.log(this.deviceData.getItemByCollect());
 
   },
@@ -62,15 +62,22 @@ Page({
     });
   },
 
-  // 跳转到收藏页
-  showCollection: function(e) {
+  // 试验
+  sCollection: function(e) {
     // let id = e.currentTarget.dataset.idx;
     // let entry = e.currentTarget.dataset.entry;
     //console.log(entry)
     // let id = 6;
     // let entry = 1;
     wx.navigateTo({
-      url: `/pages/devices/detail?id=${id}&type=${entry}`,
+      url: '/pages/setting/collect/collect',
+    })
+  },
+
+  // 跳转到收藏页
+  showCollection: function() {
+    wx.navigateTo({
+      url: '/pages/setting/collect/collect',
     })
   },
 

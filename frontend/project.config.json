@@ -64,13 +64,6 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/account/account",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 3,
 					"name": "设置",
 					"pathName": "pages/setting/setting",
@@ -116,6 +109,13 @@
 					"id": -1,
 					"name": "物性",
 					"pathName": "pages/property/property",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "收藏",
+					"pathName": "pages/setting/collect/collect",
 					"query": "",
 					"scene": null
 				}
