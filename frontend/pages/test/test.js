@@ -1,6 +1,6 @@
 // pages/devices/devices.js
 // var util = require('../../utils/util.js')
-const { $Toast } = require('../../lib/iview/base/index');
+const { $Toast } = require('../../lib/iview/icon/index');
 var DBdevice = require('../../db/DBdata.js').DBdevice;
 
 Page({

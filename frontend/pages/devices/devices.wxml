@@ -6,14 +6,25 @@
 <view class='page'>
   <template is="searchbar" />
   <!-- banner 设置 -->
-  <view class="container" >
-    <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="5000"  circular="{{true}}">
-      <view wx:for="{{homeData.banner}}" wx:for-item="item" wx:key="unique">
-        <swiper-item catch:tap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
-          <image src="{{item.image}}" mode="aspectFill"/>
+   <view class="device-swiper" style="margin-top:55px">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='device-swiper__container'>
+      <view wx:for="{{homeData.banner}}" wx:key="unique">
+        <swiper-item bindtap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
+          <image src='{{item.image}}' style='height:100%;width:100%;border-radius:6px' />
         </swiper-item>
       </view>
     </swiper>
+  </view>
+
+  <view class='static-display-product'>
+    <view class='weui-flex' wx:for="{{homeData.type}}" wx:for-index="idx">
+      <view class='weui-flex__item' bindtap="productList" data-label="{{cell.id}}" wx:for="{{homeData.type[idx]}}" wx:for-item="cell">
+        <view>
+          <image class="img-device-display" src='{{cell.logo}}' />
+        </view>
+        <view class='device-label'>{{cell.name}}</view>
+      </view>
+    </view>
   </view>
 
   <!-- 产品展示 -->
@@ -22,12 +33,5 @@
       <template is="deviceTpl" data="{{...item}}"/>
     </view>
   </block>
-
-  <view class="recommendlist">
-    <view >
-      <text class="device-list-more-label" bindtap='more'>更多产品</text>
-      <image src='/images/device/more.png' class="more" />
-    </view>
-  </view>
 
 </view>

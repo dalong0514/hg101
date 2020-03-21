@@ -1,22 +1,3 @@
 <!--pages/devices/devices.wxml-->
-
-<view class='page'>
-  <loading hidden="{{!loading}}">加载中...</loading>
-
-  <view class='device-list-content'>
-    <block wx:for="{{collect}}" wx:key="unique">
-      <slide-delete pid="{{item.id}}" bindaction="handleCollectSlideDelete" >
-        <view class='item' data-entry="{{item.entry_type}}" data-idx="{{item.entry_id}}" bindtap='viewProductDetail'>
-          <image src='{{item.entry.cover_image}}' style="width:123px;height:79px;" />
-          <view class='meta'>
-            <view class='title'>{{item.entry.name}}</view>
-            <view class='content'>{{item.entry.describe}}</view>
-            <view class='tag'>
-              <span wx:for="{{item.entry.label}}" class="tag-span">{{item}}</span>
-            </view>
-          </view>
-        </view>
-      </slide-delete>
-    </block>
-  </view>
-</view>
+<mp-icon type="field" icon="add" color="black" size="{{25}}"></mp-icon>
+<mp-icon icon="add" color="black" size="{{25}}"></mp-icon>
