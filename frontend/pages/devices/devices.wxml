@@ -27,11 +27,26 @@
     </view>
   </view>
 
-  <!-- 产品展示 -->
-  <block wx:for="{{homeData.product}}" wx:for-item="item" wx:for-index="idx">
-    <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
-      <template is="deviceTpl" data="{{...item}}"/>
+  <view class='device-list'>
+    <view class='device-list-header'>
+      <view class='weui-flex'>
+        <view class='weui-flex__item device-list-label'>
+          <text>推荐产品</text>
+        </view>
+        <view class='weui-flex__item device-list-more'>
+          <text class="device-list-more-label" bindtap='more'>更多产品</text>
+        </view>
+        <view class='device-list-more-icon'>
+          <image src='/images/device/more.png' class="more" />
+        </view>
+      </view>
     </view>
-  </block>
 
+    <block wx:for="{{homeData.product}}" wx:for-item="item" wx:for-index="idx">
+      <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
+        <template is="deviceTpl" data="{{...item}}"/>
+      </view>
+    </block>
+
+  </view>
 </view>

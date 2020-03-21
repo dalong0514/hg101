@@ -1,24 +1,21 @@
 <template name="deviceTpl">
    <view class='device-list-content'>
-      <block wx:for="{{item}}" wx:key="unique" wx:for-index="idx">
-        <view class='item'>
-          <image bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" src='{{item.cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
-          <view class='meta'>
-            <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='title'>{{item.name}}</view>
-            <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='content'>{{item.describe}}</view>
-            <view class='tag-fav'>
-              <view class='view-tag'>
-                <text class="text-tag" wx:for="{{item.label}}" wx:key="idx">{{item}}</text>
-              </view>
-              <view class='view-fav'>
-                <text class='text-fav' data-id="{{item.id}}" data-idx="{{idx}}" bindtap="cancelCollect" wx:if="{{item.is_collect == 1}}">- 取消收藏({{item.collect_count}})</text>
-                <text class='text-fav' data-id="{{item.id}}" data-idx="{{idx}}" bindtap="doCollect" wx:else>+ 收藏({{item.collect_count}})</text>
-              </view>
+      <view class='item'>
+        <image bindtap="viewProductDetail" data-idx="{{id}}" data-type="1" src='{{cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
+        <view class='meta'>
+          <view bindtap="viewProductDetail" data-idx="{{id}}" data-type="1" class='title'>{{name}}</view>
+          <view bindtap="viewProductDetail" data-idx="{{id}}" data-type="1" class='content'>{{describe}}</view>
+          <view class='tag-fav'>
+            <view class='view-tag'>
+              <text class="text-tag" >{{type}}</text>
+            </view>
+            <view class='view-fav'>
+              <text class='text-fav' data-id="{{id}}" data-idx="{{idx}}" bindtap="cancelCollect" wx:if="{{is_collect == 1}}">- 取消收藏({{collect_count}})</text>
+              <text class='text-fav' data-id="{{id}}" data-idx="{{idx}}" bindtap="doCollect" wx:else>+ 收藏({{collect_count}})</text>
             </view>
           </view>
         </view>
-
-      </block>
+      </view>
     </view>
   
 </template>
