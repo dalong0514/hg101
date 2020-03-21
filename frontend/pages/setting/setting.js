@@ -21,11 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.deviceData = new DBdevice();
-    // this.deviceData.getAllDevice();
-    // this.deviceData.getItemByCollect();
-    // console.log(this.deviceData.getItemByCollect());
-
+    let DBdata = new DBdevice();
+    DBdata.getCollectData();
   },
 
   //显示模态窗口

@@ -15,7 +15,10 @@ Page({
    */
   onLoad: function (options) {
     let DBdata = new DBdevice();
-    let CollectData = DBdata.getCollectData();
+    let CollectData = wx.getStorageSync("CollectData");
+    if(!CollectData){
+      CollectData = DBdata.getCollectData();
+    }
     // console.log(CollectData);
     this.setData({
       collect: CollectData,
