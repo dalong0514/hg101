@@ -12,16 +12,9 @@ var DBdevice = function() {
 // 对象的原型链
 DBdevice.prototype = {
   data: {
-    search_txt: '',
-    loading: true,
     banner: [],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 800,
     product: [],
     type: [],
-    alldata: [],
   },
 
   testdata: [],
@@ -55,7 +48,8 @@ DBdevice.prototype = {
   getTypeDevicesData: function(){
     let typedevicesdata;
     wx.request({
-      url: 'http://127.0.0.1:8000/api/typedevices',
+      // url: 'http://127.0.0.1:8000/api/typedevices',
+      url: 'https://www.hg101.vip/api/typedevices',
       success: (res => {
         // console.log(res.data);
         typedevicesdata = res.data;
@@ -74,6 +68,11 @@ DBdevice.prototype = {
 
   // 获取首页信息
   getDeviceData: function() {
+    let hdata = {
+      banner: [],
+      product: [],
+      type: [],
+    };
     let homedata = wx.getStorageSync("homeData");
     if(!homedata){
       wx.request({
@@ -85,10 +84,10 @@ DBdevice.prototype = {
         success: (res => {
           console.log(res.data);
           if(res.data.code == 0) {
-            this.data.banner = res.data.data.banner;
-            this.data.product = res.data.data.product;
-            this.data.type = res.data.data.type;
-            wx.setStorageSync("homeData", this.data);
+            hdata.banner = res.data.data.banner;
+            hdata.product = res.data.data.product;
+            hdata.type = res.data.data.type;
+            wx.setStorageSync("homeData", hdata);
           }
         }),
         fail: (res => {
@@ -99,8 +98,7 @@ DBdevice.prototype = {
         }),
       })
     }
-    homedata = wx.getStorageSync("homeData");
-    return homedata;
+    return wx.getStorageSync("homeData");
   },
 
   // 获取指定的设备详细页面

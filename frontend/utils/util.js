@@ -14,6 +14,20 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+// 封装小程序异步函数的回调
+const fPromise = fn => obj => {
+  return new Promise((resolve, reject) => {
+    obj.complete = obj.success = (res) => {
+      // console.log(res,'>')
+      resolve(res)
+    }
+    obj.fail = (err) => {
+      reject(err)
+    }
+    fn(obj);
+  })
+}
+
 /*
  *根据客户端的时间信息得到发表评论的时间格式
  *多少分钟前，多少小时前，然后是昨天，然后再是月日
@@ -146,5 +160,6 @@ module.exports = {
   getDiffTime: getDiffTime,
   http: http,
   convertToCastString: convertToCastString,
-  convertToCastInfos: convertToCastInfos
+  convertToCastInfos: convertToCastInfos,
+  fPromise: fPromise
 }

@@ -1,4 +1,6 @@
 // pages/product/product.js
+const app = getApp();
+
 Page({
 
   /**
@@ -20,6 +22,7 @@ Page({
         'openid': wx.getStorageSync('open_id')
       },
       success: function(res) {
+        // console.log('page fetching data end time', +new Date() - app.getNavigateTime());
         if(res.data.code == 0) {
           that.setData({
             product: res.data.data
@@ -27,6 +30,7 @@ Page({
         }
       }
     })
+    // console.log('page onload time', +new Date() - app.getNavigateTime())
   },
 
   doCollect: function (e) {

@@ -9,7 +9,11 @@ Page({
    * Page initial data
    */
   data: {
-
+    search_txt: '',
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    duration: 800,
   },
 
   /**
@@ -161,6 +165,8 @@ Page({
 
   productList: (event => {
     var type = event.currentTarget.dataset.label;
+    const currentTime = +new Date();
+    console.log('Navigate to PageC', currentTime)
     wx.navigateTo({
       url: `/pages/product/product?type=${type}`,
     })

@@ -4,7 +4,6 @@
 <import src="/components/searchbar/searchbar.wxml"></import>
 
 <view class='page'>
-  <loading hidden="{{!loading}}">加载中...</loading>
   <template is="searchbar" />
   <!-- banner 设置 -->
   <view class="container" >

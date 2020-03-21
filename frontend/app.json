@@ -11,7 +11,8 @@
     "pages/property/property",
     "pages/test/test",
     "pages/setting/setting",
-    "pages/setting/collect/collect"
+    "pages/setting/collect/collect",
+    "pages/pageIndex/pageIndex"
   ],
   "window": {
     "backgroundTextStyle": "light",
