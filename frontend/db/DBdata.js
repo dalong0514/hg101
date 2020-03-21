@@ -48,7 +48,7 @@ DBdevice.prototype = {
     return wx.getStorageSync("testData");
   },
 
-  // 获取试验 api 数据
+  // 获取定型设备数据
   getTypeDevicesData: function(){
     let typedevicesdata;
     wx.request({
