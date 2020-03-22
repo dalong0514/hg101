@@ -5,16 +5,6 @@
 
 <view class='page'>
   <template is="searchbar" />
-  <!-- banner 设置 -->
-   <view class="device-swiper" style="margin-top:55px">
-    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='device-swiper__container'>
-      <view wx:for="{{homeData.banner}}" wx:key="unique">
-        <swiper-item bindtap="viewProductDetail" data-idx="{{item.param_id}}" data-type="{{item.param_type}}">
-          <image src='{{item.image}}' style='height:100%;width:100%;border-radius:6px' />
-        </swiper-item>
-      </view>
-    </swiper>
-  </view>
 
   <view class='static-display-product'>
     <view class='weui-flex' wx:for="{{homeData.type}}" wx:for-index="idx">

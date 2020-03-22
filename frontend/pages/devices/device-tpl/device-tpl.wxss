@@ -1,33 +1,52 @@
-.tag-fav {
+.device-container{
+  flex-direction: column;
+  display:flex;
+  margin: 20rpx 0 40rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #ededed;
+  border-top: 1px solid #ededed;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.device-image{
+  width: 100%;
+  height: 340rpx;
+  margin-bottom: 15px;
+}
+
+.device-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.device-content{
+  color: #666;
+  font-size: 26rpx;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+  letter-spacing: 2rpx;
+  line-height: 40rpx;
+}
+
+.device-like{
   display: flex;
   flex-direction: row;
-  margin-top: 8px;
+  font-size: 13px;
+  line-height: 16px;
+  margin-left: 10px;
+  align-items: center;
 }
-.view-tag {
-  flex: 10;
+
+.device-like image{
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
 }
-.text-tag {
-  padding: 3px 8px;
-  color: rgba(16, 16, 16, 1);
-  font-size: 12px;
-  border: 1px solid rgba(204, 198, 198, 1);
-  border-radius: 10px;
-  margin-right: 10px;
-}
-.text-fav {
-  color: #fff;
-  margin-top: 6px;
-  padding-left: 3px;
-  padding-right: 3px;
-}
-.view-fav {
-  border-radius: 8px;
-  text-align: center;
-  height: 20px;
-  font-size: 12px;
-  background: rgb(228, 70, 59) 100%;
-  margin-top: 3px;
-  padding-top: 1.5px;
-  padding-left: 5px;
-  padding-right: 5px;
+
+.device-like text{
+  margin-right: 20px;
 }
