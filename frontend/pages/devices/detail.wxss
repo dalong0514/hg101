@@ -1,5 +1,10 @@
 /* pages/devices/detail.wxss */
 @import "../../components/wxParse/wxParse.wxss";
+
+.page-box {
+  -webkit-overflow-scrolling:touch;
+}
+
 .product-header {
   display: flex;
   flex-direction: row;

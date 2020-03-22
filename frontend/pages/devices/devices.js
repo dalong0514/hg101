@@ -25,10 +25,8 @@ Page({
     let homedata = deviceData.getDeviceData()
     this.setData({
       homeData: homedata,
-      // post: deviceData.getItemById().data
     });
-    // console.log(deviceData.getDeviceData().banner);
-    // console.log(this.deviceData.getItemById().data);
+    deviceData.getPropertyData();
   },
 
     // 收藏功能

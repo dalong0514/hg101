@@ -1,7 +1,6 @@
 <!--pages/devices/detail.wxml-->
-<import src="../../components/wxParse/wxParse.wxml"/>
-<view class='page'>
-  <loading hidden="{{!loading}}">加载中...</loading>
+<view class="page-box">
+  <import src="../../components/wxParse/wxParse.wxml"/>
   <view class='fix-top' style='width:100%'>
     <view class='product-header'>
       <view data-index="0" class="tab-item" bindtap='switchTab'>
