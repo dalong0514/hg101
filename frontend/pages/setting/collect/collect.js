@@ -16,14 +16,25 @@ Page({
   onLoad: function (options) {
     let DBdata = new DBdevice();
     let CollectData = wx.getStorageSync("CollectData");
+    let collects = [];
     if(!CollectData){
       CollectData = DBdata.getCollectData();
     }
-    // console.log(CollectData);
+    for(let item of CollectData){
+      collects.push(item.entry);
+    }
     this.setData({
-      collect: CollectData,
+      collects: collects,
     });
 
+  },
+
+  viewProductDetail: function(e) {
+    var id = e.currentTarget.dataset.idx;
+    var type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: `/pages/devices/detail?id=${id}&type=${type}`,
+    })
   },
 
   /**

@@ -1,16 +1,8 @@
 <!--pages/setting/collect/collect.wxml-->
-<view class='page'>
-  <view class='device-list-content'>
-    <block wx:for="{{collect}}" wx:key="unique">
-      <slide-delete pid="{{item.id}}" bindaction="handleCollectSlideDelete" >
-        <view class='item' data-entry="{{item.entry_type}}" data-idx="{{item.entry_id}}" bindtap='viewProductDetail'>
-          <image src='{{item.entry.cover_image}}' style="width:123px;height:79px;" />
-          <view class='meta'>
-            <view class='title'>{{item.entry.name}}</view>
-            <view class='content'>{{item.entry.describe}}</view>
-          </view>
-        </view>
-      </slide-delete>
-    </block>
-  </view>
+<import src="../../product/devicelist-tpl/devicelist-tpl.wxml"></import>
+
+<view class='device-list-content'>
+  <block wx:for="{{collects}}" wx:key="unique" wx:for-index="idx">
+    <template is="devicelistTpl" data="{{...item}}"/>
+  </block>
 </view>
