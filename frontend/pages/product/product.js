@@ -1,4 +1,5 @@
 // pages/product/product.js
+var DBdevice = require('../../db/DBdata.js').DBdevice;
 const app = getApp();
 
 Page({
@@ -15,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-    var type = options.type
+    let type = options.type
     wx.request({
       url: 'https://www.hg101.vip/api/screen' + (type ? `?type=${type}` : ''),
       header: {
@@ -30,7 +31,6 @@ Page({
         }
       }
     })
-    // console.log('page onload time', +new Date() - app.getNavigateTime())
   },
 
   doCollect: function (e) {

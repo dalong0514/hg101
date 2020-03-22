@@ -1,0 +1,7 @@
+/* pages/devices/moreproducts/moreproducts.wxss */
+@import "../../product/devicelist-tpl/devicelist-tpl.wxss";
+
+.device-list-content {
+  height: 100%;
+  background: rgba(248, 248, 248, 1);
+}

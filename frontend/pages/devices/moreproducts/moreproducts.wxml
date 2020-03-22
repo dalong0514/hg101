@@ -1,5 +1,5 @@
-<!--pages/product/product.wxml-->
-<import src="devicelist-tpl/devicelist-tpl.wxml"></import>
+<!--pages/devices/moreproducts/moreproducts.wxml-->
+<import src="../../product/devicelist-tpl/devicelist-tpl.wxml"></import>
 
 <view class='device-list-content'>
   <block wx:for="{{product}}" wx:key="unique" wx:for-index="idx">

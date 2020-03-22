@@ -3,6 +3,7 @@
     "pages/devices/devices",
     "pages/devices/detail",
     "pages/devices/search",
+    "pages/devices/moreproducts/moreproducts",
     "pages/problems/problems",
     "pages/type/type",
     "pages/account/account",

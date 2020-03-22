@@ -157,14 +157,15 @@ Page({
 
   more: (() => {
     wx.navigateTo({
-      url: '/pages/product/product',
+      url: '/pages/devices/moreproducts/moreproducts',
     })
   }),
 
   productList: (event => {
     var type = event.currentTarget.dataset.label;
-    const currentTime = +new Date();
-    console.log('Navigate to PageC', currentTime)
+    // 试验跳转时间
+    // const currentTime = +new Date();
+    // console.log('Navigate to PageC', currentTime)
     wx.navigateTo({
       url: `/pages/product/product?type=${type}`,
     })

@@ -1,0 +1,9 @@
+<template name="devicelistTpl">
+  <view class='item' bindtap="viewProductDetail" data-idx="{{id}}" data-type="1" >
+    <image src='{{cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
+    <view class='meta'>
+      <view class='title'>{{name}}</view>
+      <view class='content'>{{describe}}</view>
+    </view>
+  </view>
+</template>
