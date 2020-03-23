@@ -1,6 +1,6 @@
 <!--pages/devices/detail.wxml-->
 <view class="page-box">
-  <import src="../../components/wxParse/wxParse.wxml"/>
+  <import src="../../../components/wxParse/wxParse.wxml"/>
   <view class='fix-top' style='width:100%'>
     <view class='product-header'>
       <view data-index="0" class="tab-item" bindtap='switchTab'>

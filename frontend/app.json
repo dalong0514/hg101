@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/devices/devices",
-    "pages/devices/detail",
+    "pages/devices/detail/detail",
     "pages/devices/search",
     "pages/devices/moreproducts/moreproducts",
     "pages/problems/problems",
@@ -27,7 +27,7 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "text": "设备",
+        "text": "产品",
         "pagePath": "pages/devices/devices",
         "iconPath": "images/tab/device_normal.png",
         "selectedIconPath": "images/tab/device_selected.png"

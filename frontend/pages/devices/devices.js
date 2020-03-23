@@ -109,7 +109,7 @@ Page({
     var id = e.currentTarget.dataset.idx;
     var type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: `/pages/devices/detail?id=${id}&type=${type}`,
+      url: `/pages/devices/detail/detail?id=${id}&type=${type}`,
     })
   },
 
