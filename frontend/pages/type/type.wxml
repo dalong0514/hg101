@@ -2,8 +2,12 @@
 <import src="/components/searchbar/searchbar.wxml"></import>
 
 <template is="searchbar" />
+<view class="container-box">
+  <text style="font-size:20px;padding-left:15px">设备类目</text>
+</view>
 <view class="typedevice-box">
   <view class="typebox" wx:for="{{types}}" wx:for-item="item">
+    <image class="type-image" src='/images/device/device_selected.png'/>
     <text class="typecontent">{{item}}</text>
   </view>
 </view>

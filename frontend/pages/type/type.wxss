@@ -4,31 +4,37 @@
 .typedevice-box {
   width: 100%;
   height: 100%;
-  /* background-color: black; */
+  /* background-color: gray; */
   display: flex;
   flex-flow: wrap;
   align-content: flex-start;
-  padding-top: 60px;
+  /* padding-top: 100rpx; */
 }
 
 .typebox {
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 246rpx;
   width: 246rpx;
   background-color: white;
   /* border: 1px solid red; */
 }
+
 .typecontent {
-  box-sizing: border-box;
   background-color: white;
-  height: 200rpx;
-  width: 200rpx;
-  border-radius: 30rpx;
-  border: 1px solid gray;
-  font-size: 40rpx;
+  font-size: 18px;
   text-align: center;
-  line-height: 5em;
+  margin-bottom: 10px;
+}
+
+.typebox image{
+  height: 120rpx;
+  width: 120rpx;
+  margin-top: 40rpx;
+}
+
+.container-box {
+  padding-top: 120rpx;
 }
