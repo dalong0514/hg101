@@ -7,7 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    types: ["泵阀类", "分离设备", "混合设备", "传热设备", "传质设备", "输送设备", "反应设备", "辅助设备", "储运设备", "制冷设备", "其他设备"],
+    types: [
+      { iconurl: '/images/tab/device_normal.png', title: '输送泵', tap: 'showCollection' },
+      { iconurl: '/images/tab/device_normal.png', title: '真空泵', tap: 'vacuumPump' },
+      { iconurl: '/images/device/lixin.jpg', title: '离心机', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '蒸发器', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '换热器', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '反应釜', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '烘箱', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '干燥机', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '制氮机', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '压滤机', tap: 'showIntroduction' },
+      { iconurl: '/images/tab/device_normal.png', title: '行车', tap: 'showIntroduction' },
+    ],
 
   },
 
@@ -18,7 +30,18 @@ Page({
     let DBdata = new DBdevice();
     let TypeDevicesData = DBdata.getTypeDevicesData();
     console.log(TypeDevicesData);
+    let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === '真空泵');
+    console.log(filterdata);
 
+  },
+
+  // 跳转到一级类型页
+  firstDetail: function (e) {
+    let firstlabel = e.currentTarget.dataset.firstlabel;
+    console.log(firstlabel);
+    wx.navigateTo({
+      url: '/pages/type/firstdetail/firstdetail?firstlabel=' + firstlabel,
+    })
   },
 
   /**

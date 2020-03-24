@@ -46,23 +46,25 @@ DBdevice.prototype = {
 
   // 获取定型设备数据
   getTypeDevicesData: function(){
-    let typedevicesdata;
-    wx.request({
-      // url: 'http://127.0.0.1:8000/api/typedevices',
-      url: 'https://www.hg101.vip/api/typedevices',
-      success: (res => {
-        // console.log(res.data);
-        typedevicesdata = res.data;
-        // 必须通过存入缓存，数据才能从这个函数出去
-        wx.setStorageSync("TypeDevicesData", typedevicesdata);
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
+    let typedevicesdata = wx.getStorageSync("TypeDevicesData");
+    if(!typedevicesdata){
+      wx.request({
+        url: 'http://127.0.0.1:8000/api/typedevices',
+        // url: 'https://www.hg101.vip/api/typedevices',
+        success: (res => {
+          // console.log(res.data);
+          typedevicesdata = res.data;
+          // 必须通过存入缓存，数据才能从这个函数出去
+          wx.setStorageSync("TypeDevicesData", typedevicesdata);
+        }),
+        fail: (res => {
+          $Toast({
+            content: '异常错误',
+            type: 'error'
+          })
+        }),
+      })
+    }
     return wx.getStorageSync("TypeDevicesData");
   },
 

@@ -18,7 +18,7 @@ class TypeDevicesModel extends Model
     public static function getTypedevices(){
         return self::query()
             ->orderBy('id')
-            ->select(['id', 'type', 'equipname', 'spec', 'material'])
+            ->select(['id', 'type', 'equipname', 'spec', 'material', 'firstlabel'])
             ->get();
     }
 }
