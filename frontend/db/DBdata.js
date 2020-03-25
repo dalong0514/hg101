@@ -12,9 +12,7 @@ var DBdevice = function() {
 // 对象的原型链
 DBdevice.prototype = {
   data: {
-    banner: [],
-    product: [],
-    type: [],
+
   },
 
   testdata: [],
@@ -49,8 +47,8 @@ DBdevice.prototype = {
     let typedevicesdata = wx.getStorageSync("TypeDevicesData");
     if(!typedevicesdata){
       wx.request({
-        url: 'http://127.0.0.1:8000/api/typedevices',
-        // url: 'https://www.hg101.vip/api/typedevices',
+        // url: 'http://127.0.0.1:8000/api/typedevices',
+        url: 'https://www.hg101.vip/api/typedevices',
         success: (res => {
           // console.log(res.data);
           typedevicesdata = res.data;
@@ -120,7 +118,7 @@ DBdevice.prototype = {
   },
 
   // 获取全部设备信息
-  getAllDevice: function(options){
+  getAllDevice: function(){
     let alldata = wx.getStorageSync("AllData")
     if(!alldata){
       wx.request({
@@ -133,6 +131,7 @@ DBdevice.prototype = {
           if(res.data.code == 0) {
             // console.log(res.data);
             wx.setStorageSync("AllData", res.data.data);
+            this.alltest = res.data.data;
           }
         }),
         fail: (res => {
