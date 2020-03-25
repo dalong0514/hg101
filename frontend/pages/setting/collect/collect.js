@@ -1,5 +1,4 @@
 // pages/setting/collect/collect.js
-var DBdevice = require('../../../db/DBdata.js').DBdevice;
 
 Page({
 
@@ -14,18 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let DBdata = new DBdevice();
-    let CollectData = wx.getStorageSync("CollectData");
-    let collects = [];
-    if(!CollectData){
-      CollectData = DBdata.getCollectData();
-    }
-    for(let item of CollectData){
-      collects.push(item.entry);
-    }
-    this.setData({
-      collects: collects,
-    });
+    this.getCollectData();
 
   },
 
@@ -34,6 +22,33 @@ Page({
     var type = e.currentTarget.dataset.type;
     wx.navigateTo({
       url: `/pages/devices/detail/detail?id=${id}&type=${type}`,
+    })
+  },
+
+  // 获取收藏的数据
+  getCollectData: function(){
+    let collectdata;
+    let collects = [];
+    wx.request({
+      url: 'https://www.hg101.vip/api/likeList',
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
+      success: (res => {
+        collectdata = res.data.data.collect;
+        for(let item of collectdata){
+          collects.push(item.entry);
+        }
+        this.setData({
+          collects: collects,
+        });
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
     })
   },
 

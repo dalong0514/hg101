@@ -21,8 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let DBdata = new DBdevice();
-    DBdata.getCollectData();
+    // let DBdata = new DBdevice();
+    // DBdata.getCollectData();
   },
 
   //显示模态窗口
@@ -57,18 +57,6 @@ Page({
         }
       })
     });
-  },
-
-  // 试验
-  sCollection: function(e) {
-    // let id = e.currentTarget.dataset.idx;
-    // let entry = e.currentTarget.dataset.entry;
-    //console.log(entry)
-    // let id = 6;
-    // let entry = 1;
-    wx.navigateTo({
-      url: '/pages/setting/collect/collect',
-    })
   },
 
   // 跳转到收藏页
