@@ -7,8 +7,8 @@
   <template is="searchbar" />
 
   <view class='static-display-product'>
-    <view class='weui-flex' wx:for="{{homeData.type}}" wx:for-index="idx">
-      <view class='weui-flex__item' bindtap="productList" data-label="{{cell.id}}" wx:for="{{homeData.type[idx]}}" wx:for-item="cell">
+    <view class='weui-flex' wx:for="{{type}}" wx:for-index="idx">
+      <view class='weui-flex__item' bindtap="productList" data-label="{{cell.id}}" wx:for="{{type[idx]}}" wx:for-item="cell">
         <view>
           <image class="img-device-display" src='{{cell.logo}}' />
         </view>
@@ -32,10 +32,36 @@
       </view>
     </view>
 
-    <block wx:for="{{homeData.product}}" wx:for-item="item" wx:for-index="idx">
-      <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
-        <template is="deviceTpl" data="{{...item}}"/>
+    <block wx:for="{{product}}" wx:for-item="item" wx:for-index="idx">
+      <!-- <template is="deviceTpl" data="{{...item}}"/> -->
+
+      <view class="device-container">
+        <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
+          <text class="device-title">{{item.name}}</text>
+          <image class="device-image" src="{{item.cover_image}}" mode="aspectFill"/>
+          <text class="device-content">{{item.describe}}</text>
+        </view>
+
+        <view class="device-like">
+          <view data-id="{{item.id}}" data-idx="{{idx}}" bindtap="cancelCollect" wx:if="{{item.is_collect == 1}}">
+            <image src="/images/tab/wx_app_collected.png"/>
+            <text>{{item.collect_count}}</text>
+          </view>
+          <view data-id="{{item.id}}" data-idx="{{idx}}" bindtap="doCollect" wx:else>
+            <image src="/images/tab/wx_app_collect.png"/>
+            <text>{{item.collect_count}}</text>
+          </view>
+          <image src="/images/tab/wx_app_view.png"/>
+          <text>10</text>
+          <image src="/images/tab/wx_app_message.png"/>
+          <text>10</text>
+          <view catch:tap="productList" data-label="{{item.type_id}}">
+            <image src="/images/tab/wx_app_list.png"/>
+            <text>{{item.type}}</text>
+          </view>
+        </view>
       </view>
+
     </block>
 
   </view>

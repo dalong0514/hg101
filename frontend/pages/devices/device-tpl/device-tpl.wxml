@@ -1,13 +1,19 @@
 <template name="deviceTpl">
   <view class="device-container">
-    <text class="device-title">{{name}}</text>
-    <image class="device-image" src="{{cover_image}}" mode="aspectFill"/>
-    <text class="device-content">{{describe}}</text>
+    <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1">
+      <text class="device-title">{{name}}</text>
+      <image class="device-image" src="{{cover_image}}" mode="aspectFill"/>
+      <text class="device-content">{{describe}}</text>
+    </view>
+
 
     <view class="device-like">
-      <view catchtap="onCollectionTap" data-id="{{id}}" >
-        <image wx:if="{{is_collect}}" src="/images/tab/wx_app_collected.png"/>
-        <image wx:else src="/images/tab/wx_app_collect.png"/>
+      <view data-id="{{item.id}}" data-idx="{{idx}}" bindtap="cancelCollect" wx:if="{{item.is_collect == 1}}">
+        <image src="/images/tab/wx_app_collected.png"/>
+        <text>{{collect_count}}</text>
+      </view>
+      <view data-id="{{item.id}}" data-idx="{{idx}}" bindtap="doCollect">
+        <image rc="/images/tab/wx_app_collect.png"/>
         <text>{{collect_count}}</text>
       </view>
       <image src="/images/tab/wx_app_view.png"/>

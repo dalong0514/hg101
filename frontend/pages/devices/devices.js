@@ -20,35 +20,18 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // 读取缓存中的数据，这里前面一定要加 this，否者其他函数不能调用该数据
+    this.getData();
+    /*
     let deviceData = new DBdevice();
     let homedata = deviceData.getDeviceData()
     this.setData({
-      homeData: homedata,
+      product: homedata.product,
+      type: homedata.type,
     });
     deviceData.getPropertyData();
+    this.data.product = homedata.product;
+    */
   },
-
-    // 收藏功能
-    onCollectionTap: function (event) {
-      var id = event.currentTarget.dataset.id;
-      var newData = this.deviceData.collect(id);
-      // 重新绑定数据。注意，不要将整个newData全部作为setData的参数，
-      // 应当有选择的更新部分数据
-      this.setData({
-        'post.is_collect': newData.is_collect,
-        'post.collect_count': newData.collect_count
-      });
-  
-      // 交互反馈
-      wx.showToast({
-        title: newData.is_collect ? "收藏成功" : "取消成功",
-        duration: 1000,
-        icon: "success",
-        mask: true
-      });
-    },
-    
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -116,15 +99,29 @@ Page({
   doCollect: function(e) {
     let id = e.currentTarget.dataset.idx;
     let product_id = e.currentTarget.dataset.id;
-    console.log('doCollect' + id)
-    this.collect(id, false, 1, product_id, 2)
+    console.log('doCollect ' + id);
+    this.collect(id, false, 1, product_id, 2);
+    // 交互反馈
+    wx.showToast({
+      title: this.data.like_status!==1 ? "收藏成功" : "取消成功",
+      duration: 1000,
+      icon: "success",
+      mask: true
+    });
   },
 
   cancelCollect: function(e) {
     let id = e.currentTarget.dataset.idx;
     let product_id = e.currentTarget.dataset.id;
-    console.log('cancelCollect' + id)
+    console.log('cancelCollect ' + id);
     this.collect(id, true, 1, product_id, 2);
+    // 交互反馈
+    wx.showToast({
+      title: this.data.like_status===1 ? "收藏成功" : "取消成功",
+      duration: 1000,
+      icon: "success",
+      mask: true
+    });
   },
 
   collect: function (id, status, entry_type, entry_id, type){
@@ -144,6 +141,8 @@ Page({
         let favNum = status ? this.data.product[id].collect_count - 1 : this.data.product[id].collect_count + 1;
         let favNumKey = `product[${id}].collect_count`;
         let isFavKey = `product[${id}].is_collect`;
+        this.data.like_status = isFavKey;
+        // 局部数据重新绑定
         this.setData({
           [favNumKey]: favNum,
           [isFavKey]: status? false: true,
@@ -170,5 +169,55 @@ Page({
       url: `/pages/product/product?type=${type}`,
     })
   }),
+
+  getData: function() {
+    var _that = this;
+    wx.request({
+      url: 'https://www.hg101.vip/api/home',
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
+      success: (res => {
+        _that.setData({
+          loading: false,
+        });
+        if(res.data.code == 0) {
+          _that.setData({
+            banner: res.data.data.banner,
+            product: res.data.data.product,
+            type: res.data.data.type,
+          })
+        }
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+    wx.request({
+      url: 'https://www.hg101.vip/api/problem_txt',
+      header: {
+        "openid": wx.getStorageSync('open_id')
+      },
+      success: (res => {
+        _that.setData({
+          loading:false,
+        });
+        if(res.data.code == 0) {
+          _that.setData({
+            search_txt: res.data.data.search_txt
+          })
+        }
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+  },
 
 })

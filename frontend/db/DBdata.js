@@ -118,7 +118,7 @@ DBdevice.prototype = {
   },
 
   // 获取全部设备信息
-  getAllDevice: function(){
+  getAllDevice: function() {
     let alldata = wx.getStorageSync("AllData")
     if(!alldata){
       wx.request({
