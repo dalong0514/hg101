@@ -1,8 +1,6 @@
 <!--pages/setting/collect/collect.wxml-->
 <import src="../../product/devicelist-tpl/devicelist-tpl.wxml"></import>
 
-<view class='device-list-content'>
-  <block wx:for="{{collects}}" wx:key="unique" wx:for-index="idx">
-    <template is="devicelistTpl" data="{{...item}}"/>
-  </block>
-</view>
+<block class='device-list-content' wx:for="{{collects}}" wx:key="unique" wx:for-index="idx">
+  <template is="devicelistTpl" data="{{...item}}"/>
+</block>

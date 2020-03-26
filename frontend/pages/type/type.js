@@ -30,8 +30,7 @@ Page({
     let DBdata = new DBdevice();
     let TypeDevicesData = DBdata.getTypeDevicesData();
     console.log(TypeDevicesData);
-    TypeDevicesData.testdata = this.data.types;
-    console.log(TypeDevicesData);
+    // TypeDevicesData.testdata = this.data.types;
     let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === '真空泵');
     console.log(filterdata);
 

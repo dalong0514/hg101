@@ -1,10 +1,8 @@
 <!--pages/type/firstdetail/firstdetail.wxml-->
-<text>pages/type/firstdetail/firstdetail.wxml</text>
 <view class="category-item">
-  <block wx:for="{{settings}}">
+  <block wx:for="{{typedata}}" wx:for-item="item" wx:for-index="idx">
     <view class="detail-item" catchtap="{{item.tap}}">
-      <image src="{{item.iconurl}}"></image>
-      <text>{{item.title}}</text>
+      <text>{{item.type}}</text>
       <view class="detail-item-btn"></view>
     </view>
   </block>

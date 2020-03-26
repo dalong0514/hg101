@@ -111,6 +111,13 @@
 					"pathName": "pages/property/property",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "一级型号",
+					"pathName": "pages/type/firstdetail/firstdetail",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

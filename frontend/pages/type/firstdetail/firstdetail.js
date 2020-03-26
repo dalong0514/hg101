@@ -1,10 +1,13 @@
 // pages/type/firstdetail/firstdetail.js
+var DBdevice = require('../../../db/DBdata.js').DBdevice;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    datalist: [1, 2, 3],
 
   },
 
@@ -14,7 +17,27 @@ Page({
   onLoad: function (options) {
     let firstlabel = options.firstlabel;
     console.log(firstlabel);
+    let TypeDevicesData = wx.getStorageSync("TypeDevicesData");
+    console.log(TypeDevicesData);
+    let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === firstlabel);
+    console.log(filterdata);
 
+    this.setData({
+      typedata: filterdata,
+    });
+    this.test();
+    this.test1();
+
+  },
+
+  test: function () {
+    let li = this.data;
+    console.log(li);
+  },
+
+  test1: () => {
+    let li;
+    console.log(li);
   },
 
   /**
