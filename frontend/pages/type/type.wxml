@@ -7,7 +7,7 @@
 </view>
 <view class="typedevice-box">
   <view wx:for="{{types}}" wx:for-item="item">
-    <view class="typebox" catch:tap="firstDetail" data-firstlabel="{{item.title}}">
+    <view class="typebox" catch:tap="firstDetail" data-firstlabel="{{item.title}}" data-dataurl="{{item.dataurl}}">
       <image class="type-image" src="{{item.iconurl}}"/>
       <text class="typecontent">{{item.title}}</text>
     </view>

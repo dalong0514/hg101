@@ -7,35 +7,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    datalist: [1, 2, 3],
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let firstlabel = options.firstlabel;
-    console.log(firstlabel);
-    let TypeDevicesData = wx.getStorageSync("TypeDevicesData");
-    console.log(TypeDevicesData);
-    let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === firstlabel);
-    console.log(filterdata);
+  onLoad: function () {
+    let pumpdata = wx.getStorageSync("PumpData");
+    if (!pumpdata) {
+      pumpdata = this.getPumpData();
+    }
+    // this.getUrl();
+    // let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === firstdata.firstlabel);
+    // console.log(filterdata);
 
-    this.setData({
-      typedata: filterdata,
-    });
+    // this.setData({
+    //   typedata: filterdata,
+    // });
 
   },
 
-  // 跳转到二级类型页
-  secondDetail: function (e) {
+  getUrl: function () {
     //
-    let secondlabel = e.currentTarget.dataset.secondlabel;
-    console.log(secondlabel);
-    wx.navigateTo({
-      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
-    })
+    console.log(this);
   },
 
   /**
@@ -85,5 +80,38 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // 跳转到二级类型页
+  secondDetail: function (e) {
+    //
+    let secondlabel = e.currentTarget.dataset.secondlabel;
+    console.log(secondlabel);
+    wx.navigateTo({
+      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
+    })
+  },
+
+  // 获取输送泵数据
+  getPumpData: function(){
+    let pumpdata = wx.getStorageSync("PumpData");
+    if(!pumpdata){
+      wx.request({
+        url: this.options.dataurl,
+        success: (res => {
+          pumpdata = res.data.data;
+          console.log(pumpdata);
+          wx.setStorageSync("PumpData", pumpdata);
+        }),
+        fail: (res => {
+          $Toast({
+            content: '异常错误',
+            type: 'error'
+          })
+        }),
+      })
+    }
+    return pumpdata;
+  },
+
 })
