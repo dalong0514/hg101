@@ -25,19 +25,17 @@ Page({
     this.setData({
       typedata: filterdata,
     });
-    this.test();
-    this.test1();
 
   },
 
-  test: function () {
-    let li = this.data;
-    console.log(li);
-  },
-
-  test1: () => {
-    let li;
-    console.log(li);
+  // 跳转到二级类型页
+  secondDetail: function (e) {
+    //
+    let secondlabel = e.currentTarget.dataset.secondlabel;
+    console.log(secondlabel);
+    wx.navigateTo({
+      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
+    })
   },
 
   /**

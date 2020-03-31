@@ -3,3 +3,11 @@
 <view class="container-box">
   <text class="title">全部类目</text>
 </view>
+
+<wxs module="m1">
+  module.exports = {
+    message: "Hello, dalong"
+  }
+</wxs>
+
+<text class="title">{{m1.message}}</text>

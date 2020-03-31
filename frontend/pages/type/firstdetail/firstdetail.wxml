@@ -1,7 +1,7 @@
 <!--pages/type/firstdetail/firstdetail.wxml-->
 <view class="category-item">
   <block wx:for="{{typedata}}" wx:for-item="item" wx:for-index="idx">
-    <view class="detail-item" catchtap="{{item.tap}}">
+    <view class="detail-item" catchtap="secondDetail" data-secondlabel="{{item.type}}">
       <text>{{item.type}}</text>
       <view class="detail-item-btn"></view>
     </view>
