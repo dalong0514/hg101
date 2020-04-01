@@ -1,9 +1,12 @@
 <!--pages/type/firstdetail/firstdetail.wxml-->
-<view class="category-item">
-  <block wx:for="{{typedata}}" wx:for-item="item" wx:for-index="idx">
-    <view class="detail-item" catchtap="secondDetail" data-secondlabel="{{item.type}}">
-      <text>{{item.type}}</text>
-      <view class="detail-item-btn"></view>
+<import src="/components/searchbar/searchbar.wxml"></import>
+
+<template is="searchbar" />
+<view class="typedevice-box">
+  <view wx:for="{{bigclass}}" wx:for-item="item">
+    <view class="typebox" catch:tap="secondDetail" data-secondlabel="{{item}}">
+      <image class="type-image" src="/images/device/hg101.jpg"/>
+      <text class="typecontent">{{item}}</text>
     </view>
-  </block>
+  </view>
 </view>

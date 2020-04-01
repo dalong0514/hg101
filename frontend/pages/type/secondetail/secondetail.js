@@ -21,11 +21,13 @@ Page({
   onLoad: function (options) {
     let secondlabel = options.secondlabel;
     console.log(secondlabel);
-    let TypeDevicesData = wx.getStorageSync("TypeDevicesData");
-    let filterdata = TypeDevicesData.data.filter(item => item.type === secondlabel);
-    console.log(filterdata[0].equipname);
-    filterdata[0].details = this.data.describe;
+
+    let pumpdata = wx.getStorageSync("PumpData");
+    let filterdata = pumpdata.filter(item => item.bigclass === secondlabel);
     console.log(filterdata);
+    console.log(filterdata[0].intro);
+    // filterdata[0].details = this.data.describe;
+    // console.log(filterdata);
 
     this.setData({
       detaildata: filterdata,

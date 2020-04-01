@@ -18,14 +18,55 @@ Page({
     if (!pumpdata) {
       pumpdata = this.getPumpData();
     }
-    // this.getUrl();
-    // let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === firstdata.firstlabel);
-    // console.log(filterdata);
+    let bigclass = this.getBigClass(pumpdata).sort();
+    console.log(bigclass);
+    
+    this.setData({
+      bigclass: bigclass,
+    });
 
-    // this.setData({
-    //   typedata: filterdata,
-    // });
+  },
 
+  // 获取设备大类的数组
+  getBigClass: function(pumpdata) {
+    //
+    let bigclass = [];
+    for (let item of pumpdata) {
+      bigclass.push(item.bigclass)
+    }
+    return Array.from(new Set(bigclass));
+  },
+
+  // 跳转到二级类型页
+  secondDetail: function (e) {
+    //
+    let secondlabel = e.currentTarget.dataset.secondlabel;
+    console.log(secondlabel);
+    wx.navigateTo({
+      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
+    })
+  },
+
+  // 获取输送泵数据
+  getPumpData: function(){
+    let pumpdata = wx.getStorageSync("PumpData");
+    if(!pumpdata){
+      wx.request({
+        url: this.options.dataurl,
+        success: (res => {
+          pumpdata = res.data.data;
+          console.log(pumpdata);
+          wx.setStorageSync("PumpData", pumpdata);
+        }),
+        fail: (res => {
+          $Toast({
+            content: '异常错误',
+            type: 'error'
+          })
+        }),
+      })
+    }
+    return pumpdata;
   },
 
   getUrl: function () {
@@ -80,38 +121,6 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  // 跳转到二级类型页
-  secondDetail: function (e) {
-    //
-    let secondlabel = e.currentTarget.dataset.secondlabel;
-    console.log(secondlabel);
-    wx.navigateTo({
-      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
-    })
-  },
-
-  // 获取输送泵数据
-  getPumpData: function(){
-    let pumpdata = wx.getStorageSync("PumpData");
-    if(!pumpdata){
-      wx.request({
-        url: this.options.dataurl,
-        success: (res => {
-          pumpdata = res.data.data;
-          console.log(pumpdata);
-          wx.setStorageSync("PumpData", pumpdata);
-        }),
-        fail: (res => {
-          $Toast({
-            content: '异常错误',
-            type: 'error'
-          })
-        }),
-      })
-    }
-    return pumpdata;
   },
 
 })

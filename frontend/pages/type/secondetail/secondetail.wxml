@@ -2,7 +2,7 @@
 <view class="category-item">
   <block wx:for="{{detaildata}}" wx:for-item="item" wx:for-index="idx">
     <view class="detail-item" >
-      <text>{{item.equipname}}</text>
+      <text>{{item.title}}</text>
     </view>
   </block>
 </view>
