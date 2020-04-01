@@ -55,7 +55,7 @@ Page({
     var type = e.currentTarget.dataset.type;
     var search_string = this.data.search_string;
     wx.navigateTo({
-      url: `/pages/devices/detail?id=${id}&type=${type}&search_string=${search_string}`,
+      url: `/pages/devices/detail/detail?id=${id}&type=${type}&search_string=${search_string}`,
     })
   },
   

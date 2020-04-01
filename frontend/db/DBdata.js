@@ -66,41 +66,6 @@ DBdevice.prototype = {
     return wx.getStorageSync("TypeDevicesData");
   },
 
-  // 获取首页信息
-  getDeviceData: function() {
-    let hdata = {
-      banner: [],
-      product: [],
-      type: [],
-    };
-    let homedata = wx.getStorageSync("homeData");
-    if(!homedata){
-      wx.request({
-        // url: 'http://127.0.0.1:8000/api/home',
-        url: 'https://www.hg101.vip/api/home',
-        header: {
-          "openid": wx.getStorageSync('open_id'),
-        },
-        success: (res => {
-          console.log(res.data);
-          if(res.data.code == 0) {
-            hdata.banner = res.data.data.banner;
-            hdata.product = res.data.data.product;
-            hdata.type = res.data.data.type;
-            wx.setStorageSync("homeData", hdata);
-          }
-        }),
-        fail: (res => {
-          $Toast({
-            content: '异常错误',
-            type: 'error'
-          })
-        }),
-      })
-    }
-    return wx.getStorageSync("homeData");
-  },
-
   // 获取指定的设备详细页面
   getDetailDevice: function(entry_type, id, search_string){
     wx.request({

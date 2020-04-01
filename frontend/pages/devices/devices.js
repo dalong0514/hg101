@@ -20,17 +20,8 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getData();
-    /*
-    let deviceData = new DBdevice();
-    let homedata = deviceData.getDeviceData()
-    this.setData({
-      product: homedata.product,
-      type: homedata.type,
-    });
-    deviceData.getPropertyData();
-    this.data.product = homedata.product;
-    */
+    this.getHomeData();
+
   },
 
   /**
@@ -170,23 +161,21 @@ Page({
     })
   }),
 
-  getData: function() {
-    var _that = this;
+  // 获取首页信息
+  getHomeData: function() {
     wx.request({
       url: 'https://www.hg101.vip/api/home',
       header: {
         "openid": wx.getStorageSync('open_id'),
       },
       success: (res => {
-        _that.setData({
-          loading: false,
-        });
         if(res.data.code == 0) {
-          _that.setData({
+          this.setData({
             banner: res.data.data.banner,
             product: res.data.data.product,
             type: res.data.data.type,
-          })
+          });
+          wx.setStorageSync("homeData", res.data.data);
         }
       }),
       fail: (res => {
@@ -202,11 +191,8 @@ Page({
         "openid": wx.getStorageSync('open_id')
       },
       success: (res => {
-        _that.setData({
-          loading:false,
-        });
         if(res.data.code == 0) {
-          _that.setData({
+          this.setData({
             search_txt: res.data.data.search_txt
           })
         }

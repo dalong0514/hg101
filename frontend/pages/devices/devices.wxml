@@ -1,6 +1,5 @@
 <!--pages/devices/devices.wxml-->
 <i-toast id="toast" />
-<import src="device-tpl/device-tpl.wxml"></import>
 <import src="/components/searchbar/searchbar.wxml"></import>
 
 <view class='page'>
@@ -52,8 +51,6 @@
             <text>{{item.collect_count}}</text>
           </view>
           <image src="/images/tab/wx_app_view.png"/>
-          <text>10</text>
-          <image src="/images/tab/wx_app_message.png"/>
           <text>10</text>
           <view catch:tap="productList" data-label="{{item.type_id}}">
             <image src="/images/tab/wx_app_list.png"/>
