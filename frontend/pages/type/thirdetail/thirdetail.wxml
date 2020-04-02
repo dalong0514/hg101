@@ -1,0 +1,7 @@
+<!--pages/type/thirdetail/thirdetail.wxml-->
+<view class="outer-box">
+  <view class="category-item">
+    <text class="title">{{detaildata.title}}</text>
+    <text class="brief">{{detaildata.intro}}</text>
+  </view>
+</view>

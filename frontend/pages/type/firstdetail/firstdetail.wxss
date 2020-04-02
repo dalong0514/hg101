@@ -8,7 +8,7 @@
   display: flex;
   flex-flow: wrap;
   align-content: flex-start;
-  /* padding-top: 100rpx; */
+  padding-top: 100rpx;
 }
 
 .typebox {
@@ -19,7 +19,7 @@
   height: 246rpx;
   width: 246rpx;
   background-color: white;
-  padding-top: 120rpx;
+  /* padding-top: 500rpx; */
   /* border: 1px solid red; */
 }
 
@@ -34,8 +34,4 @@
   height: 120rpx;
   width: 120rpx;
   margin-top: 40rpx;
-}
-
-.container-box {
-  padding-top: 120rpx;
 }

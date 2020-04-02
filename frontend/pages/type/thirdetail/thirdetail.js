@@ -1,11 +1,10 @@
-// pages/type/secondetail/secondetail.js
+// pages/type/thirdetail/thirdetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    dataurl: '',
 
   },
 
@@ -13,7 +12,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取一级类型页面传来的对象数据
     let firstdata = {};
     let eventChannel = this.getOpenerEventChannel();
     eventChannel.on('acceptDataFromOpenerPage', function(data) {
@@ -23,38 +21,11 @@ Page({
     console.log(firstdata);
 
     let pumpdata = wx.getStorageSync(firstdata.dataurl);
-    console.log(pumpdata);
-    let filterdata = pumpdata.filter(item => item.bigclass === firstdata.bigclass);
-    console.log(filterdata);
-    this.data.dataurl = firstdata.dataurl;
-
+    let filterdata = pumpdata.filter(item => item.title === firstdata.title);
     this.setData({
-      detaildata: filterdata,
+      detaildata: filterdata[0],
     });
 
-  },
-
-  // 跳转到型号首页
-  toHome: function() {
-    wx.switchTab({
-      url: '/pages/type/type',
-    })
-  },
-
-  // 跳转到三级页面
-  thirdDetail: function(e) {
-    let bigclass = {};
-    bigclass.title = e.currentTarget.dataset.thirdata;
-    bigclass.dataurl = this.data.dataurl;
-    console.log(bigclass);
-    wx.navigateTo({
-      url: '/pages/type/thirdetail/thirdetail',
-      success: function(res) {
-        res.eventChannel.emit('acceptDataFromOpenerPage', {
-          data: bigclass
-        })
-      }
-    })
   },
 
   /**

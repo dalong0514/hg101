@@ -8,7 +8,7 @@
     <view class="category-item" catchtap="secondDetail" data-secondlabel="{{item.type}}">
       <text class="title">{{item.title}}</text>
       <text class="brief">{{item.briefinfo}}</text>
-      <button class="detailink">设备详情</button>
+      <button class="detailink" catch:tap="thirdDetail" data-thirdata="{{item.title}}">设备详情</button>
     </view>
   </block>
 </view>

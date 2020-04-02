@@ -167,7 +167,7 @@ DBdevice.prototype = {
       url: typeurl,
       success: (res => {
         typedata = res.data.data;
-        console.log(typedata);
+        // console.log(typedata);
         wx.setStorageSync(urlid, typedata);
       }),
       fail: (res => {

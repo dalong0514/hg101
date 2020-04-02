@@ -28,10 +28,6 @@ Page({
   onLoad: function (options) {
     let DBdata = new DBdevice();
     let TypeDevicesData = DBdata.getTypeDevicesData();
-    console.log(TypeDevicesData);
-    // TypeDevicesData.testdata = this.data.types;
-    // let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === '真空泵');
-    // console.log(filterdata);
     DBdata.getPumpData(this.data.types[0].dataurl);
 
   },
