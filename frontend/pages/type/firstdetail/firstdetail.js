@@ -15,13 +15,38 @@ Page({
    */
   onLoad: function (options) {
     let pumpdata = wx.getStorageSync(options.dataurl);
-    let firstdata = this.getBigClass(pumpdata);
-    console.log(firstdata);
-    
-    this.setData({
-      firstdata: firstdata,
-    });
+    if (pumpdata) {
+      let firstdata = this.getBigClass(pumpdata);
+      this.setData({
+        firstdata: firstdata,
+      });
+    } else {
+      this.getPumpData(options.dataurl);
+    }
+  },
 
+  // 获取输送泵数据
+  getPumpData: function(urlid){
+    let typeurl = 'https://www.hg101.vip/api/' + urlid;
+    let typedata = [];
+    wx.request({
+      url: typeurl,
+      success: (res => {
+        typedata = res.data.data;
+        let firstdata = this.getBigClass(typedata);
+        console.log(firstdata);
+        this.setData({
+          firstdata: firstdata,
+        });
+        wx.setStorageSync(this.options.dataurl, typedata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
   },
 
   // 获取设备大类的数组

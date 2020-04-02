@@ -28,7 +28,7 @@ Page({
   onLoad: function (options) {
     let DBdata = new DBdevice();
     let TypeDevicesData = DBdata.getTypeDevicesData();
-    DBdata.getPumpData(this.data.types[0].dataurl);
+    // DBdata.getPumpData(this.data.types[0].dataurl);
 
   },
 

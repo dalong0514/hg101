@@ -6,6 +6,7 @@ Page({
    */
   data: {
     dataurl: '',
+    bigclass: '',
 
   },
 
@@ -23,15 +24,43 @@ Page({
     console.log(firstdata);
 
     let pumpdata = wx.getStorageSync(firstdata.dataurl);
-    console.log(pumpdata);
-    let filterdata = pumpdata.filter(item => item.bigclass === firstdata.bigclass);
-    console.log(filterdata);
+    if (pumpdata) {
+      let filterdata = pumpdata.filter(item => item.bigclass === firstdata.bigclass);
+      this.setData({
+        detaildata: filterdata,
+      });
+    } else {
+      this.getPumpData(firstdata.dataurl);
+    }
     this.data.dataurl = firstdata.dataurl;
+    this.data.bigclass = firstdata.bigclass;
 
-    this.setData({
-      detaildata: filterdata,
-    });
+  },
 
+  // 获取输送泵数据
+  getPumpData: function(urlid){
+    let typeurl = 'https://www.hg101.vip/api/' + urlid;
+    let typedata = [];
+    wx.request({
+      url: typeurl,
+      success: (res => {
+        typedata = res.data.data;
+        console.log(this.data.dataurl);
+        console.log(typedata);
+        let filterdata = typedata.filter(item => item.bigclass === this.data.bigclass);
+        console.log(filterdata);
+        this.setData({
+          detaildata: filterdata,
+        });
+        wx.setStorageSync(this.data.dataurl, typedata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
   },
 
   // 跳转到型号首页
