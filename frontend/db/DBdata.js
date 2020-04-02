@@ -159,45 +159,26 @@ DBdevice.prototype = {
     }
   },
 
-  //更新本地的评论信息、收藏、阅读量
-  updateData: function(action, newComment) {
-    const itemData = this.getItemById();
-    let deviceData = itemData.data;
-    console.log(deviceData);
-    // 定位到 product 是关键
-    let alldeviceData = this.getDeviceData().product;
-    console.log(deviceData.is_collect);
-    switch (action) {
-      case "collect":
-        if (deviceData.is_collect == 0) {
-          deviceData.is_collect = 1;
-          deviceData.collect_count++;
-        } else {
-          deviceData.is_collect = 0;
-          deviceData.collect_count--;
-        }
-        break;
-      case "comment":
-        deviceData.comments.push(newComment);
-        deviceData.commentNum++;
-        break;
-      case "reading":
-        deviceData.readingNum++;
-        break;
-      default:
-        break;
-    }
-    alldeviceData[itemData.index] = deviceData;
-    // console.log(alldeviceData);
-    // console.log(deviceData);
-    return deviceData;
+  // 获取输送泵数据
+  getPumpData: function(urlid){
+    let typeurl = 'https://www.hg101.vip/api/' + urlid;
+    let typedata = [];
+    wx.request({
+      url: typeurl,
+      success: (res => {
+        typedata = res.data.data;
+        console.log(typedata);
+        wx.setStorageSync(urlid, typedata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
+    // return typedata;
   },
-
-  collect: function(id) {
-    this.resid = id;
-    console.log(this.resid);
-    return this.updateData('collect');
-  }
 
 };
 

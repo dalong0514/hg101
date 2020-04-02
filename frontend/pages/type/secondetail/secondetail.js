@@ -5,13 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    describe: {
-      title: "设备名称举例：",
-      type: "设备型号：",
-      spec: "设备详细规格及其附件：",
-      material: "设备材质",
-      perweight: "设备单重：",
-    },
 
   },
 
@@ -19,15 +12,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let secondlabel = options.secondlabel;
-    console.log(secondlabel);
+    // 获取一级类型页面传来的对象数据
+    let firstdata = {};
+    let eventChannel = this.getOpenerEventChannel();
+    eventChannel.on('acceptDataFromOpenerPage', function(data) {
+      console.log(data);
+      firstdata = data.data;
+    });
+    console.log(firstdata);
 
-    let pumpdata = wx.getStorageSync("PumpData");
-    let filterdata = pumpdata.filter(item => item.bigclass === secondlabel);
+    let pumpdata = wx.getStorageSync(firstdata.dataurl);
+    let filterdata = pumpdata.filter(item => item.bigclass === firstdata.bigclass);
     console.log(filterdata);
-    console.log(filterdata[0].intro);
-    // filterdata[0].details = this.data.describe;
-    // console.log(filterdata);
 
     this.setData({
       detaildata: filterdata,

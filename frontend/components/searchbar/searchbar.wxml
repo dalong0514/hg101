@@ -1,7 +1,7 @@
 <template name="searchbar">
   <view class="page__hd weui-flex tz-device-header" style="width:100%;position:fixed;top:0;z-index:100">
     <view class="device-category">
-      <image bindtap="doSearch" class="img-category" src='/images/device/category.png' />
+      <image bindtap="toHome" class="img-category" src='/images/device/home-fill.png' />
     </view>
     <view class='weui-flex__item tz-search'>
       <view class="weui-search-bar__form" bindtap='doSearch'>

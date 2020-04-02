@@ -1,8 +1,14 @@
 <!--pages/type/secondetail/secondetail.wxml-->
-<view class="category-item">
+
+<import src="/components/searchbar/searchbar.wxml"></import>
+<template is="searchbar" />
+
+<view class="outer-box">
   <block wx:for="{{detaildata}}" wx:for-item="item" wx:for-index="idx">
-    <view class="detail-item" >
-      <text>{{item.title}}</text>
+    <view class="category-item" catchtap="secondDetail" data-secondlabel="{{item.type}}">
+      <text class="title">{{item.title}}</text>
+      <text class="brief">{{item.briefinfo}}</text>
+      <button class="detailink">设备详情</button>
     </view>
   </block>
 </view>

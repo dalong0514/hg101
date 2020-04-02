@@ -13,16 +13,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    let pumpdata = wx.getStorageSync("PumpData");
-    if (!pumpdata) {
-      pumpdata = this.getPumpData();
-    }
-    let bigclass = this.getBigClass(pumpdata).sort();
-    console.log(bigclass);
+  onLoad: function (options) {
+    let pumpdata = wx.getStorageSync(options.dataurl);
+    let firstdata = this.getBigClass(pumpdata).sort();
+    console.log(firstdata);
     
     this.setData({
-      bigclass: bigclass,
+      firstdata: firstdata,
     });
 
   },
@@ -34,44 +31,32 @@ Page({
     for (let item of pumpdata) {
       bigclass.push(item.bigclass)
     }
-    return Array.from(new Set(bigclass));
+    let newbigclass = Array.from(new Set(bigclass));
+    let firstdata = [];
+    for (let item of newbigclass) {
+      let bigitem = {};
+      bigitem.bigclass = item;
+      bigitem.dataurl = this.options.dataurl;
+      firstdata.push(bigitem);
+    }
+    return firstdata;
   },
 
   // 跳转到二级类型页
   secondDetail: function (e) {
-    //
-    let secondlabel = e.currentTarget.dataset.secondlabel;
-    console.log(secondlabel);
+    let bigclass = {};
+    bigclass.bigclass = e.currentTarget.dataset.bigclass;
+    bigclass.dataurl = e.currentTarget.dataset.dataurl;
+    console.log(bigclass);
     wx.navigateTo({
-      url: '/pages/type/secondetail/secondetail?secondlabel=' + secondlabel,
+      // url: '/pages/type/secondetail/secondetail?bigclass=' + bigclass,
+      url: '/pages/type/secondetail/secondetail',
+      success: function(res) {
+        res.eventChannel.emit('acceptDataFromOpenerPage', {
+          data: bigclass
+        })
+      }
     })
-  },
-
-  // 获取输送泵数据
-  getPumpData: function(){
-    let pumpdata = wx.getStorageSync("PumpData");
-    if(!pumpdata){
-      wx.request({
-        url: this.options.dataurl,
-        success: (res => {
-          pumpdata = res.data.data;
-          console.log(pumpdata);
-          wx.setStorageSync("PumpData", pumpdata);
-        }),
-        fail: (res => {
-          $Toast({
-            content: '异常错误',
-            type: 'error'
-          })
-        }),
-      })
-    }
-    return pumpdata;
-  },
-
-  getUrl: function () {
-    //
-    console.log(this);
   },
 
   /**

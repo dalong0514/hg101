@@ -8,9 +8,8 @@ Page({
    */
   data: {
     types: [
-      { iconurl: '/images/device/hg101.jpg', title: '输送泵', tap: 'showCollection', dataurl: 'http://127.0.0.1:8000/api/pump' },
-      { iconurl: '/images/device/hg101.jpg', title: '真空泵', tap: 'vacuumPump' },
-      { iconurl: '/images/device/lixin.jpg', title: '离心机', tap: 'showIntroduction' },
+      { iconurl: '/images/device/hg101.jpg', title: '泵系列', tap: 'showCollection', dataurl: 'pump' },
+      { iconurl: '/images/device/hg101.jpg', title: '离心机', tap: 'showIntroduction' },
       { iconurl: '/images/device/hg101.jpg', title: '蒸发器', tap: 'showIntroduction' },
       { iconurl: '/images/device/hg101.jpg', title: '换热器', tap: 'showIntroduction' },
       { iconurl: '/images/device/hg101.jpg', title: '反应釜', tap: 'showIntroduction' },
@@ -31,8 +30,9 @@ Page({
     let TypeDevicesData = DBdata.getTypeDevicesData();
     console.log(TypeDevicesData);
     // TypeDevicesData.testdata = this.data.types;
-    let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === '真空泵');
-    console.log(filterdata);
+    // let filterdata = TypeDevicesData.data.filter(item => item.firstlabel === '真空泵');
+    // console.log(filterdata);
+    DBdata.getPumpData(this.data.types[0].dataurl);
 
   },
 
