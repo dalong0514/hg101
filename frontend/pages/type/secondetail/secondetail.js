@@ -31,6 +31,13 @@ Page({
 
   },
 
+  // 跳转到型号首页
+  toHome: function() {
+    wx.switchTab({
+      url: '/pages/type/type',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

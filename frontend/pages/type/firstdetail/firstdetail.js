@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     let pumpdata = wx.getStorageSync(options.dataurl);
-    let firstdata = this.getBigClass(pumpdata).sort();
+    let firstdata = this.getBigClass(pumpdata);
     console.log(firstdata);
     
     this.setData({
@@ -31,7 +31,7 @@ Page({
     for (let item of pumpdata) {
       bigclass.push(item.bigclass)
     }
-    let newbigclass = Array.from(new Set(bigclass));
+    let newbigclass = Array.from(new Set(bigclass)).sort();
     let firstdata = [];
     for (let item of newbigclass) {
       let bigitem = {};
@@ -49,13 +49,19 @@ Page({
     bigclass.dataurl = e.currentTarget.dataset.dataurl;
     console.log(bigclass);
     wx.navigateTo({
-      // url: '/pages/type/secondetail/secondetail?bigclass=' + bigclass,
       url: '/pages/type/secondetail/secondetail',
       success: function(res) {
         res.eventChannel.emit('acceptDataFromOpenerPage', {
           data: bigclass
         })
       }
+    })
+  },
+
+  // 跳转到型号首页
+  toHome: function() {
+    wx.switchTab({
+      url: '/pages/type/type',
     })
   },
 
