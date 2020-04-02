@@ -15,25 +15,22 @@ Page({
    */
   onLoad: function (options) {
     // 获取一级类型页面传来的对象数据
-    let firstdata = {};
-    let eventChannel = this.getOpenerEventChannel();
-    eventChannel.on('acceptDataFromOpenerPage', function(data) {
-      // console.log(data);
-      firstdata = data.data;
-    });
-    console.log(firstdata);
+    let bigurl = options.bigurl;
+    console.log(bigurl);
+    let dataurl = bigurl.split('#')[0];
+    let bigclass = bigurl.split('#')[1];
 
-    let pumpdata = wx.getStorageSync(firstdata.dataurl);
+    let pumpdata = wx.getStorageSync(dataurl);
     if (pumpdata) {
-      let filterdata = pumpdata.filter(item => item.bigclass === firstdata.bigclass);
+      let filterdata = pumpdata.filter(item => item.bigclass === bigclass);
       this.setData({
         detaildata: filterdata,
       });
     } else {
-      this.getPumpData(firstdata.dataurl);
+      this.getPumpData(dataurl);
     }
-    this.data.dataurl = firstdata.dataurl;
-    this.data.bigclass = firstdata.bigclass;
+    this.data.dataurl = dataurl;
+    this.data.bigclass = bigclass;
 
   },
 
@@ -47,6 +44,7 @@ Page({
         typedata = res.data.data;
         console.log(this.data.dataurl);
         console.log(typedata);
+        // 可以在数据里筛选，待实现
         let filterdata = typedata.filter(item => item.bigclass === this.data.bigclass);
         console.log(filterdata);
         this.setData({
@@ -72,17 +70,11 @@ Page({
 
   // 跳转到三级页面
   thirdDetail: function(e) {
-    let bigclass = {};
-    bigclass.title = e.currentTarget.dataset.thirdata;
-    bigclass.dataurl = this.data.dataurl;
-    console.log(bigclass);
+    let title = e.currentTarget.dataset.thirdata;
+    let dataurl = this.data.dataurl;
+    let bigurl = dataurl + '#' + title;
     wx.navigateTo({
-      url: '/pages/type/thirdetail/thirdetail',
-      success: function(res) {
-        res.eventChannel.emit('acceptDataFromOpenerPage', {
-          data: bigclass
-        })
-      }
+      url: '/pages/type/thirdetail/thirdetail?bigurl=' + bigurl,
     })
   },
 

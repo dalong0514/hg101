@@ -69,17 +69,12 @@ Page({
 
   // 跳转到二级类型页
   secondDetail: function (e) {
-    let bigclass = {};
-    bigclass.bigclass = e.currentTarget.dataset.bigclass;
-    bigclass.dataurl = e.currentTarget.dataset.dataurl;
-    console.log(bigclass);
+    let bigclass = e.currentTarget.dataset.bigclass;
+    let dataurl = e.currentTarget.dataset.dataurl;
+    let bigurl = dataurl + '#' + bigclass;
+    console.log(bigurl);
     wx.navigateTo({
-      url: '/pages/type/secondetail/secondetail',
-      success: function(res) {
-        res.eventChannel.emit('acceptDataFromOpenerPage', {
-          data: bigclass
-        })
-      }
+      url: '/pages/type/secondetail/secondetail?bigurl=' + bigurl,
     })
   },
 
