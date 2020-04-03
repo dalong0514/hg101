@@ -11,7 +11,7 @@ class PropertyModel extends Model
     // 提取物性数据字段
     protected static function getproperty() {
         return self::query()
-        -> select(['id', 'cname', 'ename', 'cas', 'hazard', 'comment'])
+        -> select(['id', 'cname', 'ename', 'cas', 'hazard', 'alisname', 'comment'])
         -> get();
     }
 }

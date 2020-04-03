@@ -62,10 +62,28 @@ Page({
     })
   },
 
+  // 跳转到二级页面
+  toSecond: function(e) {
+    let id = e.currentTarget.dataset.id;
+    let index = this.data.index;
+    let bigurl = id + '#' + index;
+    console.log(bigurl);
+    wx.navigateTo({
+      url: '/pages/property/secondproperty/secondproperty?bigurl=' + bigurl,
+    })
+  },
+
   // 跳转到搜索栏
   doSearch: function() {
     wx.navigateTo({
       url: '/pages/devices/search',
+    })
+  },
+
+  // 跳转到型号首页
+  toHome: function() {
+    wx.switchTab({
+      url: '/pages/property/property',
     })
   },
 

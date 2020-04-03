@@ -1,2 +1,16 @@
 <!--pages/property/secondproperty/secondproperty.wxml-->
-<text>pages/property/secondproperty/secondproperty.wxml</text>
+
+<view class="category-item" >
+  <text class="title">{{detaildata.cname}}</text>
+  <text class="content">CAS 号：{{detaildata.cas}}
+    
+    英文名称：{{detaildata.ename}}
+    
+    别名：{{detaildata.alisname}}
+  </text>
+</view>
+
+<view class="category-item" >
+  <text class="title">危险性类别</text>
+  <text class="content">{{detaildata.hazard}}</text>
+</view>

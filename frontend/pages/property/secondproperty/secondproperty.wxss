@@ -1,1 +1,22 @@
 /* pages/property/secondproperty/secondproperty.wxss */
+
+.category-item {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+width: 100%;
+/* border-top: 20rpx solid #d9d9d9; */
+border-bottom: 30rpx solid #d9d9d9;
+background-color: #fff;
+}
+
+.title {
+margin: 30rpx;
+font-size: 20px;
+}
+
+.content {
+margin: 30rpx;
+font-size: 17px;
+color: #545454;
+}

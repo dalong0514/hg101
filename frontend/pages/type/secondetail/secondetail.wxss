@@ -4,34 +4,33 @@
 
 .outer-box {
   padding-top: 120rpx;
-}
-
-.category-item {
+  }
+    
+  .category-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   width: 100%;
   /* border-top: 20rpx solid #d9d9d9; */
   border-bottom: 30rpx solid #d9d9d9;
   background-color: #fff;
-}
-
-.title {
+  }
+  
+  .title {
   margin: 30rpx;
   font-size: 20px;
-}
-
-.brief {
+  }
+  
+  .brief {
   margin: 30rpx;
   font-size: 17px;
   color: #545454;
-}
-
-.detailink {
+  }
+  
+  .detailink {
   margin: 30rpx;
   font-size: 17px;
   width: auto;
   border: 1px solid black;
   color: #545454;
-}
+  }

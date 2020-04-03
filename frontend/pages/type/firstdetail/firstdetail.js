@@ -14,11 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let pumpdata = wx.getStorageSync(options.dataurl);
+    let pumpdata = wx.getStorageSync("bigclass");
     if (pumpdata) {
-      let firstdata = this.getBigClass(pumpdata);
       this.setData({
-        firstdata: firstdata,
+        firstdata: pumpdata,
       });
     } else {
       this.getPumpData(options.dataurl);
@@ -38,6 +37,7 @@ Page({
         this.setData({
           firstdata: firstdata,
         });
+        wx.setStorageSync("bigclass", firstdata);
         wx.setStorageSync(this.options.dataurl, typedata);
       }),
       fail: (res => {

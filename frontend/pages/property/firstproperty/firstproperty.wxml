@@ -4,7 +4,7 @@
 
 <view class='device-list-content'>
   <block wx:for="{{firstdata}}" wx:key="unique" wx:for-index="idx">
-    <view catch:tap="toSecond" class='item'>
+    <view catch:tap="toSecond" class='item' data-id="{{item.id}}">
       <image class="type-image" src='/images/device/hg101.jpg'  mode="aspectFill"/>
       <view class='meta'>
         <view class='title'>{{item.cname}}</view>
