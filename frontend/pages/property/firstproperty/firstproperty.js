@@ -21,6 +21,35 @@ Page({
       product: res,
     });
 
+    let index = options.index;
+    console.log(index);
+
+    this.getPropertyData('property');
+
+  },
+
+  // 获取物性数据
+  getPropertyData: function(urlid){
+    // let typeurl = 'https://www.hg101.vip/api/' + urlid;
+    let url = 'http://127.0.0.1:8000/api/' + urlid;
+    let typedata = [];
+    wx.request({
+      url: url,
+      success: (res => {
+        typedata = res.data.data;
+        console.log(typedata);
+        this.setData({
+          firstdata: typedata,
+        });
+        wx.setStorageSync(this.options.dataurl, typedata);
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
   },
 
   // 跳转到搜索栏
