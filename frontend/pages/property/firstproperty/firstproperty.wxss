@@ -9,6 +9,7 @@
   margin-right: 10px;
   margin-bottom: 10px;
   padding: 10px;
+  padding-top: 20px;
   border-radius: 5px;
 }
 
@@ -20,17 +21,17 @@
 
 .title {
   color: rgba(16, 16, 16, 1);
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .content {
-  color: rgba(16, 16, 16, 1);
-  font-size: 12px;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  color: #545454;
 }
 
 .tag-fav {
