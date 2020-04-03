@@ -68,4 +68,7 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
     
     // 泵的 api
     $api->get('pump','PumpController@pump');
+
+    // 物性的 api
+    $api->get('property','PropertyController@property');
 });
