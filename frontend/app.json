@@ -12,6 +12,8 @@
     "pages/product/product",
     "pages/logs/logs",
     "pages/property/property",
+    "pages/property/firstproperty/firstproperty",
+    "pages/property/secondproperty/secondproperty",
     "pages/test/test",
     "pages/setting/setting",
     "pages/setting/collect/collect",

@@ -8,16 +8,17 @@ Page({
    */
   data: {
     types: [
-      { iconurl: '/images/device/hg101.jpg', title: '泵系列', tap: 'showCollection', dataurl: 'pump' },
-      { iconurl: '/images/device/hg101.jpg', title: '离心机', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '蒸发器', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '换热器', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '反应釜', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '烘箱', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '干燥机', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '制氮机', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '压滤机', tap: 'showIntroduction' },
-      { iconurl: '/images/device/hg101.jpg', title: '行车', tap: 'showIntroduction' },
+      { iconurl: '/images/device/hg101.jpg', title: '泵系列',
+      dataurl: 'pump' },
+      { iconurl: '/images/device/hg101.jpg', title: '离心机', },
+      { iconurl: '/images/device/hg101.jpg', title: '蒸发器', },
+      { iconurl: '/images/device/hg101.jpg', title: '换热器', },
+      { iconurl: '/images/device/hg101.jpg', title: '反应釜', },
+      { iconurl: '/images/device/hg101.jpg', title: '烘箱', },
+      { iconurl: '/images/device/hg101.jpg', title: '干燥机', },
+      { iconurl: '/images/device/hg101.jpg', title: '制氮机', },
+      { iconurl: '/images/device/hg101.jpg', title: '压滤机', },
+      { iconurl: '/images/device/hg101.jpg', title: '行车', },
     ],
 
   },

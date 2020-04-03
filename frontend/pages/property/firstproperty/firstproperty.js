@@ -1,5 +1,5 @@
-// pages/property/property.js
-var DBdevice = require('../../db/DBdata.js').DBdevice;
+// pages/property/firstproperty/firstproperty.js
+var DBdevice = require('../../../db/DBdata.js').DBdevice;
 
 Page({
 
@@ -7,14 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    types: [
-      { iconurl: '/images/device/hg101.jpg', index: '0-500', },
-      { iconurl: '/images/device/hg101.jpg', index: '501-1000', },
-      { iconurl: '/images/device/hg101.jpg', index: '1001-1500', },
-      { iconurl: '/images/device/hg101.jpg', index: '1501-2000', },
-      { iconurl: '/images/device/hg101.jpg', index: '2001-2500', },
-      { iconurl: '/images/device/hg101.jpg', index: '2501-2828', }, 
-    ],
 
   },
 
@@ -22,16 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let deviceData = new DBdevice();
+    deviceData.getPropertyData();
+    let res = wx.getStorageSync("PropertyData");
+    this.setData({
+      product: res,
+    });
 
-  },
-
-  // 跳转到一级类型页
-  toFirst: function (e) {
-    let index = e.currentTarget.dataset.index;
-    console.log(index);
-    wx.navigateTo({
-      url: '/pages/property/firstproperty/firstproperty?index=' + index,
-    })
   },
 
   // 跳转到搜索栏
@@ -88,6 +77,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
+  }
 })
