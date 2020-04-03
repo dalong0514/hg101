@@ -22,6 +22,7 @@ class BaseController extends Controller
         '/api/openid',
         '/api/upload',
     ];
+    protected $wxdata = null;
 
     public function __construct(Request $request){
         $this->request = $request;
@@ -48,6 +49,10 @@ class BaseController extends Controller
         // 设置全局用户信息
         $this->user = $user ?? null;
         $this->user_id = $user->id ?? 0;
+
+        //获取前端传递的数据
+        // $this->wxdata = $_SERVER['HTTP_OPENID'];
+        // $this->wxdata = $_GET['index'];
 
         return true;
     }

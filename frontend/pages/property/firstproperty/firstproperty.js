@@ -1,5 +1,4 @@
 // pages/property/firstproperty/firstproperty.js
-var DBdevice = require('../../../db/DBdata.js').DBdevice;
 
 Page({
 
@@ -7,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    indexlist: [],
+    index: '',
 
   },
 
@@ -14,34 +15,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let deviceData = new DBdevice();
-    deviceData.getPropertyData();
-    let res = wx.getStorageSync("PropertyData");
-    this.setData({
-      product: res,
-    });
-
     let index = options.index;
     console.log(index);
+    this.data.indexlist.push(parseInt(index.split('-')[0])-1);
+    this.data.indexlist.push(parseInt(index.split('-')[1])-1);
+    this.data.index = index;
+    console.log(this.data.indexlist);
 
-    this.getPropertyData('property');
+    let propertydata = wx.getStorageSync(index);
+    if (propertydata) {
+      this.setData({
+        firstdata: propertydata.slice(this.data.indexlist[0], this.data.indexlist[1]),
+      });
+    } else {
+      this.getPropertyData();
+    }
 
   },
 
   // 获取物性数据
-  getPropertyData: function(urlid){
+  getPropertyData: function(){
     // let typeurl = 'https://www.hg101.vip/api/' + urlid;
-    let url = 'http://127.0.0.1:8000/api/' + urlid;
+    let url = 'http://127.0.0.1:8000/api/property';
     let typedata = [];
     wx.request({
       url: url,
+      data: {
+        test: 'dalong',
+      },
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
       success: (res => {
         typedata = res.data.data;
-        console.log(typedata);
         this.setData({
-          firstdata: typedata,
+          firstdata: typedata.slice(this.data.indexlist[0], this.data.indexlist[1]),
         });
-        wx.setStorageSync(this.options.dataurl, typedata);
+        wx.setStorageSync(this.data.index, typedata.slice(this.data.indexlist[0], this.data.indexlist[1]));
       }),
       fail: (res => {
         $Toast({

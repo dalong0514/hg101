@@ -8,12 +8,16 @@ Page({
    */
   data: {
     types: [
-      { iconurl: '/images/device/hg101.jpg', index: '0-500', },
-      { iconurl: '/images/device/hg101.jpg', index: '501-1000', },
-      { iconurl: '/images/device/hg101.jpg', index: '1001-1500', },
-      { iconurl: '/images/device/hg101.jpg', index: '1501-2000', },
-      { iconurl: '/images/device/hg101.jpg', index: '2001-2500', },
-      { iconurl: '/images/device/hg101.jpg', index: '2501-2828', }, 
+      { iconurl: '/images/device/hg101.jpg', index: '1-300', },
+      { iconurl: '/images/device/hg101.jpg', index: '301-600', },
+      { iconurl: '/images/device/hg101.jpg', index: '601-900', },
+      { iconurl: '/images/device/hg101.jpg', index: '901-1200', },
+      { iconurl: '/images/device/hg101.jpg', index: '1201-1500', },
+      { iconurl: '/images/device/hg101.jpg', index: '1501-1800', }, 
+      { iconurl: '/images/device/hg101.jpg', index: '1801-2100', }, 
+      { iconurl: '/images/device/hg101.jpg', index: '2101-2400', }, 
+      { iconurl: '/images/device/hg101.jpg', index: '2401-2700', }, 
+      { iconurl: '/images/device/hg101.jpg', index: '2701-2828', }, 
     ],
 
   },
