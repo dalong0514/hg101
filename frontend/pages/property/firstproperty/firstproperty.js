@@ -17,15 +17,12 @@ Page({
   onLoad: function (options) {
     let index = options.index;
     console.log(index);
-    this.data.indexlist.push(parseInt(index.split('-')[0])-1);
-    this.data.indexlist.push(parseInt(index.split('-')[1])-1);
     this.data.index = index;
-    console.log(this.data.indexlist);
 
     let propertydata = wx.getStorageSync(index);
     if (propertydata) {
       this.setData({
-        firstdata: propertydata.slice(this.data.indexlist[0], this.data.indexlist[1]),
+        firstdata: propertydata,
       });
     } else {
       this.getPropertyData();
@@ -41,17 +38,18 @@ Page({
     wx.request({
       url: url,
       data: {
-        test: 'dalong',
+        index: this.data.index,
       },
       header: {
         "openid": wx.getStorageSync('open_id'),
       },
       success: (res => {
         typedata = res.data.data;
+        console.log(typedata);
         this.setData({
-          firstdata: typedata.slice(this.data.indexlist[0], this.data.indexlist[1]),
+          firstdata: typedata,
         });
-        wx.setStorageSync(this.data.index, typedata.slice(this.data.indexlist[0], this.data.indexlist[1]));
+        wx.setStorageSync(this.data.index, typedata);
       }),
       fail: (res => {
         $Toast({
