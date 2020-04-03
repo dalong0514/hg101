@@ -128,20 +128,6 @@ DBdevice.prototype = {
     }
   },
 
-  //获取物性数据
-  getPropertyData: function() {
-    let propertyData = [];
-    this.getAllDevice();
-    let itemData = wx.getStorageSync("AllData");
-    for(let item of itemData){
-      if (item.describe === "物性数据"){
-        propertyData.push(item);
-      } 
-    }
-    // console.log(propertyData.reverse());
-    wx.setStorageSync("PropertyData", propertyData.reverse());
-  },
-
   //获取指定 id 号的设备数据
   getItemById: function() {
     var itemData = this.getDeviceData();
@@ -157,27 +143,6 @@ DBdevice.prototype = {
         }
       }
     }
-  },
-
-  // 获取输送泵数据
-  getPumpData: function(urlid){
-    let typeurl = 'https://www.hg101.vip/api/' + urlid;
-    let typedata = [];
-    wx.request({
-      url: typeurl,
-      success: (res => {
-        typedata = res.data.data;
-        // console.log(typedata);
-        wx.setStorageSync(urlid, typedata);
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
-    // return typedata;
   },
 
 };

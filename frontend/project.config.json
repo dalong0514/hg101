@@ -71,13 +71,6 @@
 					"scene": null
 				},
 				{
-					"id": 4,
-					"name": "详情",
-					"pathName": "pages/devices/detail",
-					"query": "id=7&type=1",
-					"scene": null
-				},
-				{
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/devices/search",
@@ -92,13 +85,6 @@
 					"scene": null
 				},
 				{
-					"id": 7,
-					"name": "汇总",
-					"pathName": "pages/product/product",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 8,
 					"name": "型号",
 					"pathName": "pages/type/type",
@@ -109,13 +95,6 @@
 					"id": -1,
 					"name": "物性",
 					"pathName": "pages/property/property",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "一级型号",
-					"pathName": "pages/type/firstdetail/firstdetail",
 					"query": "",
 					"scene": null
 				}

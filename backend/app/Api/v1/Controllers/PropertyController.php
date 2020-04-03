@@ -18,15 +18,10 @@ class PropertyController extends BaseController
      */
     public function property()
     {
-        // $param = $this->request->all();
-        // $param = $this->request->get('data');
-        // $param = $this->request;
-        // $index = $param['index'];
-        // var_dump($index);
-        // $param =  $this->wxdata;
-        // $param = $_GET['index'];
-        // var_dump($param);
-        // exit;
+        $param = $this->request->all();
+        $index = $param['test'];
+        var_dump($index);
+        exit;
         $data = PropertyModel::getproperty();
         return $this->success($data);
     }
