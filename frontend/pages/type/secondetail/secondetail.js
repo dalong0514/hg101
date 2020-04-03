@@ -17,40 +17,39 @@ Page({
     // 获取一级类型页面传来的对象数据
     let bigurl = options.bigurl;
     console.log(bigurl);
-    let dataurl = bigurl.split('#')[0];
-    let bigclass = bigurl.split('#')[1];
+    this.data.dataurl = bigurl.split('#')[0];
+    this.data.bigclass = bigurl.split('#')[1];
 
-    let pumpdata = wx.getStorageSync(dataurl);
+    let pumpdata = wx.getStorageSync(this.data.bigclass);
     if (pumpdata) {
-      let filterdata = pumpdata.filter(item => item.bigclass === bigclass);
       this.setData({
-        detaildata: filterdata,
+        detaildata: pumpdata,
       });
     } else {
-      this.getPumpData(dataurl);
+      this.getPumpData();
     }
-    this.data.dataurl = dataurl;
-    this.data.bigclass = bigclass;
 
   },
 
   // 获取输送泵数据
-  getPumpData: function(urlid){
-    let typeurl = 'https://www.hg101.vip/api/' + urlid;
+  getPumpData: function(){
+    let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
     let typedata = [];
     wx.request({
       url: typeurl,
+      data: {
+        keyword: this.data.bigclass,
+      },
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
       success: (res => {
         typedata = res.data.data;
-        console.log(this.data.dataurl);
         console.log(typedata);
-        // 可以在数据里筛选，待实现
-        let filterdata = typedata.filter(item => item.bigclass === this.data.bigclass);
-        console.log(filterdata);
         this.setData({
-          detaildata: filterdata,
+          detaildata: typedata,
         });
-        wx.setStorageSync(this.data.dataurl, typedata);
+        wx.setStorageSync(this.data.bigclass, typedata);
       }),
       fail: (res => {
         $Toast({
@@ -71,7 +70,7 @@ Page({
   // 跳转到三级页面
   thirdDetail: function(e) {
     let title = e.currentTarget.dataset.thirdata;
-    let dataurl = this.data.dataurl;
+    let dataurl = this.data.bigclass;
     let bigurl = dataurl + '#' + title;
     wx.navigateTo({
       url: '/pages/type/thirdetail/thirdetail?bigurl=' + bigurl,

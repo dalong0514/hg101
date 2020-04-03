@@ -32,8 +32,7 @@ Page({
 
   // 获取物性数据
   getPropertyData: function(){
-    // let url = 'https://www.hg101.vip/api/property';
-    let url = 'http://127.0.0.1:8000/api/property';
+    let url = 'https://www.hg101.vip/api/property';
     let typedata = [];
     wx.request({
       url: url,

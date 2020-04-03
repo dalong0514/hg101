@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    keyword: 'bigclass',
+    dataurl: '',
 
   },
 
@@ -14,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.dataurl = options.dataurl;
     let pumpdata = wx.getStorageSync("bigclass");
     if (pumpdata) {
       this.setData({
@@ -30,15 +33,19 @@ Page({
     let typedata = [];
     wx.request({
       url: typeurl,
+      data: {
+        keyword: this.data.keyword,
+      },
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
       success: (res => {
-        typedata = res.data.data;
-        let firstdata = this.getBigClass(typedata);
-        console.log(firstdata);
+        typedata = res.data.data.reverse();
+        console.log(typedata);
         this.setData({
-          firstdata: firstdata,
+          firstdata: typedata,
         });
-        wx.setStorageSync("bigclass", firstdata);
-        wx.setStorageSync(this.options.dataurl, typedata);
+        wx.setStorageSync("bigclass", typedata);
       }),
       fail: (res => {
         $Toast({
@@ -49,28 +56,10 @@ Page({
     })
   },
 
-  // 获取设备大类的数组
-  getBigClass: function(pumpdata) {
-    //
-    let bigclass = [];
-    for (let item of pumpdata) {
-      bigclass.push(item.bigclass)
-    }
-    let newbigclass = Array.from(new Set(bigclass)).sort();
-    let firstdata = [];
-    for (let item of newbigclass) {
-      let bigitem = {};
-      bigitem.bigclass = item;
-      bigitem.dataurl = this.options.dataurl;
-      firstdata.push(bigitem);
-    }
-    return firstdata;
-  },
-
   // 跳转到二级类型页
   secondDetail: function (e) {
     let bigclass = e.currentTarget.dataset.bigclass;
-    let dataurl = e.currentTarget.dataset.dataurl;
+    let dataurl = this.data.dataurl;
     let bigurl = dataurl + '#' + bigclass;
     console.log(bigurl);
     wx.navigateTo({

@@ -8,17 +8,16 @@ Page({
    */
   data: {
     types: [
-      { iconurl: '/images/device/hg101.jpg', title: '泵系列',
-      dataurl: 'pump' },
-      { iconurl: '/images/device/hg101.jpg', title: '离心机', },
-      { iconurl: '/images/device/hg101.jpg', title: '蒸发器', },
-      { iconurl: '/images/device/hg101.jpg', title: '换热器', },
-      { iconurl: '/images/device/hg101.jpg', title: '反应釜', },
-      { iconurl: '/images/device/hg101.jpg', title: '烘箱', },
-      { iconurl: '/images/device/hg101.jpg', title: '干燥机', },
-      { iconurl: '/images/device/hg101.jpg', title: '制氮机', },
-      { iconurl: '/images/device/hg101.jpg', title: '压滤机', },
-      { iconurl: '/images/device/hg101.jpg', title: '行车', },
+      { title: '泵系列', dataurl: 'pump', },
+      { title: '离心机', },
+      { title: '蒸发器', },
+      { title: '换热器', },
+      { title: '反应釜', },
+      { title: '烘箱', },
+      { title: '干燥机', },
+      { title: '制氮机', },
+      { title: '压滤机', },
+      { title: '行车', },
     ],
 
   },
@@ -27,9 +26,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let DBdata = new DBdevice();
-    let TypeDevicesData = DBdata.getTypeDevicesData();
-    // DBdata.getPumpData(this.data.types[0].dataurl);
+    // let DBdata = new DBdevice();
+    // let TypeDevicesData = DBdata.getTypeDevicesData();
 
   },
 

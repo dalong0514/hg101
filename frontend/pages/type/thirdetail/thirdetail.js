@@ -16,10 +16,10 @@ Page({
   onLoad: function (options) {
     // 获取二级类型页面传来的对象数据
     let bigurl = options.bigurl;
-    let dataurl = bigurl.split('#')[0];
+    let bigclass = bigurl.split('#')[0];
     let title = bigurl.split('#')[1];
     //绑定数据
-    let pumpdata = wx.getStorageSync(dataurl);
+    let pumpdata = wx.getStorageSync(bigclass);
     if (pumpdata) {
       let filterdata = pumpdata.filter(item => item.title === title);
       this.setData({
@@ -29,35 +29,6 @@ Page({
       this.getPumpData(dataurl);
     }
 
-    this.data.dataurl = dataurl;
-    this.data.title = title;
-
-  },
-
-   // 获取输送泵数据
-   getPumpData: function(urlid){
-    let typeurl = 'https://www.hg101.vip/api/' + urlid;
-    let typedata = [];
-    wx.request({
-      url: typeurl,
-      success: (res => {
-        typedata = res.data.data;
-        console.log(this.data.dataurl);
-        console.log(typedata);
-        // 可以在数据里筛选，待实现
-        let filterdata = pumpdata.filter(item => item.title === title);
-        this.setData({
-          detaildata: filterdata[0],
-        });
-        wx.setStorageSync(this.data.dataurl, typedata);
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
   },
 
   /**

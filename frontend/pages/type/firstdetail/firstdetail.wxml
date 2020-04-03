@@ -5,8 +5,7 @@
 <view class="typedevice-box">
   <view wx:for="{{firstdata}}" wx:for-item="item">
     <view class="typebox" catch:tap="secondDetail" 
-    data-bigclass="{{item.bigclass}}" 
-    data-dataurl="{{item.dataurl}}">
+    data-bigclass="{{item.bigclass}}">
       <image class="type-image" src="/images/device/hg101.jpg"/>
       <text class="typecontent">{{item.bigclass}}</text>
     </view>

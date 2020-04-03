@@ -67,7 +67,7 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
     $api->get('typedevices','TypeDevicesController@typedevices');
     
     // 泵的 api
-    $api->get('pump','PumpController@pump');
+    $api->get('pump','TypeDevicesController@pump');
 
     // 物性的 api
     $api->get('property','PropertyController@property');

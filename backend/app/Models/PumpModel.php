@@ -9,9 +9,18 @@ class PumpModel extends Model
 {
     protected $table = 'tz_pump';
     //
-    protected static function getpumps() {
-        return self::query()
-        -> select(['bigclass', 'title', 'briefinfo', 'intro'])
-        -> get();
+    protected static function getpumps($keyword) {
+        if ($keyword == 'bigclass') {
+            return self::query()
+            ->select('bigclass')
+            ->distinct()
+            ->get();
+        } else {
+            return self::query()
+            ->select(['bigclass', 'title', 'briefinfo', 'intro'])
+            ->where('bigclass', $keyword)
+            ->get();
+        }
+
     }
 }
