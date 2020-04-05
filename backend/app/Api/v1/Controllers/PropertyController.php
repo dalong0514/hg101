@@ -24,4 +24,18 @@ class PropertyController extends BaseController
         return $this->success($data);
     }
 
+    /**
+     * 物性搜索接口
+     *
+     * @url api/search
+     * @return
+     */
+    public function  prosearch(){
+        $param = $this->request->all();
+        $keyword = $param['keyword'];
+        $data = [];
+        $data = PropertyModel::search($keyword);
+        return $this->success($data);
+    }
+
 }

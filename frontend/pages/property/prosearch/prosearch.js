@@ -29,7 +29,8 @@ Page({
   getSearchResult: function (keyword) {
     var that = this;
     wx.request({
-      url: 'https://www.hg101.vip/api/search?keyword=' + keyword,
+      // url: 'https://www.hg101.vip/api/prosearch?keyword=' + keyword,
+      url: 'http://127.0.0.1:8000/api/prosearch?keyword=' + keyword,
       header: {
         "openid": wx.getStorageSync('open_id'),
       },

@@ -11,15 +11,13 @@
 <template is="wxSearch" data="{{wxSearchData}}" />
 <view class="search-result" style='min-height:{{bottomHeight}}px'>
   <block wx:for="{{search_result}}" wx:key="unique" wx:for-index="idx">
-    <view class='item'>
-      <image bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" src='{{item.cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
-      <view class='meta'>
-        <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='title'>{{item.name}}</view>
-        <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='content'>{{item.describe}}</view>
-        <view class='tag-fav'>
-          <view class='view-tag'>
-            <text class="text-tag" wx:for="{{item.label}}" wx:key="idx">{{item}}</text>
-          </view>
+    <view class='device-list-content'>
+      <view catch:tap="toSecond" class='item' data-id="{{item.id}}">
+        <image class="type-image" src='/images/device/hg101.jpg'  mode="aspectFill"/>
+        <view class='meta'>
+          <view class='title'>{{item.cname}}</view>
+          <view class='content'>危化品序号：{{item.id}}</view>
+          <view class='content'>CAS 号：{{item.cas}}</view>
         </view>
       </view>
     </view>
