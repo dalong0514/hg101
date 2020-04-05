@@ -1,0 +1,27 @@
+<!--pages/property/prosearch/prosearch.wxml-->
+<import src="../../../components/wxSearch/wxSearch.wxml" />
+<i-toast id="toast" />
+<view class="search-section">
+  <view class="search-pancel">
+    <icon type='search' size='16' class='search-icon'></icon>
+    <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="search-input" placeholder="{{search_txt}}" auto-focus="true" confirm-type="search" bindconfirm="wxSearchFn"/>
+    <view class="search-button" bindtap="wxSearchFn">搜索</view>
+  </view>
+</view>
+<template is="wxSearch" data="{{wxSearchData}}" />
+<view class="search-result" style='min-height:{{bottomHeight}}px'>
+  <block wx:for="{{search_result}}" wx:key="unique" wx:for-index="idx">
+    <view class='item'>
+      <image bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" src='{{item.cover_image}}' style="width:123px;height:79px;display:flex;padding-left:10px;padding-right:10px" />
+      <view class='meta'>
+        <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='title'>{{item.name}}</view>
+        <view bindtap="viewProductDetail" data-idx="{{item.id}}" data-type="1" class='content'>{{item.describe}}</view>
+        <view class='tag-fav'>
+          <view class='view-tag'>
+            <text class="text-tag" wx:for="{{item.label}}" wx:key="idx">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

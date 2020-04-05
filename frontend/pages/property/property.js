@@ -41,7 +41,7 @@ Page({
   // 跳转到搜索栏
   doSearch: function() {
     wx.navigateTo({
-      url: '/pages/devices/search',
+      url: '/pages/property/prosearch/prosearch',
     })
   },
 

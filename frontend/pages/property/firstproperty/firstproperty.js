@@ -31,7 +31,7 @@ Page({
   },
 
   // 获取物性数据
-  getPropertyData: function(){
+  getPropertyData: function() {
     let url = 'https://www.hg101.vip/api/property';
     let typedata = [];
     wx.request({

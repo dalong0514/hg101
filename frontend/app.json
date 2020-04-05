@@ -14,6 +14,7 @@
     "pages/property/property",
     "pages/property/firstproperty/firstproperty",
     "pages/property/secondproperty/secondproperty",
+    "pages/property/prosearch/prosearch",
     "pages/test/test",
     "pages/setting/setting",
     "pages/setting/collect/collect",
