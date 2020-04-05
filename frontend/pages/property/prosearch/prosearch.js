@@ -25,7 +25,7 @@ Page({
       },
     })
   },
-  
+
   getSearchResult: function (keyword) {
     var that = this;
     wx.request({
@@ -69,6 +69,7 @@ Page({
     this.setSearchTxt()
     //WxSearch.initMindKeys(['mininapp.todaycoder.cn', '微信小程序开发', '微信开发', '微信小程序'])
   },
+
   setSearchTxt() {
     var _that = this
     wx.request({
@@ -94,26 +95,10 @@ Page({
       }),
     })
   },
+
   getHotSearch: function() {
-    var that = this
-    wx.request({
-      url: 'https://www.hg101.vip/api/type',
-      header: {
-        "openid": wx.getStorageSync('open_id')
-      },
-      success: function(res) {
-        if(res.data.code == 0) {
-          that.setData({
-            label: res.data.data
-          })
-          var labels = []
-          for(let i=0; i <res.data.data.length; i++) {
-            labels.push(res.data.data[i].name)
-          }
-          WxSearch.init(that, 40, labels)
-        }
-      }
-    })
+    let labels = ['甲醇', '乙醇', '氢气'];
+    WxSearch.init(this, 40, labels)
   },
 
   wxSearchFn: function (e) {
@@ -122,19 +107,23 @@ Page({
     var that = this
     WxSearch.wxSearchAddHisKey(that);
   },
+
   wxSearchInput: function (e) {
     var that = this
     console.log(e)
     WxSearch.wxSearchInput(e, that);
   },
+
   wxSerchFocus: function (e) {
     var that = this
     WxSearch.wxSearchFocus(e, that);
   },
+
   wxSearchBlur: function (e) {
     var that = this
     WxSearch.wxSearchBlur(e, that);
   },
+
   wxSearchKeyTap: function (e) {
     var type = -1;
     for(let i=0; i<this.data.label.length; i++) {
@@ -166,16 +155,19 @@ Page({
       }
     })
   },
+
   wxSearchDeleteKey: function (e) {
     console.log("wxSearchDeleteKey")
     var that = this
     WxSearch.wxSearchDeleteKey(e, that);
   },
+
   wxSearchDeleteAll: function (e) {
     console.log("wxSearchDeleteAll")
     var that = this;
     WxSearch.wxSearchDeleteAll(that);
   },
+
   wxSearchTap: function (e) {
     console.log(e.target.dataset.key)
     var that = this
@@ -184,6 +176,7 @@ Page({
     })
     WxSearch.wxSearchHiddenPancel(that);
   },
+  
   /**
    * Lifecycle function--Called when page is initially rendered
    */
