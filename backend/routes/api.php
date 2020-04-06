@@ -66,6 +66,9 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
     // 定型设备 api
     $api->get('typedevices','TypeDevicesController@typedevices');
     
+    // 搜索定型设备
+    $api->get('typesearch','TypeDevicesController@typesearch');
+
     // 泵的 api
     $api->get('pump','TypeDevicesController@pump');
 

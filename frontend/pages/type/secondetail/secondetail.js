@@ -15,10 +15,8 @@ Page({
    */
   onLoad: function (options) {
     // 获取一级类型页面传来的对象数据
-    let bigurl = options.bigurl;
-    console.log(bigurl);
-    this.data.dataurl = bigurl.split('#')[0];
-    this.data.bigclass = bigurl.split('#')[1];
+    this.data.bigclass = options.bigclass;
+    this.data.dataurl = options.dataurl;
 
     let pumpdata = wx.getStorageSync(this.data.bigclass);
     if (pumpdata) {
@@ -34,11 +32,13 @@ Page({
   // 获取输送泵数据
   getPumpData: function(){
     let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
+    // let typeurl = 'http://127.0.0.1:8000/api/' + this.data.dataurl;
     let typedata = [];
     wx.request({
       url: typeurl,
       data: {
         keyword: this.data.bigclass,
+        title: '',
       },
       header: {
         "openid": wx.getStorageSync('open_id'),
@@ -70,10 +70,16 @@ Page({
   // 跳转到三级页面
   thirdDetail: function(e) {
     let title = e.currentTarget.dataset.thirdata;
-    let dataurl = this.data.bigclass;
-    let bigurl = dataurl + '#' + title;
+    let dataurl = this.data.dataurl;
     wx.navigateTo({
-      url: '/pages/type/thirdetail/thirdetail?bigurl=' + bigurl,
+      url: `/pages/type/thirdetail/thirdetail?title=${title}&dataurl=${dataurl}`,
+    })
+  },
+
+  // 跳转到搜索页
+  doSearch: function() {
+    wx.navigateTo({
+      url: '/pages/type/typesearch/typesearch',
     })
   },
 

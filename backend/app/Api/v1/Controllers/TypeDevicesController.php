@@ -32,10 +32,29 @@ class TypeDevicesController extends BaseController
      */
     public function pump()
     {
-        //
         $param = $this->request->all();
         $keyword = $param['keyword'];
-        $data = PumpModel::getpumps($keyword);
+        $title = $param['title'];
+        if ($title == '') {
+            $data = PumpModel::getpumps($keyword);
+        } else {
+            $data = PumpModel::getdevice($title);
+        }
+        
         return $this -> success($data);
     }
+
+    /**
+     * 定型设备搜索接口
+     *
+     * @url api/search
+     * @return
+     */
+    public function  typesearch(){
+        $param = $this->request->all();
+        $keyword = $param['keyword'];
+        $data = PumpModel::search($keyword);
+        return $this->success($data);
+    }
+
 }

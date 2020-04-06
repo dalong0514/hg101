@@ -30,11 +30,13 @@ Page({
   // 获取输送泵数据
   getPumpData: function(urlid){
     let typeurl = 'https://www.hg101.vip/api/' + urlid;
+    // let typeurl = 'http://127.0.0.1:8000/api/' + urlid;
     let typedata = [];
     wx.request({
       url: typeurl,
       data: {
         keyword: this.data.keyword,
+        title: '',
       },
       header: {
         "openid": wx.getStorageSync('open_id'),
@@ -60,10 +62,8 @@ Page({
   secondDetail: function (e) {
     let bigclass = e.currentTarget.dataset.bigclass;
     let dataurl = this.data.dataurl;
-    let bigurl = dataurl + '#' + bigclass;
-    console.log(bigurl);
     wx.navigateTo({
-      url: '/pages/type/secondetail/secondetail?bigurl=' + bigurl,
+      url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}&dataurl=${dataurl}`,
     })
   },
 
@@ -71,6 +71,13 @@ Page({
   toHome: function() {
     wx.switchTab({
       url: '/pages/type/type',
+    })
+  },
+
+  // 跳转到搜索页
+  doSearch: function() {
+    wx.navigateTo({
+      url: '/pages/type/typesearch/typesearch',
     })
   },
 

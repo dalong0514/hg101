@@ -33,11 +33,13 @@ Page({
   // 获取物性数据
   getPropertyData: function() {
     let url = 'https://www.hg101.vip/api/property';
+    // let url = 'http://127.0.0.1:8000/api/property';
     let typedata = [];
     wx.request({
       url: url,
       data: {
         index: this.data.index,
+        id: '',
       },
       header: {
         "openid": wx.getStorageSync('open_id'),
@@ -62,11 +64,9 @@ Page({
   // 跳转到二级页面
   toSecond: function(e) {
     let id = e.currentTarget.dataset.id;
-    let index = this.data.index;
-    let bigurl = id + '#' + index;
-    console.log(bigurl);
+    console.log(id);
     wx.navigateTo({
-      url: '/pages/property/secondproperty/secondproperty?bigurl=' + bigurl,
+      url: `/pages/property/secondproperty/secondproperty?id=${id}`,
     })
   },
 

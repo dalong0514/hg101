@@ -1,3 +1,4 @@
+// pages/type/typesearch/typesearch.js
 // pages/property/prosearch/prosearch.js
 const WxSearch = require('../../../components/wxSearch/wxSearch.js');
 const { $Toast } = require('../../../lib/iview/base/index');
@@ -7,7 +8,7 @@ Page({
    * Page initial data
    */
   data: {
-    search_txt: '名称 | CAS 号 | 危化品序号',
+    search_txt: '设备名称 | 型号',
     search_result: [],
     label: [],
     bottomHeight: 0,
@@ -29,8 +30,8 @@ Page({
   getSearchResult: function (keyword) {
     var that = this;
     wx.request({
-      url: 'https://www.hg101.vip/api/prosearch?keyword=' + keyword,
-      // url: 'http://127.0.0.1:8000/api/prosearch?keyword=' + keyword,
+      url: 'https://www.hg101.vip/api/typesearch?keyword=' + keyword,
+      // url: 'http://127.0.0.1:8000/api/typesearch?keyword=' + keyword,
       header: {
         "openid": wx.getStorageSync('open_id'),
       },
@@ -58,19 +59,19 @@ Page({
   onLoad: function (options) {
     this.getBottomHeight()
     this.getHotSearch()
-    //WxSearch.initMindKeys(['mininapp.todaycoder.cn', '微信小程序开发', '微信开发', '微信小程序'])
   },
 
-  // 跳转到二级页面
-  toSecond: function(e) {
-    let id = e.currentTarget.dataset.id;
+  // 跳转到三级页面
+  thirdDetail: function(e) {
+    let title = e.currentTarget.dataset.thirdata;
+    let dataurl = e.currentTarget.dataset.class;
     wx.navigateTo({
-      url: `/pages/property/secondproperty/secondproperty?id=${id}`,
+      url: `/pages/type/thirdetail/thirdetail?title=${title}&dataurl=${dataurl}`,
     })
   },
-
+  
   getHotSearch: function() {
-    let labels = ['甲醇', '乙醇', '氢气'];
+    let labels = ['磁力泵', '隔膜泵', '离心机'];
     WxSearch.init(this, 40, labels)
   },
 

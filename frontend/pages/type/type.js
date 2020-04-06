@@ -43,7 +43,7 @@ Page({
   // 跳转到搜索页
   doSearch: function() {
     wx.navigateTo({
-      url: '/pages/devices/search',
+      url: '/pages/type/typesearch/typesearch',
     })
   },
 

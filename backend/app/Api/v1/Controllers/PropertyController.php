@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Dingo\Api\Routing\Helpers;
 
 use App\Models\PropertyModel;
+use Doctrine\DBAL\Schema\Index;
 
 class PropertyController extends BaseController
 {
@@ -20,7 +21,13 @@ class PropertyController extends BaseController
     {
         $param = $this->request->all();
         $index = $param['index'];
-        $data = PropertyModel::getproperty($index);
+        $id = $param['id'];
+        if ($id == '') {
+            $data = PropertyModel::getproperty($index);
+        } else {
+            $data = PropertyModel::getidproperty($id);
+        }
+        
         return $this->success($data);
     }
 
@@ -33,7 +40,6 @@ class PropertyController extends BaseController
     public function  prosearch(){
         $param = $this->request->all();
         $keyword = $param['keyword'];
-        $data = [];
         $data = PropertyModel::search($keyword);
         return $this->success($data);
     }

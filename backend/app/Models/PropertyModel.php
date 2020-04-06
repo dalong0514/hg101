@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PropertyModel extends Model
 {
     protected $table = 'tz_property';
-    protected static $_field = ['id', 'cname', 'ename', 'cas', 'hazard', 'alisname', 'comment'];
+    protected static $_field = ['id', 'cname', 'cas'];
 
     // 提取物性数据字段
     protected static function getproperty($index) {
@@ -20,8 +20,19 @@ class PropertyModel extends Model
         ->select(self::$_field)
         ->where('id', '>=', $startindex) 
         ->where('id', '<=', $endindex) 
-        ->get();
+        ->get();            
+
     }
+
+    // 提取物性数据字段
+    protected static function getidproperty($id) {
+        // 处理筛选条件
+        $sid = (int)$id;
+        return self::query()
+        ->where('id', $sid) 
+        ->get();
+
+    }    
 
     /**
      * 物性搜索
@@ -33,11 +44,11 @@ class PropertyModel extends Model
         return self::query()
             ->where('cname', $keyword)
             ->orwhere('cas', $keyword)
+            ->orwhere('id', $keyword)
             // ->orwhere('hazard', 'like', '%' . $keyword . '%')
             ->orwhere('cname', 'like', '%' . $keyword . '%')
-            ->orwhere('cas', 'like', '%' . $keyword . '%')
             ->orderBy('id')
-            ->select(self::$_field)
+            // ->select(self::$_field)
             ->get();
     }
 }

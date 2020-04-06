@@ -6,6 +6,7 @@
     "pages/devices/moreproducts/moreproducts",
     "pages/problems/problems",
     "pages/type/type",
+    "pages/type/typesearch/typesearch",
     "pages/type/firstdetail/firstdetail",
     "pages/type/secondetail/secondetail",
     "pages/type/thirdetail/thirdetail",

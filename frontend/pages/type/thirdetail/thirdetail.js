@@ -15,20 +15,40 @@ Page({
    */
   onLoad: function (options) {
     // 获取二级类型页面传来的对象数据
-    let bigurl = options.bigurl;
-    let bigclass = bigurl.split('#')[0];
-    let title = bigurl.split('#')[1];
-    //绑定数据
-    let pumpdata = wx.getStorageSync(bigclass);
-    if (pumpdata) {
-      let filterdata = pumpdata.filter(item => item.title === title);
-      this.setData({
-        detaildata: filterdata[0],
-      });
-    } else {
-      this.getPumpData(dataurl);
-    }
+    this.data.dataurl = options.dataurl;
+    this.data.title = options.title;
+    console.log(this.data.title);
+    console.log(this.data.dataurl);
+    this.getPumpData();
+  },
 
+  // 获取输送泵数据
+  getPumpData: function(){
+    let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
+    // let typeurl = 'http://127.0.0.1:8000/api/' + this.data.dataurl;
+    wx.request({
+      url: typeurl,
+      data: {
+        title: this.data.title,
+        keyword: '',
+      },
+      header: {
+        "openid": wx.getStorageSync('open_id'),
+      },
+      success: (res => {
+        let typedata = res.data.data;
+        console.log(typedata);
+        this.setData({
+          detaildata: typedata[0],
+        });
+      }),
+      fail: (res => {
+        $Toast({
+          content: '异常错误',
+          type: 'error'
+        })
+      }),
+    })
   },
 
   /**

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TypeDevicesModel extends Model
 {
+    protected static $_field = ['id', 'type', 'equipname', 'spec', 'material', 'firstlabel'];
 
     protected $table = "tz_typedevices";
 
@@ -18,7 +19,8 @@ class TypeDevicesModel extends Model
     public static function getTypedevices(){
         return self::query()
             ->orderBy('id')
-            ->select(['id', 'type', 'equipname', 'spec', 'material', 'firstlabel'])
+            // ->select(self::$_field)
             ->get();
     }
+
 }
