@@ -80,7 +80,7 @@
 
 .title {
   color: rgba(16, 16, 16, 1);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .content {
@@ -133,26 +133,20 @@
   padding-top: 45px;
 }
 
-.category-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  /* border-top: 20rpx solid #d9d9d9; */
-  border-bottom: 30rpx solid #d9d9d9;
-  background-color: #fff;
-  }
-  
-  .title {
-  margin: 30rpx;
-  font-size: 20px;
-  }
-  
-  .brief {
-  margin: 30rpx;
-  font-size: 17px;
-  color: #545454;
-  }
+.device-list-content {
+  height: 100%;
+  background: rgba(248, 248, 248, 1);
+  /* padding-top: 45px; */
+}
+
+.item image{
+  width:123px;
+  /* height:123px; */
+  height:79px;
+  display:flex;
+  padding-left:10px;
+  padding-right:10px;
+}
   
   .detailink {
   margin: 30rpx;

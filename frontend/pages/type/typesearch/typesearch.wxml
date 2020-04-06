@@ -10,10 +10,15 @@
 </view>
 <template is="wxSearch" data="{{wxSearchData}}" />
 <view class="search-result" style='min-height:{{bottomHeight}}px'>
-  <block wx:for="{{search_result}}" wx:for-item="item" wx:for-index="idx">
-    <view class="category-item">
-      <text class="title">{{item.title}}</text>
-      <button class="detailink" catch:tap="thirdDetail" data-thirdata="{{item.title}}" data-class="{{item.class}}">设备详情</button>
+  <block wx:for="{{search_result}}" wx:key="unique" wx:for-index="idx">
+    <view class='device-list-content'>
+      <view catch:tap="thirdDetail" class='item' data-thirdata="{{item.title}}" data-class="{{item.class}}">
+        <image class="type-image" src='/images/device/hg101.jpg'  mode="aspectFill"/>
+        <view class='meta'>
+          <view class='title'>{{item.title}}</view>
+          <view class='content'>{{item.bigclass}}</view>
+        </view>
+      </view>
     </view>
   </block>
 </view>

@@ -21,7 +21,7 @@
 
 .title {
   color: rgba(16, 16, 16, 1);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .content {
@@ -78,8 +78,8 @@
 
 .item image{
   width:123px;
-  height:123px;
-  /* height:79px; */
+  /* height:123px; */
+  height:79px;
   display:flex;
   padding-left:10px;
   padding-right:10px;
