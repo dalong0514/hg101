@@ -1,5 +1,4 @@
 <!--pages/property/secondproperty/secondproperty.wxml-->
-
 <view class="category-item" >
   <text class="title">{{detaildata.cname}}</text>
   <text class="content">CAS 号：{{detaildata.cas}}
@@ -13,4 +12,36 @@
 <view class="category-item" >
   <text class="title">危险性类别</text>
   <text class="content">{{detaildata.hazard}}</text>
+</view>
+
+<view class="category-item" >
+  <text class="title">物性数据</text>
+  <text class="content">{{detaildata.mole_formula}}
+
+    {{detaildata.moleweight}}
+
+    {{detaildata.density}}
+
+    {{detaildata.boilingpoint}}
+
+    {{detaildata.vapour_pressure}}
+
+    {{detaildata.solubility}}
+
+    {{detaildata.stability}}
+
+    {{detaildata.appearance}}
+
+    {{detaildata.application}}
+  </text>
+</view>
+
+<view class="category-item" >
+  <text class="title">环境危害</text>
+  <text class="content">{{detaildata.environment}}</text>
+</view>
+
+<view class="category-item" >
+  <text class="title">应急处理方法</text>
+  <text class="content">{{detaildata.emergency}}</text>
 </view>

@@ -1,6 +1,6 @@
 /* pages/type/thirdetail/thirdetail.wxss */
 .outer-box {
-    padding-top: 120rpx;
+    padding-top: 10px;
   }
   
 .category-item {
