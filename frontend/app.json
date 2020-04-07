@@ -41,14 +41,14 @@
       {
         "text": "型号",
         "pagePath": "pages/type/type",
-        "iconPath": "images/tab/problem_normal.png",
-        "selectedIconPath": "images/tab/problem_selected.png"
+        "iconPath": "images/tab/productlist-balck.png",
+        "selectedIconPath": "images/tab/productlist-red.png"
       },
       {
         "text": "物性",
         "pagePath": "pages/property/property",
-        "iconPath": "images/tab/case_normal.png",
-        "selectedIconPath": "images/tab/case_selected.png"
+        "iconPath": "images/tab/material-black.png",
+        "selectedIconPath": "images/tab/material-red.png"
       },
       {
         "text": "我的",

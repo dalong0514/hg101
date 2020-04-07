@@ -3,7 +3,7 @@
 <template is="searchbar" />
 
 <view class="container-box">
-  <text style="font-size:20px;padding-left:15px">按危化品序号分类</text>
+  <text style="font-size:20px;padding-left:30px">按危化品序号分类</text>
 </view>
 <view class="typedevice-box">
   <view wx:for="{{types}}" wx:for-item="item">

@@ -8,12 +8,12 @@ Page({
    */
   data: {
     cache: [
-      { iconurl: '/images/tab/device_normal.png', title: '清理缓存', tap: 'clearCache' }
+      { iconurl: '/images/tab/clean.png', title: '清理缓存', tap: 'clearCache' }
     ],
     settings: [
-      { iconurl: '/images/tab/device_normal.png', title: '我的收藏', tap: 'showCollection' },
-      { iconurl: '/images/tab/device_normal.png', title: '问题采集', tap: 'showProblem' },
-      { iconurl: '/images/tab/device_normal.png', title: '关于我们', tap: 'showIntroduction' }
+      { iconurl: '/images/tab/mycollection.png', title: '我的收藏', tap: 'showCollection' },
+      { iconurl: '/images/tab/problem.png', title: '问题采集', tap: 'showProblem' },
+      { iconurl: '/images/tab/we.png', title: '关于我们', tap: 'showIntroduction' }
     ],
   },
 

@@ -9,7 +9,7 @@ Page({
    * Page initial data
    */
   data: {
-    search_txt: '',
+    search_txt: ' 产品',
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -176,25 +176,6 @@ Page({
             type: res.data.data.type,
           });
           wx.setStorageSync("homeData", res.data.data);
-        }
-      }),
-      fail: (res => {
-        $Toast({
-          content: '异常错误',
-          type: 'error'
-        })
-      }),
-    })
-    wx.request({
-      url: 'https://www.hg101.vip/api/problem_txt',
-      header: {
-        "openid": wx.getStorageSync('open_id')
-      },
-      success: (res => {
-        if(res.data.code == 0) {
-          this.setData({
-            search_txt: res.data.data.search_txt
-          })
         }
       }),
       fail: (res => {

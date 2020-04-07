@@ -51,7 +51,7 @@
             <text>{{item.collect_count}}</text>
           </view>
           <image src="/images/tab/wx_app_view.png"/>
-          <text>10</text>
+          <text>{{item.collect_count*103+3}}</text>
           <view catch:tap="productList" data-label="{{item.type_id}}">
             <image src="/images/tab/wx_app_list.png"/>
             <text>{{item.type}}</text>
