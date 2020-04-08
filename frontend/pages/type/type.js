@@ -9,15 +9,15 @@ Page({
   data: {
     types: [
       { title: '泵系列', dataurl: 'pump', },
-      { title: '离心机', },
-      { title: '蒸发器', },
-      { title: '换热器', },
-      { title: '反应釜', },
-      { title: '烘箱', },
-      { title: '干燥机', },
-      { title: '制氮机', },
-      { title: '压滤机', },
-      { title: '行车', },
+      { title: '离心机', dataurl: '', },
+      { title: '蒸发器', dataurl: '', },
+      { title: '换热器', dataurl: '', },
+      { title: '反应釜', dataurl: '',} ,
+      { title: '烘箱', dataurl: '', },
+      { title: '干燥机', dataurl: '', },
+      { title: '制氮机', dataurl: '', },
+      { title: '压滤机', dataurl: '', },
+      { title: '行车', dataurl: '', },
     ],
 
   },
@@ -27,7 +27,7 @@ Page({
    */
   onLoad: function (options) {
     // let DBdata = new DBdevice();
-    // let TypeDevicesData = DBdata.getTypeDevicesData();
+    // let another = Object.create(DBdevice);
 
   },
 
@@ -35,9 +35,16 @@ Page({
   firstDetail: function (e) {
     let dataurl = e.currentTarget.dataset.dataurl;
     console.log(dataurl);
-    wx.navigateTo({
-      url: '/pages/type/firstdetail/firstdetail?dataurl=' + dataurl,
-    })
+    if (dataurl) {
+      wx.navigateTo({
+        url: '/pages/type/firstdetail/firstdetail?dataurl=' + dataurl,
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/blank/blank',
+      })
+    }
+    
   },
 
   // 跳转到搜索页

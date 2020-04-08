@@ -7,6 +7,7 @@ var DBdevice = function() {
   // 把设备的 id 传进来
   // this.id = id;
   this.storageKeyName = "homeData";
+  // console.log(this);
 }
 
 // 对象的原型链
@@ -15,11 +16,13 @@ DBdevice.prototype = {
 
   },
 
-  testdata: [],
+  testfunc: function() {
+    var that = this.storageKeyName;
+    console.log(this.prototype);
+  },
 
   // 获取试验 api 数据
   getTestData: function(){
-    let testdata;
     wx.request({
       // url: 'http://127.0.0.1:8000/api/likeList',
       url: 'https://www.hg101.vip/api/likeList',
@@ -28,7 +31,7 @@ DBdevice.prototype = {
       },
       success: (res => {
         // console.log(res.data);
-        testdata = res.data;
+        let testdata = res.data;
         // 必须通过存入缓存，数据才能从这个函数出去
         wx.setStorageSync("testData", testdata);
       }),

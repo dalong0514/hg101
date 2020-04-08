@@ -17,18 +17,18 @@
   }
   
   .title {
-  margin: 30rpx;
+  margin: 20px;
   font-size: 20px;
   }
   
   .brief {
-  margin: 30rpx;
+  margin: 20px;
   font-size: 17px;
   color: #545454;
   }
   
   .detailink {
-  margin: 30rpx;
+  margin: 20px;
   font-size: 17px;
   width: auto;
   border: 1px solid black;

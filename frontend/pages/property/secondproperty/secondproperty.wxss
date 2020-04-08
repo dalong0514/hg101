@@ -11,12 +11,12 @@ background-color: #fff;
 }
 
 .title {
-margin: 30rpx;
+margin: 20px;
 font-size: 20px;
 }
 
 .content {
-margin: 30rpx;
+margin: 20px;
 font-size: 17px;
 color: #545454;
 }

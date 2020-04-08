@@ -36,12 +36,12 @@
   </text>
 </view>
 
-<view class="category-item" >
+<view class="category-item" wx:if="{{detaildata.environment}}">
   <text class="title">环境危害</text>
   <text class="content">{{detaildata.environment}}</text>
 </view>
 
-<view class="category-item" >
+<view class="category-item" wx:if="{{detaildata.emergency}}">
   <text class="title">应急处理方法</text>
   <text class="content">{{detaildata.emergency}}</text>
 </view>

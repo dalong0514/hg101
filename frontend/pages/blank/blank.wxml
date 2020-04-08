@@ -1,0 +1,4 @@
+<!--pages/blank/blank.wxml-->
+<view class="content-box" >
+  <text class="content">还未上线，敬请期待</text>
+</view>
