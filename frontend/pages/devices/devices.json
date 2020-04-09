@@ -1,5 +1,10 @@
 {
   "usingComponents": {
-    "i-toast": "../../lib/iview/toast/index"
-  }
+    "i-toast": "../../lib/iview/toast/index",
+    "mp-loading": "../components/loading/loading"
+  },
+
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+
 }

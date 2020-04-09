@@ -1,6 +1,6 @@
 <!--pages/devices/devices.wxml-->
 
-<view class="container-box">
+<!-- <view class="container-box">
   <text class="title">全部类目</text>
 </view>
 
@@ -8,6 +8,11 @@
   module.exports = {
     message: "Hello, dalong"
   }
-</wxs>
+</wxs> -->
 
-<text class="title">{{m1.message}}</text>
+
+<view class="page__bd">
+  <!-- <mp-loading type="circle" show="{{show}}"></mp-loading> -->
+  <mp-loading duration="{{900}}" ext-class="demo0" type="dot-gray" show="{{show}}" animated="{{animated}}"></mp-loading>
+  <!-- <mp-loading type="dot-white" ext-class="demo1"></mp-loading> -->
+</view>

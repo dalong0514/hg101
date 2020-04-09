@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "mp-icon": "../../lib/iview/icon/index"
-  }
+      "mp-loading": "../components/loading/loading"
+  },
+  "navigationBarTitleText": "UI组件库"
 }

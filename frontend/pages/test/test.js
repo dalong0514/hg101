@@ -1,6 +1,6 @@
 // pages/devices/devices.js
 // var util = require('../../utils/util.js')
-const { $Toast } = require('../../lib/iview/icon/index');
+// const reloading = require('../../lib/iview/loading/loading.js');
 var DBdevice = require('../../db/DBdata.js').DBdevice;
 
 Page({
@@ -9,8 +9,10 @@ Page({
    * Page initial data
    */
   data: {
-    types: ["分类1", "分类2", "分类3", "分类4", "分类5", "分类6", "分类7", "分类8", "分类9", "分类10", "分类11"],
     colorValue: 'red',
+    show: true,
+    // show: false,
+    animated: true,
 
   },
 
@@ -33,7 +35,11 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.timer = setInterval(() => {
+      this.setData({
+        show: !this.data.show
+      })
+    }, 2000)
   },
 
   /**
@@ -47,6 +53,7 @@ Page({
    * Lifecycle function--Called when page unload
    */
   onUnload: function () {
+    // clearInterval(this.timer)
 
   },
 

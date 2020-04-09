@@ -9,68 +9,29 @@ Page({
    * Page initial data
    */
   data: {
-    search_txt: ' 产品',
+    search_txt: '产品',
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 800,
+    show: true,
+    animated: true,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getHomeData();
-
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+    let homedata = wx.getStorageSync("homeData");
+    if (homedata) {
+      this.setData({
+        banner: homedata.banner,
+        product: homedata.product,
+        type: homedata.type,
+      });
+    } else {
+      this.getHomeData();
+    }
   },
 
   doSearch: function() {
@@ -169,6 +130,11 @@ Page({
         "openid": wx.getStorageSync('open_id'),
       },
       success: (res => {
+        // 取消加载动画
+        console.log('update data');
+        this.setData({
+          show: false,
+        });
         if(res.data.code == 0) {
           this.setData({
             banner: res.data.data.banner,
@@ -186,5 +152,63 @@ Page({
       }),
     })
   },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page hide
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page unload
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * Page event handler function--Called when user drop down
+   */
+  onPullDownRefresh: function () {
+    // // 更新数据
+    // this.getHomeData();
+    // // 顶部导航栏显示 loading 状态
+    // wx.showNavigationBarLoading();
+    // this.timer = setInterval(() => {
+    //   // 隐藏 loading 状态
+    //   wx.hideNavigationBarLoading();
+    // }, 1000)
+  },
+
+  /**
+   * Called when page reach bottom
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage: function () {
+
+  },
+
+  
 
 })
