@@ -1,6 +1,7 @@
 /* pages/type/thirdetail/thirdetail.wxss */
 .outer-box {
     padding-top: 10px;
+    touch-action: none;
   }
   
 .category-item {

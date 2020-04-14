@@ -3,34 +3,35 @@
 @import "/components/searchbar/searchbar.wxss";
 
 .outer-box {
-  padding-top: 120rpx;
-  }
-    
-  .category-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  /* border-top: 20rpx solid #d9d9d9; */
-  border-bottom: 30rpx solid #d9d9d9;
-  background-color: #fff;
-  }
+padding-top: 120rpx;
+touch-action: none;
+}
   
-  .title {
-  margin: 20px;
-  font-size: 20px;
-  }
-  
-  .brief {
-  margin: 20px;
-  font-size: 17px;
-  color: #545454;
-  }
-  
-  .detailink {
-  margin: 20px;
-  font-size: 17px;
-  width: auto;
-  border: 1px solid black;
-  color: #545454;
-  }
+.category-item {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+width: 100%;
+/* border-top: 20rpx solid #d9d9d9; */
+border-bottom: 30rpx solid #d9d9d9;
+background-color: #fff;
+}
+
+.title {
+margin: 20px;
+font-size: 20px;
+}
+
+.brief {
+margin: 20px;
+font-size: 17px;
+color: #545454;
+}
+
+.detailink {
+margin: 20px;
+font-size: 17px;
+width: auto;
+border: 1px solid black;
+color: #545454;
+}

@@ -63,7 +63,8 @@ Page({
     let bigclass = e.currentTarget.dataset.bigclass;
     let dataurl = this.data.dataurl;
     wx.navigateTo({
-      url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}&dataurl=${dataurl}`,
+      url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}
+        &dataurl=${dataurl}`,
     })
   },
 

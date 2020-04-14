@@ -1,63 +1,67 @@
 <!--pages/property/secondproperty/secondproperty.wxml-->
-<view class="category-item" >
-  <text class="title">{{detaildata.cname}}</text>
-  <text class="content">CAS 号：{{detaildata.cas}}
-    
-    英文名称：{{detaildata.ename}}
-    
-    别名：{{detaildata.alisname}}
-  </text>
+
+<view class="page-box">
+
+  <view class="category-item" >
+    <text class="title">{{detaildata.cname}}</text>
+    <text class="content">CAS 号：{{detaildata.cas}}
+      
+      英文名称：{{detaildata.ename}}
+      
+      别名：{{detaildata.alisname}}
+    </text>
+  </view>
+
+  <view class="category-item" >
+    <text class="title">危险性类别</text>
+    <text class="content">{{detaildata.hazard}}</text>
+  </view>
+
+  <view class="category-item" >
+    <text class="title">物性数据</text>
+    <text class="content">{{detaildata.mole_formula}}
+
+      {{detaildata.moleweight}}
+
+      {{detaildata.density}}
+
+      {{detaildata.boilingpoint}}
+
+      {{detaildata.vapour_pressure}}
+
+      {{detaildata.solubility}}
+
+      {{detaildata.stability}}
+
+      {{detaildata.appearance}}
+
+      {{detaildata.application}}
+    </text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.special_warn}}">
+    <text class="title">特别警示</text>
+    <text class="content">{{detaildata.special_warn}}</text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.harm_info}}">
+    <text class="title">危害信息</text>
+    <text class="content">{{detaildata.harm_info}}</text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.safety_precaution}}">
+    <text class="title">安全措施</text>
+    <text class="content">{{detaildata.safety_precaution}}</text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.emergency}}">
+    <text class="title">应急处理原则</text>
+    <text class="content">{{detaildata.emergency}}</text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.environment}}">
+    <text class="title">环境危害</text>
+    <text class="content">{{detaildata.environment}}</text>
+  </view>
+
 </view>
-
-<view class="category-item" >
-  <text class="title">危险性类别</text>
-  <text class="content">{{detaildata.hazard}}</text>
-</view>
-
-<view class="category-item" >
-  <text class="title">物性数据</text>
-  <text class="content">{{detaildata.mole_formula}}
-
-    {{detaildata.moleweight}}
-
-    {{detaildata.density}}
-
-    {{detaildata.boilingpoint}}
-
-    {{detaildata.vapour_pressure}}
-
-    {{detaildata.solubility}}
-
-    {{detaildata.stability}}
-
-    {{detaildata.appearance}}
-
-    {{detaildata.application}}
-  </text>
-</view>
-
-<view class="category-item" wx:if="{{detaildata.special_warn}}">
-  <text class="title">特别警示</text>
-  <text class="content">{{detaildata.special_warn}}</text>
-</view>
-
-<view class="category-item" wx:if="{{detaildata.harm_info}}">
-  <text class="title">危害信息</text>
-  <text class="content">{{detaildata.harm_info}}</text>
-</view>
-
-<view class="category-item" wx:if="{{detaildata.safety_precaution}}">
-  <text class="title">安全措施</text>
-  <text class="content">{{detaildata.safety_precaution}}</text>
-</view>
-
-<view class="category-item" wx:if="{{detaildata.emergency}}">
-  <text class="title">应急处理原则</text>
-  <text class="content">{{detaildata.emergency}}</text>
-</view>
-
-<view class="category-item" wx:if="{{detaildata.environment}}">
-  <text class="title">环境危害</text>
-  <text class="content">{{detaildata.environment}}</text>
-</view>
-
