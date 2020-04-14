@@ -7,7 +7,7 @@
   <block wx:for="{{detaildata}}" wx:for-item="item" wx:for-index="idx">
     <view class="category-item">
       <text class="title">{{item.title}}</text>
-      <text class="brief">{{item.briefinfo}}</text>
+      <text class="brief">{{item.coverintro}}</text>
       <button class="detailink" catch:tap="thirdDetail" data-thirdata="{{item.title}}">设备详情</button>
     </view>
   </block>

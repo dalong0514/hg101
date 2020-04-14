@@ -2,6 +2,17 @@
 <view class="outer-box">
   <view class="category-item">
     <text class="title">{{detaildata.title}}</text>
-    <text class="brief">{{detaildata.intro}}</text>
+    <text class="brief">{{detaildata.summary}}</text>
   </view>
+
+  <view class="category-item" wx:if="{{detaildata.install}}">
+    <text class="title">安装与使用</text>
+    <text class="brief">{{detaildata.install}}</text>
+  </view>
+
+  <view class="category-item" wx:if="{{detaildata.matters}}">
+    <text class="title">注意事项</text>
+    <text class="brief">{{detaildata.matters}}</text>
+  </view>
+
 </view>
