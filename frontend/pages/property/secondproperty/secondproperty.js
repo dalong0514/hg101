@@ -29,6 +29,7 @@ Page({
       data: {
         id: this.data.id,
         index: '',
+        superid: '',
       },
       header: {
         "openid": wx.getStorageSync('open_id'),

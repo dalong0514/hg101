@@ -21,7 +21,7 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+  onLoad: function () {
     let homedata = wx.getStorageSync("homeData");
     if (homedata) {
       this.setData({

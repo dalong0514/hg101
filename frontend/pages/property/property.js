@@ -16,8 +16,12 @@ Page({
       { index: '1501-1800', }, 
       { index: '1801-2100', }, 
       { index: '2101-2400', }, 
-      { index: '2401-2700', }, 
-      { index: '2701-2828', }, 
+      { index: '2401-2828', }, 
+    ],
+    supervise: [
+      { index: '1-25', },
+      { index: '26-50', },
+      { index: '51-74', },
     ],
 
   },
@@ -32,9 +36,14 @@ Page({
   // 跳转到一级类型页
   toFirst: function (e) {
     let index = e.currentTarget.dataset.index;
+    let superid = e.currentTarget.dataset.superid;
+    let status = e.currentTarget.dataset.status;
     console.log(index);
+    console.log(superid);
+    console.log(status);
     wx.navigateTo({
-      url: '/pages/property/firstproperty/firstproperty?index=' + index,
+      url: `/pages/property/firstproperty/firstproperty?index=${index}
+        &superid=${superid}&status=${status}`,
     })
   },
 

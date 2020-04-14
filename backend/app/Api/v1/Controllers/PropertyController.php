@@ -13,7 +13,7 @@ class PropertyController extends BaseController
     use Helpers;
     protected $guard = 'api';
     /**
-     * 输送泵 api
+     * 物性数据 api
      *
      * @return \Illuminate\Http\Response
      */
@@ -22,9 +22,12 @@ class PropertyController extends BaseController
         $param = $this->request->all();
         $index = $param['index'];
         $id = $param['id'];
-        if ($id == '') {
+        $superid = $param['superid'];
+        if ($index) {
             $data = PropertyModel::getproperty($index);
-        } else {
+        } else if ($superid) {
+            $data = PropertyModel::getsuperproperty($superid);
+        } else if ($id) {
             $data = PropertyModel::getidproperty($id);
         }
         

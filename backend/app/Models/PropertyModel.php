@@ -24,6 +24,20 @@ class PropertyModel extends Model
 
     }
 
+    // 提取重点监管物性数据字段
+    protected static function getsuperproperty($index) {
+        // 处理筛选条件
+        $indexlist = explode('-', $index);
+        $startindex = (int)$indexlist[0];
+        $endindex = (int)$indexlist[1];
+        return self::query()
+        ->select(self::$_field)
+        ->where('supervise_id', '>=', $startindex) 
+        ->where('supervise_id', '<=', $endindex) 
+        ->get();            
+
+    }
+
     // 提取物性数据字段
     protected static function getidproperty($id) {
         // 处理筛选条件

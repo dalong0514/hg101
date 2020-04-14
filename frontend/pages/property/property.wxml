@@ -7,7 +7,23 @@
 </view>
 <view class="typedevice-box">
   <view wx:for="{{types}}" wx:for-item="item">
-    <view class="typebox" catch:tap="toFirst" data-index="{{item.index}}">
+    <view class="typebox" catch:tap="toFirst" data-index="{{item.index}}"
+      data-status="1">
+      <image class="type-image" src="/images/device/hg101.jpg"/>
+      <text class="typecontent">{{item.index}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="inter"></view>
+
+<view class="container-box1">
+  <text style="font-size:20px;padding-left:30px">重点监管危化品</text>
+</view>
+<view class="typedevice-box">
+  <view wx:for="{{supervise}}" wx:for-item="item">
+    <view class="typebox" catch:tap="toFirst" data-superid="{{item.index}}"
+      data-status="2">
       <image class="type-image" src="/images/device/hg101.jpg"/>
       <text class="typecontent">{{item.index}}</text>
     </view>

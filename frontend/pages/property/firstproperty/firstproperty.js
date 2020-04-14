@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    indexlist: [],
     index: '',
+    superid: '',
 
   },
 
@@ -15,23 +15,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let index = options.index;
-    console.log(index);
-    this.data.index = index;
-
-    let propertydata = wx.getStorageSync(index);
-    if (propertydata) {
-      this.setData({
-        firstdata: propertydata,
-      });
-    } else {
-      this.getPropertyData();
+    this.data.status = options.status;
+    if (this.data.status === '1') {
+      this.data.index = options.index;
+    } else if (this.data.status === '2') {
+      this.data.superid = options.superid;
     }
+    
+    this.bindFirtData('1', this.data.index);
+    this.bindFirtData('2', this.data.superid);
+    
+  },
 
+  // 绑定本页面数据
+  bindFirtData: function(status, data) {
+    if (this.data.status === status){
+      let propertydata = wx.getStorageSync(data);
+      if (propertydata) {
+        this.setData({
+          firstdata: propertydata,
+        });
+      } else {
+        this.getPropertyData(data);
+      }
+    }
   },
 
   // 获取物性数据
-  getPropertyData: function() {
+  getPropertyData: function(key) {
     let url = 'https://www.hg101.vip/api/property';
     // let url = 'http://127.0.0.1:8000/api/property';
     let typedata = [];
@@ -39,6 +50,7 @@ Page({
       url: url,
       data: {
         index: this.data.index,
+        superid: this.data.superid,
         id: '',
       },
       header: {
@@ -50,7 +62,7 @@ Page({
         this.setData({
           firstdata: typedata,
         });
-        wx.setStorageSync(this.data.index, typedata);
+        wx.setStorageSync(key, typedata);
       }),
       fail: (res => {
         $Toast({

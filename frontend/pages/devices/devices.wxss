@@ -94,7 +94,6 @@
   padding-right: 12px;
 }
 
-
 .device-container{
   flex-direction: column;
   display:flex;
