@@ -35,11 +35,11 @@ Page({
   firstDetail: function (e) {
     let dataurl = e.currentTarget.dataset.dataurl;
     console.log(dataurl);
-    if (dataurl) {
+    if (dataurl === 'pump') {
       wx.navigateTo({
         url: '/pages/type/firstdetail/firstdetail?dataurl=' + dataurl,
       })
-    } else {
+    } else if (dataurl === '') {
       wx.navigateTo({
         url: '/pages/blank/blank',
       })

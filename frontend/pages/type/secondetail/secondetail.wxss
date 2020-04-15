@@ -4,7 +4,6 @@
 
 .outer-box {
 padding-top: 120rpx;
-touch-action: none;
 }
   
 .category-item {

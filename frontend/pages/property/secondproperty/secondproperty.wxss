@@ -1,7 +1,4 @@
 /* pages/property/secondproperty/secondproperty.wxss */
-.page-box {
-touch-action: none;
-}
 
 .category-item {
 display: flex;
