@@ -44,7 +44,7 @@ Page({
       wx.navigateTo({
         url: '/pages/blank/blank',
       })
-    } else {
+    } else if (dataurl === 'typedevices') {
       wx.navigateTo({
         url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}
           &dataurl=${dataurl}`,

@@ -1,7 +1,8 @@
 /* pages/type/thirdetail/thirdetail.wxss */
 .outer-box {
-    padding-top: 10px;
-  }
+padding-top: 10px;
+overflow: scroll;
+}
   
 .category-item {
 display: flex;

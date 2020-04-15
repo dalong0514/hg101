@@ -4,6 +4,7 @@
 
 .outer-box {
 padding-top: 120rpx;
+overflow: scroll;
 }
   
 .category-item {

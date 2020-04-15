@@ -1,4 +1,7 @@
 /* pages/property/secondproperty/secondproperty.wxss */
+.page-box {
+overflow: scroll;
+}
 
 .category-item {
 display: flex;
