@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TypeDevicesModel extends Model
 {
-    protected static $_field = ['id', 'type', 'equipname', 'spec', 'material', 'firstlabel'];
+    protected static $_field = ['id', 'type', 'title', 'summary', 'material', 'class'];
 
     protected $table = "tz_typedevices";
 
@@ -16,11 +16,20 @@ class TypeDevicesModel extends Model
      * @param
      * @return array
      */
-    public static function getTypedevices(){
+    public static function getTypedevices($keyword){
         return self::query()
+            ->where('class', $keyword)
+            ->select(self::$_field)
             ->orderBy('id')
-            // ->select(self::$_field)
             ->get();
+    }
+
+     // 单个设备数据提前
+     protected static function getdevice($title) {
+        return self::query()
+        ->where('title', $title)
+        ->get();
+
     }
 
 }

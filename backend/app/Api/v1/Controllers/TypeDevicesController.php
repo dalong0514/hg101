@@ -20,8 +20,14 @@ class TypeDevicesController extends BaseController
      */
     public function typedevices()
     {
-        $data = TypeDevicesModel::getTypedevices();
-        // return $data;
+        $param = $this->request->all();
+        $keyword = $param['keyword'];
+        $title = $param['title'];
+        if ($title == '') {
+            $data = TypeDevicesModel::getTypedevices($keyword);
+        } else {
+            $data = TypeDevicesModel::getdevice($title);
+        }
         return $this->success($data);
     }
 

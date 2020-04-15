@@ -8,16 +8,16 @@ Page({
    */
   data: {
     types: [
-      { title: '泵系列', dataurl: 'pump', },
-      { title: '离心机', dataurl: '', },
+      { title: '泵系列', dataurl: 'pump', class: 'pump',},
+      { title: '离心机', dataurl: 'typedevices', class: 'centrifuge',},
+      { title: '换热器', dataurl: 'typedevices', class: 'exchanger',},
+      { title: '反应釜', dataurl: 'typedevices', class: 'reactor',} ,
+      { title: '干燥机', dataurl: 'typedevices', class: 'dryer',},
+      { title: '制氮机', dataurl: 'typedevices', class: 'nitrogen',},
+      { title: '压滤机', dataurl: 'typedevices', class: 'filter',},
+      { title: '行车', dataurl: 'typedevices', class: 'crane',},
       { title: '蒸发器', dataurl: '', },
-      { title: '换热器', dataurl: '', },
-      { title: '反应釜', dataurl: '',} ,
       { title: '烘箱', dataurl: '', },
-      { title: '干燥机', dataurl: '', },
-      { title: '制氮机', dataurl: '', },
-      { title: '压滤机', dataurl: '', },
-      { title: '行车', dataurl: '', },
     ],
 
   },
@@ -34,6 +34,7 @@ Page({
   // 跳转到一级类型页
   firstDetail: function (e) {
     let dataurl = e.currentTarget.dataset.dataurl;
+    let bigclass = e.currentTarget.dataset.class;
     console.log(dataurl);
     if (dataurl === 'pump') {
       wx.navigateTo({
@@ -42,6 +43,11 @@ Page({
     } else if (dataurl === '') {
       wx.navigateTo({
         url: '/pages/blank/blank',
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}
+          &dataurl=${dataurl}`,
       })
     }
     

@@ -24,8 +24,8 @@ Page({
 
   // 获取输送泵数据
   getPumpData: function(){
-    let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
-    // let typeurl = 'http://127.0.0.1:8000/api/' + this.data.dataurl;
+    // let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
+    let typeurl = 'http://127.0.0.1:8000/api/' + this.data.dataurl;
     wx.request({
       url: typeurl,
       data: {
