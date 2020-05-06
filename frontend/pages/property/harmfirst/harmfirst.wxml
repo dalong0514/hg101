@@ -1,0 +1,15 @@
+<!--pages/property/harmfirst/harmfirst.wxml-->
+<import src="/components/searchbar/searchbar.wxml"></import>
+<template is="searchbar" />
+
+<view class='device-list-content'>
+  <block wx:for="{{firstdata}}" wx:key="unique" wx:for-index="idx">
+    <view catch:tap="toSecond" class='item' data-hwid="{{item.hw_id}}" data-haca="{{item.harm_category_modify}}">
+      <image class="type-image" src='/images/device/hg101.jpg'  mode="aspectFill"/>
+      <view class='meta'>
+        <view class='title'>{{item.hw}}</view>
+        <view class='content'>{{item.harm_modify}}</view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -77,4 +77,7 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
 
     // 物性搜索
     $api->get('prosearch', 'PropertyController@prosearch');
+
+    // 危险废物
+    $api->get('harm', 'PropertyController@harm');
 });

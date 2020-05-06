@@ -16,6 +16,8 @@
     "pages/property/firstproperty/firstproperty",
     "pages/property/secondproperty/secondproperty",
     "pages/property/prosearch/prosearch",
+    "pages/property/harmfirst/harmfirst",
+    "pages/property/harmsecond/harmsecond",
     "pages/test/test",
     "pages/blank/blank",
     "pages/setting/setting",

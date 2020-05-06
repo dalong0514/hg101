@@ -23,7 +23,13 @@ Page({
       { index: '26-50', },
       { index: '51-74', },
     ],
-
+    harm: [
+      { index: '1-10', },
+      { index: '11-20', },
+      { index: '21-30', },
+      { index: '31-40', },
+      { index: '41-50', },
+    ],
   },
 
   /**
@@ -44,6 +50,15 @@ Page({
     wx.navigateTo({
       url: `/pages/property/firstproperty/firstproperty?index=${index}
         &superid=${superid}&status=${status}`,
+    })
+  },
+
+  // 跳转到危废品一级类型页
+  toHarmFirst: function (e) {
+    let index = e.currentTarget.dataset.index;
+    console.log(index);
+    wx.navigateTo({
+      url: `/pages/property/harmfirst/harmfirst?index=${index}`,
     })
   },
 

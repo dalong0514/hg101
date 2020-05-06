@@ -126,12 +126,13 @@ Page({
   getHomeData: function() {
     wx.request({
       url: 'https://www.hg101.vip/api/home',
+      // url: 'http://127.0.0.1:8000/api/home',
       header: {
         "openid": wx.getStorageSync('open_id'),
       },
       success: (res => {
         // 取消加载动画
-        console.log('update data');
+        console.log(res.data);
         this.setData({
           show: false,
         });

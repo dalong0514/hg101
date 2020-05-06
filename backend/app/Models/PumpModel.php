@@ -15,7 +15,7 @@ class PumpModel extends Model
         if ($keyword == 'bigclass') {
             return self::query()
             ->select('bigclass')
-            ->distinct()
+            ->distinct()    // 剔除重复的
             ->get();
         } else {
             return self::query()

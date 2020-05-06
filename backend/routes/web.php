@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/tz', function () {
+    return view('dataflow');
 });
+
+Route::get('/excel/upload', 'ImportController@show');
+Route::post('/excel/upload', 'ImportController@upload');
+
+Route::get('/excel/import', 'ImportController@import');
+Route::get('/excel/export', 'ImportController@export');

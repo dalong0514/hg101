@@ -1,0 +1,45 @@
+<view class="title">说明</view>
+<view class="content">
+  <text>1、具有下列情形之一的固体废物（包括液态废物），列入本名录：1）具有腐蚀性、毒性、易燃性、反应性或者感染性等一种或者几种危险特性的；2）不排除具有危险特性，可能对环境或者人体健康造成有 害影响，需要按照危险废物进行管理的。
+
+2、医疗废物属于危险废物。医疗废物分类按照《医疗废物分类目录》执行。
+
+3、列入《危险化学品目录》的化学品废弃后属于危险废物。
+
+4、列入本名录附录《危险废物豁免管理清单》中的危险废物，在所列的豁免环节，且满足相应的豁免条件时，可以按照豁免内容的规定实行豁免管理。
+
+5、危险废物与其他固体废物的混合物，以及危险废物处理后的废物的属性判定，按照国家规定的危险废物鉴别标准执行。
+
+6、本名录中有关术语的含义如下：
+
+1）废物类别，是在《控制危险废物越境转移及其处置巴塞尔公约》划定的类别基础上，结合我国实际情况对危险废物进行的分类。
+
+2）行业来源，是指危险废物的产生行业。
+
+3）废物代码，是指危险废物的唯一代码，为 8 位数字。其 中，第 1-3 位为危险废物产生行业代码（依据《国民经济行业分类 （GB/T 4754-2011）》确定），第 4-6 位为危险废物顺序代码，第 7-8 位为危险废物类别代码。
+
+4）危险特性，包括腐蚀性（Corrosivity, C）、毒性（Toxicity, T）、易燃性（Ignitability, I）、反应性（Reactivity, R）和感染性（Infectivity, In）。
+
+7、对不明确是否具有危险特性的固体废物，应当按照国家规定的危险废物鉴别标准和鉴别方法予以认定。经鉴别具有危险特性的，属于危险废物，应当根据其主要有害 成分和危险特性确定所属废物类别，并按代码「900-000-××」（×× 为危险废物类别代码）进行归类管理。经鉴别不具有危险特性的，不属于危险废物。</text>
+</view>
+
+<view class="inter"></view>
+<view class="title">{{haca}}</view>
+<view class="pagebox">
+  <view class="box">
+    <view class="industy-title">行业来源</view>
+    <view class="code-title">废物代码</view>
+    <view class="material-title">危险废物</view>
+    <view class="feature-title">特性</view> 
+  </view>
+  <view class="box" wx:for="{{detaildata}}" wx:for-item="detail">
+    <view class="industy">{{detail[0].industy_source}}</view>
+    <view class="detail">
+      <view class="rowdetail" wx:for="{{detail}}">
+        <view class="code">{{item.harm_code}}</view>
+        <view class="material">{{item.harm_material}}</view>
+        <view class="feature">{{item.harm_feature}}</view>
+      </view>
+    </view>
+  </view>
+</view>
