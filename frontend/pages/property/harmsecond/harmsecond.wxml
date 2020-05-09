@@ -28,9 +28,11 @@
 <view class="pagebox">
   <view class="box">
     <view class="industy-title">行业来源</view>
-    <view class="code-title">废物代码</view>
-    <view class="material-title">危险废物</view>
-    <view class="feature-title">特性</view> 
+    <view class="rowdetail">
+      <view class="code-title">废物代码</view>
+      <view class="material-title">危险废物</view>
+      <view class="feature-title">特性</view> 
+    </view>
   </view>
   <view class="box" wx:for="{{detaildata}}" wx:for-item="detail">
     <view class="industy">{{detail[0].industy_source}}</view>

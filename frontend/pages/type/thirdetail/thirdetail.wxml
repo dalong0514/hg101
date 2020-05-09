@@ -6,13 +6,30 @@
   </view>
 
   <view class="category-item" wx:if="{{detaildata.install}}">
+    <view class="inter"></view>
     <text class="title">安装与使用</text>
     <text class="brief">{{detaildata.install}}</text>
   </view>
 
   <view class="category-item" wx:if="{{detaildata.matters}}">
+    <view class="inter"></view>
     <text class="title">注意事项</text>
     <text class="brief">{{detaildata.matters}}</text>
   </view>
 
+  <view class="category-item" wx:if="{{typesize}}">
+    <view class="inter"></view>
+    <text class="title">设备参数</text>
+    <view class="typesize" wx:for="{{typesize}}" wx:key="typeid">
+      <view class="typeid">{{item.typeid}}</view>
+      <view class="drum_diameter">{{item.drum_diameter}}</view>
+      <view class="drum_height">{{item.drum_height}}</view>
+      <view class="drum_volume">{{item.drum_volume}}</view>
+      <view class="loading_capacity">{{item.loading_capacity}}</view>
+      <view class="max_speed">{{item.max_speed}}</view>
+      <view class="max_sep_factor">{{item.max_sep_factor}}</view>
+      <view class="power">{{item.power}}</view>
+      <view class="size">{{item.size}}</view>
+    </view> 
+  </view>
 </view>

@@ -8,25 +8,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PumpModel extends Model
 {
     protected $table = 'tz_pump';
-    protected static $_field = ['bigclass', 'title', 'briefinfo', 'class'];
+    protected static $_field = ['bigclass', 'class', 'title', 'coverintro'];
 
-    // 设备大类数据提取
-    protected static function getpumps($keyword) {
-        if ($keyword == 'bigclass') {
+    // 设备一级和二级数据提取
+    protected static function getpumps($status, $keyword) {
+        if ($status == 1) {
             return self::query()
+            ->where('class', $keyword)
             ->select('bigclass')
             ->distinct()    // 剔除重复的
             ->get();
-        } else {
+        } elseif ($status == 2) {
             return self::query()
             ->where('bigclass', $keyword)
             ->select(self::$_field)
             ->get();
         }
-
     }
 
-    // 单个设备数据提前
+    // 单个设备数据提取
     protected static function getdevice($title) {
         return self::query()
         ->where('title', $title)

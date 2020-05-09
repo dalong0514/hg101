@@ -80,4 +80,7 @@ $api->version('v1', ['namespace' => 'App\Api\v1\Controllers'], function($api){
 
     // 危险废物
     $api->get('harm', 'PropertyController@harm');
+
+    // 定型设备参数
+    $api->get('typesize','TypeDevicesController@typesize');
 });

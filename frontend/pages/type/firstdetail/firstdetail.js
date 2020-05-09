@@ -7,8 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    keyword: 'bigclass',
-    dataurl: '',
 
   },
 
@@ -16,26 +14,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.dataurl = options.dataurl;
-    let pumpdata = wx.getStorageSync("bigclass");
-    if (pumpdata) {
-      this.setData({
-        firstdata: pumpdata,
-      });
-    } else {
-      this.getPumpData(options.dataurl);
-    }
+    this.getPumpData();
   },
 
   // 获取输送泵数据
-  getPumpData: function(urlid){
-    let typeurl = 'https://www.hg101.vip/api/' + urlid;
-    // let typeurl = 'http://127.0.0.1:8000/api/' + urlid;
+  getPumpData: function(){
+    // let typeurl = 'https://www.hg101.vip/api/pump';
+    let typeurl = 'http://127.0.0.1:8000/api/pump';
     let typedata = [];
     wx.request({
       url: typeurl,
       data: {
-        keyword: this.data.keyword,
+        status: 1,
+        keyword: this.options.bigclass,
         title: '',
       },
       header: {
@@ -47,7 +38,6 @@ Page({
         this.setData({
           firstdata: typedata,
         });
-        wx.setStorageSync("bigclass", typedata);
       }),
       fail: (res => {
         $Toast({
@@ -61,7 +51,9 @@ Page({
   // 跳转到二级类型页
   secondDetail: function (e) {
     let bigclass = e.currentTarget.dataset.bigclass;
-    let dataurl = this.data.dataurl;
+    let dataurl = 'pump';
+    console.log(dataurl);
+    console.log(bigclass);
     wx.navigateTo({
       url: `/pages/type/secondetail/secondetail?bigclass=${bigclass}
         &dataurl=${dataurl}`,

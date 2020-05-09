@@ -6,7 +6,7 @@
   <text style="font-size:20px;padding-left:30px">定型设备类目</text>
 </view>
 <view class="typedevice-box">
-  <view wx:for="{{types}}" wx:for-item="item">
+  <view wx:for="{{types}}" wx:key="*this">
     <view class="typebox" catch:tap="firstDetail" data-firstlabel="{{item.title}}" data-dataurl="{{item.dataurl}}" data-class="{{item.class}}">
       <image class="type-image" src="/images/device/hg101.jpg"/>
       <text class="typecontent">{{item.title}}</text>

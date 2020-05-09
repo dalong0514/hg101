@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataurl: '',
-    bigclass: '',
 
   },
 
@@ -14,11 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 获取一级类型页面传来的对象数据
-    this.data.bigclass = options.bigclass;
-    this.data.dataurl = options.dataurl;
 
-    let pumpdata = wx.getStorageSync(this.data.bigclass);
+    let pumpdata = wx.getStorageSync(this.options.bigclass);
     if (pumpdata) {
       this.setData({
         detaildata: pumpdata,
@@ -31,13 +26,14 @@ Page({
 
   // 获取输送泵数据
   getPumpData: function(){
-    let typeurl = 'https://www.hg101.vip/api/' + this.data.dataurl;
-    // let typeurl = 'http://127.0.0.1:8000/api/' + this.data.dataurl;
+    // let typeurl = 'https://www.hg101.vip/api/' + this.options.dataurl;
+    let typeurl = 'http://127.0.0.1:8000/api/' + this.options.dataurl;
     let typedata = [];
     wx.request({
       url: typeurl,
       data: {
-        keyword: this.data.bigclass,
+        status: 2,
+        keyword: this.options.bigclass,
         title: '',
       },
       header: {
@@ -49,7 +45,7 @@ Page({
         this.setData({
           detaildata: typedata,
         });
-        wx.setStorageSync(this.data.bigclass, typedata);
+        wx.setStorageSync(this.options.bigclass, typedata);
       }),
       fail: (res => {
         $Toast({
@@ -69,10 +65,11 @@ Page({
 
   // 跳转到三级页面
   thirdDetail: function(e) {
-    let title = e.currentTarget.dataset.thirdata;
-    let dataurl = this.data.dataurl;
+    let title = e.currentTarget.dataset.title;
+    let typeclass = e.currentTarget.dataset.typeclass;
+    let dataurl = this.options.dataurl;
     wx.navigateTo({
-      url: `/pages/type/thirdetail/thirdetail?title=${title}&dataurl=${dataurl}`,
+      url: `/pages/type/thirdetail/thirdetail?title=${title}&dataurl=${dataurl}&typeclass=${typeclass}`,
     })
   },
 

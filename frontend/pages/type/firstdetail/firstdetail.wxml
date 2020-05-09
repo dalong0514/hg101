@@ -3,7 +3,7 @@
 
 <template is="searchbar" />
 <view class="typedevice-box">
-  <view wx:for="{{firstdata}}" wx:for-item="item">
+  <view wx:for="{{firstdata}}" wx:key="bigclass">
     <view class="typebox" catch:tap="secondDetail" 
     data-bigclass="{{item.bigclass}}">
       <image class="type-image" src="/images/device/hg101.jpg"/>

@@ -9,15 +9,15 @@ Page({
   data: {
     types: [
       { title: '泵系列', dataurl: 'pump', class: 'pump',},
-      { title: '离心机', dataurl: 'typedevices', class: 'centrifuge',},
+      { title: '离心机', dataurl: 'pump', class: 'centrifuge',},
       { title: '换热器', dataurl: 'typedevices', class: 'exchanger',},
       { title: '反应釜', dataurl: 'typedevices', class: 'reactor',} ,
       { title: '干燥机', dataurl: 'typedevices', class: 'dryer',},
       { title: '制氮机', dataurl: 'typedevices', class: 'nitrogen',},
       { title: '压滤机', dataurl: 'typedevices', class: 'filter',},
       { title: '行车', dataurl: 'typedevices', class: 'crane',},
-      { title: '蒸发器', dataurl: '', },
-      { title: '烘箱', dataurl: '', },
+      { title: '蒸发器', dataurl: '', class: 'evaporer',},
+      { title: '烘箱', dataurl: '', class: 'baker',},
     ],
 
   },
@@ -36,9 +36,10 @@ Page({
     let dataurl = e.currentTarget.dataset.dataurl;
     let bigclass = e.currentTarget.dataset.class;
     console.log(dataurl);
+    console.log(bigclass);
     if (dataurl === 'pump') {
       wx.navigateTo({
-        url: '/pages/type/firstdetail/firstdetail?dataurl=' + dataurl,
+        url: `/pages/type/firstdetail/firstdetail?bigclass=${bigclass}`,
       })
     } else if (dataurl === '') {
       wx.navigateTo({

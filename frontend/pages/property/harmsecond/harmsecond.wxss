@@ -15,7 +15,7 @@
 .box {
     display: flex;
     width: 690rpx;
-    outline: solid 0.5px #545454;
+    border: solid 0.5px #545454;
 }
 
 .detail {

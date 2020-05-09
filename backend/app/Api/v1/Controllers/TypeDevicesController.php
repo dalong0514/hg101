@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Dingo\Api\Routing\Helpers;
 
 use App\Models\TypeDevicesModel;
+use App\Models\TypesizeModel;
 use App\Models\PumpModel;
 
 class TypeDevicesController extends BaseController
@@ -39,10 +40,11 @@ class TypeDevicesController extends BaseController
     public function pump()
     {
         $param = $this->request->all();
+        $status = (int)$param['status'];
         $keyword = $param['keyword'];
         $title = $param['title'];
         if ($title == '') {
-            $data = PumpModel::getpumps($keyword);
+            $data = PumpModel::getpumps($status, $keyword);
         } else {
             $data = PumpModel::getdevice($title);
         }
@@ -63,4 +65,12 @@ class TypeDevicesController extends BaseController
         return $this->success($data);
     }
 
+    // 定型设备参数
+    public function  typesize(){
+        $param = $this->request->all();
+        $title = $param['title'];
+        $typeclass = $param['typeclass'];
+        $data = TypesizeModel::get_typesize($title, $typeclass);
+        return $this->success($data);
+    }
 }
